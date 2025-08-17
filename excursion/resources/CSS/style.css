@@ -1,0 +1,55 @@
+body {
+    background-color: black;
+    text-align: center;
+}
+
+header h1 {
+    font-family: verdana;
+    font-weight: normal;
+    font-size: 50px;
+    color: white;
+}
+
+a {
+    color: aquamarine;
+    font-size: 16px;
+    display: block;
+}
+
+video {
+    width: 404;
+    height: 720;
+    display: block;
+    margin: auto;
+}
+
+h2 {
+    font-family: verdana;
+    font-size: 42px;
+    font-weight: 300;
+    color: white;
+}
+
+p {
+    font-family: verdana;
+    font-size: 21px;
+    color: gray;
+}
+
+img {
+    display: block;
+    margin: auto;
+}
+
+p.copy {
+    text-align: right;
+}
+
+footer {
+    background-color: purple;
+    text-align: center;
+}
+
+footer p {
+    color: black;
+}
