@@ -35,22 +35,41 @@
         <h2>Basic HTML Structrure</h2>
     <!-- TODO: Add paragraph explaining HTML document structure -->
         <p>Any HTML document starts with the special doctype node &lt;!DOCTYPE html> which lets the browser know to use
-            the standards rendering mode. The bulk of an HTML document is made up of content surrounded by element tags. 
-            It is important to close your tags properly so elements are properly separated and displayed.
-            The first and most important tag is the &lt;HTML&gt; tag. It surrounds every other element and lets the browser know
-            what language the document is in.</p>
-        <p>The next tag is nested inside of the &lt;HTML&gt; element, and is thus known as a "child" of that element. The &lt;head&gt;
-            tag holds metadata information such as the document title, character set, stylesheet links, etc. Under the &lt;head&gt;
-            element is the &lt;body&gt; element, which is the parent container to the content displayed on a web browser. At the
-            bottom of your document you can use the &lt;footer&gt; element to hold data like a navbar, external links, or other
-            extra information.
+            the standards rendering mode. The bulk of an HTML document is made up of content surrounded by element tags.
+            Most tags consist of a opening tag, surrounded by &lt;> characters, and a closing tag, surrounded by &lt;/> 
+            characters. It is important to close your tags properly so elements are properly separated and displayed.
+            The first and most important tag is the &lt;HTML&gt; tag. It surrounds every other element besides the doctype 
+            and lets the browser know what language the document is in.</p>
+        <p>The next tag is nested inside of the &lt;HTML&gt; element, and is thus known as a "child" of that element. 
+            The &lt;head&gt; tag holds metadata information such as the document title (displayed on the browser tab), 
+            character set, css stylesheet links, etc. Under the &lt;head&gt; element is the &lt;body&gt; element, which 
+            is the parent container to the content displayed on a web browser. At the bottom of your document you can use 
+            the &lt;footer&gt; element to hold data like a navbar, external links, or other extra information.
         </p>
     <!-- TODO: Add subsection heading (h3) with "Code Example" -->
         <h3>Code Example</h3>
-    <p>
-    TODO: Add a code block showing basic HTML structure
-    Hint: Use &lt;pre> and &lt;code> elements
-    </p>
+        <pre><code>
+    &lt;!DOCTYPE html>
+    &lt;html lang="en">
+        &lt;head>
+            &lt;meta charset="UTF-8">
+            &lt;title>HTML Basics Tutorial&lt;/title>
+        &lt;/head>
+        &lt;body>
+            &lt;p>This section holds the bulk of the page content&lt;/p>
+        &lt;footer>
+            &lt;nav>&lt;ul>
+                &lt;li>Internal nav link&lt;/li>
+                &lt;li>External nav link&lt;/li>
+            &lt;/ul>&lt;/nav>
+        &lt;/footer>
+        &lt;/body>
+    &lt;/html>
+    </code></pre>
+    <!-- <p> -->
+    <!-- TODO: Add a code block showing basic HTML structure -->
+    <!-- Hint: Use &lt;pre> and &lt;code> elements -->
+    <!-- </p> -->
     
     </section>
     <!-- TODO: Add section heading (h2) with "Text Formatting" -->
@@ -60,11 +79,11 @@
         <p>Text formatting helps to make your documents more readable</p>
     <!-- Include: strong, em, mark, small, code elements -->
         <ul>
-            <li>The strong element makes words <strong>bold</strong></li>
-            <li>The em element makes words <em>italicised</em></li>
-            <li>The mark element <mark>highlights</mark> your text</li>
-            <li>The small element makes words <small>small</small></li>
-            <li>The code element makes words <code>look like they're code</code></li>
+            <li>The &lt;strong> element makes words <strong>bold</strong></li>
+            <li>The &lt;em> element makes words <em>italicised</em></li>
+            <li>The &lt;mark> element <mark>highlights</mark> your text</li>
+            <li>The &lt;small> element makes words <small>small</small></li>
+            <li>The &lt;code> element makes words <code>look like they're code</code></li>
         </ul>
     </section>
     <!-- TODO: Add section heading (h2) with "Summary" -->
