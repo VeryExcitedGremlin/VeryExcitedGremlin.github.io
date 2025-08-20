@@ -21,26 +21,39 @@ body {
 /* TODO 2a: Style #main-title ID
    - Set color to blue
 */
-
+#main-title {
+   color: blue;
+}
 /* TODO 2b: Style .tagline class
    - Set color to gray
 */
-
+.tagline {
+   color: gray;
+}
 /* TODO 2c: Style .red-text class
    - Set color to red
 */
-
+.red-text {
+   color: red;
+}
 /* TODO 2d: Style .blue-background class
    - Set background-color to lightblue
    - Set padding to 10px
 */
-
+.blue-background {
+   background-color: lightblue;
+   padding: 10px;
+}
 /* TODO 2e: Style .fancy-colors class
    - Set color to green
    - Set background-color to lightcyan
    - Set padding to 8px
 */
-
+.fancy-colors {
+   color: green;
+   background-color: lightcyan;
+   padding: 8px;
+}
 /* ===========================================
    TODO 3: BACKGROUND COLORS
    Practice setting background colors
@@ -50,17 +63,26 @@ body {
    - Set background-color to lightgray
    - Set padding to 15px
 */
-
+.intro-section {
+   background-color: lightgray;
+   padding: 15px;
+}
 /* TODO 3b: Style .highlight-text class
    - Set background-color to yellow
    - Set padding to 5px
 */
-
+.highlight-text {
+   background-color: yellow;
+   padding: 5px;
+}
 /* TODO 3c: Style #unique-box ID
    - Set background-color: lightgreen
    - Set padding to 20px
 */
-
+#unique-box {
+   background-color: lightgreen;
+   padding: 20px
+}
 /* ===========================================
    TODO 4: BORDER COLORS & PADDING
    Practice setting border colors and padding
@@ -70,12 +92,18 @@ body {
    - Set border: 2px solid orange
    - Set padding to 15px
 */
-
+.padding-example {
+   border: 2px solid orange;
+   padding: 15px;
+}
 /* TODO 4b: Style .creative-box class
    - Set border: 2px dashed pink
    - Set padding to 20px
 */
-
+.creative-box {
+   border: 2px dashed pink;
+   padding: 20px;
+}
 /* ===========================================
    TODO 5: FOOTER & HEADINGS
    Style the footer and headings
@@ -86,12 +114,19 @@ body {
    - Set color to white
    - Set padding to 25px
 */
-
+.page-footer {
+   background-color: darkgray;
+   color: white;
+   padding: 25px;
+}
 /* TODO 5b: Style h2 elements
    - Set color to darkblue
    - Set padding to 8px
 */
-
+h2 {
+   color: darkblue;
+   padding: 8px;
+}
 /* ===========================================
    BONUS TODO: ADD YOUR OWN STYLES!
    Experiment with colors, backgrounds, borders, and padding
@@ -106,3 +141,26 @@ body {
    
    Write your experimental CSS below:
 */
+.example-box p {
+   color: purple;
+   background: orange;
+}
+
+.special-text {
+   border: 5px solid green;
+   color: aquamarine;
+}
+
+.parent-container {
+   color: beige;
+   background: yellow;
+}
+
+.child-element {
+   color:coral;
+   background:blueviolet;
+}
+
+.child-element span {
+   color:darkred;
+}
