@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>My Simple Form</h1>
+
+    <!-- there are two semantic tags we can use -->
+    <!-- fieldset, legend -->
+
+    <!-- this says we to send some data in a form - form tag/element -->
+    <form>
+      <!-- inputs -->
+      <!-- self closing -->
+
+      <!-- type determines the type of input and what that input looks like -->
+
+      <label for="username"> Username </label>
+      <input
+        type="text"
+        name="username"
+        id="username"
+        placeholder="Your Username"
+      />
+
+      <div>
+        <label for="password">Password</label>
+        <input type="text" name="password" id="password" />
+      </div>
+      <!-- email input -->
+
+      <div>
+        <label for="email">email</label>
+        <input type="text" name="email" id="email" />
+      </div>
+
+      <!-- require attribute -->
+
+      <div>
+        <label for="whatever">Required</label>
+        <input type="text" name="whatever" id="whatever" required />
+      </div>
+
+      <!-- maxlength attribute -->
+      <div>
+        <label for="max">max length</label>
+        <input type="text" name="max" id="max" maxlength="5" />
+        <!-- notice how we can't type more than 5 characters in here -->
+      </div>
+
+      <!-- drop down selection-->
+      <!-- label first -->
+      <div>
+        <label for="meal-type">Type Of Meal</label>
+        <!-- select  -->
+        <select name="meal-type" id="meal-type">
+          <!-- options -->
+          <option value="">>--- Please choose --</option>
+          <option value="breakfast">Breakfast</option>
+          <option value="second-breakfast">Second Breakfast</option>
+          <option value="brunch">Brunch</option>
+        </select>
+      </div>
+
+      <!-- large text input - Text area -->
+
+      <!--  -->
+      <label for="life-story">Brace Yourself:</label>
+      <textarea name="life-story" id="life-story"></textarea>
+
+      <!-- radio buttons -->
+
+      <!-- shows the importance of using name -->
+
+      <div>
+      <label for="greatness-meter">How great is your instructor?</label>
+
+
+      <label for="excellent">Excellent</label>
+      <input type="radio" name="rating" value="excellent" id="excellent">
+
+    <label for="Magnifiecent">Magnifiecent</label>
+      <input type="radio" name="rating" value="Magnifiecent" id="Magnifiecent">
+
+      </div>
+
+
+      <!-- Submit button -->
+      <button type="submit">Submit the form</button>
+
+      <!-- reset button -->
+
+      <button type="reset">Reset</button>
+    </form>
+  </body>
+</html>
