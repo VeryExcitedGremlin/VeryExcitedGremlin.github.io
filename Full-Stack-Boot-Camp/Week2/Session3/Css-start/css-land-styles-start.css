@@ -164,3 +164,9 @@ h2 {
 .child-element span {
    color:darkred;
 }
+
+.creative-box {
+   background: purple;
+   color: orange;
+   text-align: center;
+}
