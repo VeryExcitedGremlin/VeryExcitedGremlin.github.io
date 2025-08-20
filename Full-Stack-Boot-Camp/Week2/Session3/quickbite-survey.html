@@ -18,19 +18,66 @@
 
         <!-- TODO: Add Customer Information -->
         <!-- Include: Name (text, required), Email (email, required) -->
+        <fieldset id="customer-info">
+            <legend>Customer Info</legend>
+            <div>
+                <!-- label -->
+                <label for="customer-name">Customer Name</label>
+                <!-- id and name to input -->
+                <input type="text" id="customer-name" name="customer-name" required>
+            </div>
+            <div>
+                <label for="customer-email">Customer Email</label>
+                <input type="text" id="customer-email" name="customer-email" required>
+            </div>
+        </fieldset>
+        <fieldset id="visit-info">
+            <legend>Visit Info</legend>
+            <div>
+                <label for="date">Date of Visit</label>
+                <input type="date" id="date" name="date">
+            </div>
+            <div>
+                <label for="num-guests">Number of Guests</label>
+                <input type="number" id="num-guests" name="num-guests"><br>
+            </div>
+            <div>
+                <label for="meal">Meal Type</label>
+                <select name="meal" id="meal">
+                    <option value="">Please Choose One</option>
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="dinner">Dinner</option>
+                </select>
+            </div>
+        </fieldset>
+        <fieldset id="rating">
+            <!-- TODO: Add simple rating with radio buttons -->
+            <!-- Include: Excellent, Good, Fair, Poor -->
+            <legend>Restaurant Rating</legend>
 
-        <!-- label -->
-        <!-- id and name to input -->
-        <label for="customer-name">Customer Name</label>
-        <input id="customer-name" name="customer-name" type="text" required>   
+            <input type='radio' id="Excellent" name="rating" value="Excellent">
+            <label for="Excellent">Excellent</label>
 
-        <!-- TODO: Add simple rating with radio buttons -->
-        <!-- Include: Excellent, Good, Fair, Poor -->
-        
-        <!-- TODO: Add comments textarea -->
-        
+            <input type='radio' id="Good" name="rating" value="Good">
+            <label for="Good">Good</label>
+
+            <input type='radio' id="Fair" name="rating" value="Fair">
+            <label for="Fair">Fair</label>
+
+            <input type='radio' id="Poor" name="rating" value="Poor">
+            <label for="Poor">Poor</label>
+        </fieldset>
+        <div id="comment">
+            <label for="comments">Comments?</label>
+            <textarea name="comments" id="comments"></textarea>
+            <!-- TODO: Add comments textarea -->
+        </div>
+        <div id="buttons">
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
         <!-- TODO: Add submit button -->
-
+        </div>
          </form>
         
     </main>
