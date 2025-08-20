@@ -14,7 +14,7 @@
 
     <main>
         <!-- TODO: Create form with action="/submit-survey" and method="post" -->
-        <form action="/submit-survey.html" method="post">
+        <form action="../Forms/submit-survey.html" method="post">
 
         <!-- TODO: Add Customer Information -->
         <!-- Include: Name (text, required), Email (email, required) -->
@@ -28,7 +28,7 @@
             </div>
             <div>
                 <label for="customer-email">Customer Email</label>
-                <input type="text" id="customer-email" name="customer-email" required>
+                <input type="email" id="customer-email" name="customer-email" required>
             </div>
         </fieldset>
         <fieldset id="visit-info">
@@ -70,7 +70,7 @@
         </fieldset>
         <div id="comment">
             <label for="comments">Comments?</label>
-            <textarea name="comments" id="comments"></textarea>
+            <textarea name="comments" id="comments" placeholder="Please submit additional information here."></textarea>
             <!-- TODO: Add comments textarea -->
         </div>
         <div id="buttons">
