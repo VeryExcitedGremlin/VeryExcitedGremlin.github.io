@@ -10,7 +10,7 @@
 <body>
     <!-- TODO: Add header with your name, professional title, and navigation -->
     <!-- Navigation should link to: #about, #skills, #contact -->
-    <header id="top">
+    <header id="top" class="bookend">
         <h1>Ashton Oder</h1>
         <nav>
             <a href="#about">About</a>
@@ -21,28 +21,33 @@
     </header>
     <!-- TODO: Add main element -->
     <main>
+        <!-- <div id="box"></div> -->
         <section id="about">
+            <div id="box"></div>
+            <h2>About Me</h2>
             <!-- TODO: Add About section with id="about" -->
-            <div>
-                <h2>About Me</h2>
-                <!-- Include: h2 "About Me", professional photo with alt text, 2-3 paragraphs about yourself -->
-                <p>I am a customer service professional of 10 years looking to make a career transition into web and software development.
-                    To that end I have been studying with Codecademy for 2 years, and have learning experience with 
-                    <abbr title='Hypertext Markup Langage'>HTML</abbr>, <abbr title='Cascading Style Sheets'>CSS</abbr>, python and <abbr title='Structured Query Langage'>SQL</abbr>.
-                    My experience in customer service lends itself to programming in that I have experience working with others,
-                    problem solving both individually and with a team, and working with customers to find products and solutions to problems.
-                </p>
-                <p>I discovered my love for coding after playing the game "While True: Learn()" and taking the game's suggesion "If you like this game, try learning to code!"
-                    Python was my first language, suggested due to its relative simplicity compared to some other languages.
-                    I absolutely fell in love, it reminded me of every puzzle game I ever enjoyed and I just could not stop doing problems on 
-                    <abbr title="Don Mills Online Judge or Modern Online Judge"><a href="https://dmoj.ca/">DMOJ</a></abbr>.
-                    Since then my love of programming has expanded to multiple languages. One day I hope to take my passion for development and problem solving to a professional level.
-                </p>
-                <p>When I'm not studying, you can find me playing my favorite puzzle games or getting together with friends to play our favorite 
-                    <abbr title="Tabletop role-playing games">TTRPGs</abbr>.
-                </p>
+            <div id="about-child">
+                <div>
+                    <!-- <h2>About Me</h2> -->
+                    <!-- Include: h2 "About Me", professional photo with alt text, 2-3 paragraphs about yourself -->
+                    <p>I am a customer service professional of 10 years looking to make a career transition into web and software development.
+                        To that end I have been studying with Codecademy for 2 years, and have learning experience with 
+                        <abbr title='Hypertext Markup Langage'>HTML</abbr>, <abbr title='Cascading Style Sheets'>CSS</abbr>, python and <abbr title='Structured Query Langage'>SQL</abbr>.
+                        My experience in customer service lends itself to programming in that I have experience working with others,
+                        problem solving both individually and with a team, and working with customers to find products and solutions to problems.
+                    </p>
+                    <p>I discovered my love for coding after playing the game "While True: Learn()" and taking the game's suggesion "If you like this game, try learning to code!"
+                        Python was my first language, suggested due to its relative simplicity compared to some other languages.
+                        I absolutely fell in love, it reminded me of every puzzle game I ever enjoyed and I just could not stop doing problems on 
+                        <abbr title="Don Mills Online Judge or Modern Online Judge"><a href="https://dmoj.ca/">DMOJ</a></abbr>.
+                        Since then my love of programming has expanded to multiple languages. One day I hope to take my passion for development and problem solving to a professional level.
+                    </p>
+                    <p>When I'm not studying, you can find me playing my favorite puzzle games or getting together with friends to play our favorite 
+                        <abbr title="Tabletop role-playing games">TTRPGs</abbr>.
+                    </p>
+                </div>
+                <img id='selfie' src="bio-pic.jpg" width="250" alt="Ashton kneeling down on one knee, punching a question block from below at Super Nintendo World."/>
             </div>
-            <img id='selfie' src="bio-pic.jpg" width="200" alt="Ashton kneeling down on one knee, punching a question block from below at Super Nintendo World."/>
         </section>
         <!-- TODO: Add Skills section with id="skills" -->
         <section id="skills">
@@ -73,7 +78,7 @@
     <!-- TODO: Close main element -->
     </main>
     <!-- TODO: Add footer with copyright and personal tagline -->
-    <footer>
+    <footer class="bookend">
         <p>Posted by Ashton Oder 2025</p>
         <a href="#top">Back to Top</a>
         <a href="/">Return to projects homepage</a>
