@@ -4,73 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Ashton Oder - Aspiring Web and Software Developer">
+    <link rel="stylesheet" href="personal-bio.css" />
     <title>Ashton Oder | Aspiring Web and Software Developer</title>
 </head>
 <body>
     <!-- TODO: Add header with your name, professional title, and navigation -->
     <!-- Navigation should link to: #about, #skills, #contact -->
-    <header>
-        <h1 id="top">Ashton Oder</h1>
-        <p>Aspiring Web Developer</p>
-        <nav><ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul></nav>
+    <header id="top">
+        <h1>Ashton Oder</h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div>Aspiring Web Developer</div>
     </header>
     <!-- TODO: Add main element -->
     <main>
-        <!-- TODO: Add About section with id="about" -->
-      <h2 id="about">About Me</h2>
-        <!-- Include: h2 "About Me", professional photo with alt text, 2-3 paragraphs about yourself -->
-        <img src="bio-pic.jpg" width="200" alt="Ashton kneeling down on one knee, punching a question block from below at Super Nintendo World."/>
-        <p>I am a customer service professional of 10 years looking to make a career transition into web and software development.
-            To that end I have been studying with Codecademy for 2 years, and have learning experience with 
-            <abbr title='Hypertext Markup Langage'>HTML</abbr>, <abbr title='Cascading Style Sheets'>CSS</abbr>, python and <abbr title='Structured Query Langage'>SQL</abbr>.
-            My experience in customer service lends itself to programming in that I have experience working with others,
-            problem solving both individually and with a team, and working with customers to find products and solutions to problems.
-        </p>
-        <p>I discovered my love for coding after playing the game "While True: Learn()" and taking the game's suggesion "If you like this game, try learning to code!"
-            Python was my first language, suggested due to its relative simplicity compared to some other languages.
-            I absolutely fell in love, it reminded me of every puzzle game I ever enjoyed and I just could not stop doing problems on 
-            <abbr title="Don Mills Online Judge or Modern Online Judge"><a href="https://dmoj.ca/">DMOJ</a></abbr>.
-            Since then my love of programming has expanded to multiple languages. One day I hope to take my passion for development and problem solving to a professional level.
-        </p>
-        <p>When I'm not studying, you can find me playing my favorite puzzle games or getting together with friends to play our favorite 
-            <abbr title="Tabletop role-playing games">TTRPGs</abbr>.
-        </p>
+        <section id="about">
+            <!-- TODO: Add About section with id="about" -->
+            <div>
+                <h2>About Me</h2>
+                <!-- Include: h2 "About Me", professional photo with alt text, 2-3 paragraphs about yourself -->
+                <p>I am a customer service professional of 10 years looking to make a career transition into web and software development.
+                    To that end I have been studying with Codecademy for 2 years, and have learning experience with 
+                    <abbr title='Hypertext Markup Langage'>HTML</abbr>, <abbr title='Cascading Style Sheets'>CSS</abbr>, python and <abbr title='Structured Query Langage'>SQL</abbr>.
+                    My experience in customer service lends itself to programming in that I have experience working with others,
+                    problem solving both individually and with a team, and working with customers to find products and solutions to problems.
+                </p>
+                <p>I discovered my love for coding after playing the game "While True: Learn()" and taking the game's suggesion "If you like this game, try learning to code!"
+                    Python was my first language, suggested due to its relative simplicity compared to some other languages.
+                    I absolutely fell in love, it reminded me of every puzzle game I ever enjoyed and I just could not stop doing problems on 
+                    <abbr title="Don Mills Online Judge or Modern Online Judge"><a href="https://dmoj.ca/">DMOJ</a></abbr>.
+                    Since then my love of programming has expanded to multiple languages. One day I hope to take my passion for development and problem solving to a professional level.
+                </p>
+                <p>When I'm not studying, you can find me playing my favorite puzzle games or getting together with friends to play our favorite 
+                    <abbr title="Tabletop role-playing games">TTRPGs</abbr>.
+                </p>
+            </div>
+            <img id='selfie' src="bio-pic.jpg" width="200" alt="Ashton kneeling down on one knee, punching a question block from below at Super Nintendo World."/>
+        </section>
         <!-- TODO: Add Skills section with id="skills" -->
-      <h2 id="skills">Skills and Experience</h2>
+        <section id="skills">
+            <h2>Skills and Experience</h2>
         <!-- Include: h2 "Skills & Experience", multiple h3 categories with organized lists -->
-        
+        </section>
         <!-- TODO: Add Contact section with id="contact" -->
-      <h2 id="contact">Let's Connect</h2>
-        <!-- Include: h2 "Let's Connect", social media links (email, LinkedIn, GitHub), and message form -->
-        <p><strong>Email:</strong> <a href='#'>you-don't@actually-get-to.email-me</a></p>
-        <p><strong>LinkedIn:</strong> <a href='#'>This is just here for credit</a></p>
-        <p><strong>GitHub:</strong> <a href='https://github.com/VeryExcitedGremlin'>VeryExcitedGremlin</a> &lt;--This one actually works</p>
-        <!-- Form should have: name, email, message fields and submit button -->
-        <form action="submit-message.html">
-            <fieldset id="send-message">
-                <legend><h3>Send me a message!</h3></legend>
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="I'd love to hear from you!" required></textarea>
-            <button type="submit">Send Message</button>
-            </fieldset>
-        </form>
+        <section id="contact">
+            <h2>Let's Connect</h2>
+            <!-- Include: h2 "Let's Connect", social media links (email, LinkedIn, GitHub), and message form -->
+            <p><strong>Email:</strong> <a href='#'>you-don't@actually-get-to.email-me</a></p>
+            <p><strong>LinkedIn:</strong> <a href='#'>This is just here for credit</a></p>
+            <p><strong>GitHub:</strong> <a href='https://github.com/VeryExcitedGremlin'>VeryExcitedGremlin</a> &lt;--This one actually works</p>
+            <!-- Form should have: name, email, message fields and submit button -->
+            <form action="submit-message.html">
+                <fieldset id="send-message">
+                    <legend><h3>Send me a message!</h3></legend>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="I'd love to hear from you!" required></textarea>
+                <button type="submit">Send Message</button>
+                </fieldset>
+            </form>
+        </section>
     <!-- TODO: Close main element -->
     </main>
     <!-- TODO: Add footer with copyright and personal tagline -->
     <footer>
         <p>Posted by Ashton Oder 2025</p>
-        <ul>
-          <li><a href="#top">Back to Top</a></li>
-          <li><a href="/">Return to projects homepage</a></li>
-        </ul>
+        <a href="#top">Back to Top</a>
+        <a href="/">Return to projects homepage</a>
     </footer>
 </body>
 </html>

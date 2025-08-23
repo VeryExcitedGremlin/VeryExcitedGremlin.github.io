@@ -8,15 +8,15 @@
 - [-] Header with name and navigation menu
 - [-] Meta description and title optimization
 - [-] Professional bio photo with descriptive alt text
-- [ ] Main content with 3 sections (about, skills, contact)
+- [-] Main content with 3 sections (about, skills, contact)
 - [-] About section with personal bio paragraphs
 - [ ] Skills section with organized lists and categories
 - [-] Contact section with working contact form
-- [ ] Contact form with name, email, and message fields
-- [ ] External links to social media or portfolio (can be placeholder URLs)
-- [ ] Working navigation links to page sections
-- [ ] Proper heading hierarchy (h1, h2, h3)
-- [ ] Proper form structure with labels and inputs
+- [-] Contact form with name, email, and message fields
+- [-] External links to social media or portfolio (can be placeholder URLs)
+- [-] Working navigation links to page sections
+- [-] Proper heading hierarchy (h1, h2, h3)
+- [-] Proper form structure with labels and inputs
 - [-] Footer with copyright information
 
 ### **Could Have (Bonus Points):**
