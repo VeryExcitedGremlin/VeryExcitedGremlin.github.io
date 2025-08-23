@@ -55,9 +55,9 @@ header nav a{
 
 #selfie{
     display: block;
-    /* height: 100%; */
     float: right;
     margin-left: 2%;
+    border: solid 1px;
 }
 
 body {
