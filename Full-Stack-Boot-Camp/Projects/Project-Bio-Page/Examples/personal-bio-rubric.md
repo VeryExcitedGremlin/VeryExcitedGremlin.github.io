@@ -21,7 +21,7 @@
 
 ### **Could Have (Bonus Points):**
 - [-] Semantic HTML5 elements throughout (header, main, section, footer)
-- [ ] Additional form fields (subject dropdown, etc.)
+- [-] Additional form fields (subject dropdown, etc.)
 - [ ] Enhanced accessibility features
 - [-] Multiple contact methods (email, LinkedIn, GitHub)
 - [-] Projects or experience section
