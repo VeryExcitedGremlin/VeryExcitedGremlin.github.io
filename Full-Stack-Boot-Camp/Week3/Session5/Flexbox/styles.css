@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+/* TODO: Add flexbox properties to make this a responsive gallery */
+.gallery {
+    /* Add your flexbox styles here */
+
+}
+
+.photo-item {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    /* TODO: Add flex properties for responsive sizing */
+}
+
+.photo-placeholder {
+    height: 200px;
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 1rem;
+}
+
+.photo-info {
+    padding: 15px;
+}
+
+.photo-title {
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.photo-description {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* TODO: Add hover effects */
+.photo-item:hover {
+    /* Add hover styles here */
+}

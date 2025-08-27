@@ -131,7 +131,7 @@ body {
 
 /* BUG #0: Tiny Text */
 .tiny-text {
-    font-size: 2px;
+    /* font-size: 2px; */
     color: #666;
     margin: 1rem 0;
     line-height: 1.2;
@@ -159,10 +159,10 @@ body {
 
 /* BUG #1: Invisible Button */
 .invisible-button {
-    display: none;
-    background: white;
-    color: white;
-    border: none;
+    /* display: none; */
+    /* background: white; */
+    /* color: white; */
+    /* border: none; */
     padding: 0.75rem 1.5rem;
     border-radius: 4px;
     cursor: pointer;
@@ -182,7 +182,7 @@ body {
 }
 
 .broken-link:hover {
-    color: #3498db;
+    color: crimson;
 }
 
 /* BUG #3: Width Issues - Container */
@@ -192,6 +192,8 @@ body {
     border: 2px solid #3498db;
     border-radius: 4px;
     padding: 1rem;
+    box-sizing: border-box;
+    width: 300px;
 }
 
 .width-box {
@@ -213,10 +215,13 @@ body {
 
 .cramped-content h5 {
     color: #2c3e50;
+    text-align: center;
+    margin: 24px;
 }
 
 .cramped-content p {
     color: #666;
+    margin: 24px;
     /* Text will be cramped without proper spacing */
 }
 
@@ -227,7 +232,7 @@ body {
     border-radius: 4px;
     padding: 1rem;
     margin: 1rem 0;
-    color: #f39c12;
+    /* color: #f39c12; */
     font-weight: bold;
 }
 
