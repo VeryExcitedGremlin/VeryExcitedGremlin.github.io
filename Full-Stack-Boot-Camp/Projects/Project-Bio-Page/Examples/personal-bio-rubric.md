@@ -10,7 +10,7 @@
 - [-] Professional bio photo with descriptive alt text
 - [-] Main content with 3 sections (about, skills, contact)
 - [-] About section with personal bio paragraphs
-- [ ] Skills section with organized lists and categories
+- [-] Skills section with organized lists and categories
 - [-] Contact section with working contact form
 - [-] Contact form with name, email, and message fields
 - [-] External links to social media or portfolio (can be placeholder URLs)
@@ -24,6 +24,6 @@
 - [ ] Additional form fields (subject dropdown, etc.)
 - [ ] Enhanced accessibility features
 - [-] Multiple contact methods (email, LinkedIn, GitHub)
-- [ ] Projects or experience section
-- [ ] Creative but professional content
+- [-] Projects or experience section
+- [-] Creative but professional content
 
