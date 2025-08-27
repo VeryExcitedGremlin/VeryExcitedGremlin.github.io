@@ -1,8 +1,8 @@
 header {
     position: sticky;
-    top: 0;
+    top: 8px;
     padding: 25px;
-    height: 55px;
+    height: 105px;
     z-index: 3;
 }
 
@@ -13,7 +13,8 @@ header h1{
 header nav {
     display: inline;
     float: right;
-    /* margin-top: 5%; */
+    margin-top: 17px;
+    margin-right: 20px;
 }
 
 header nav a{
@@ -92,7 +93,8 @@ footer a {
 .bookend {
     background-color: rgb(159, 95, 219);
     border: solid 2px;
-    width: 90vw;
+    width: 95vw;
     margin: 0 auto;
-    min-width: 400px;
+    min-width: 448px;
+    box-sizing: border-box;
 }
