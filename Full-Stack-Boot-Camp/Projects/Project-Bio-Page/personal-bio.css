@@ -1,4 +1,4 @@
-main {min-width: 1050px;}
+/* main {min-width: 1050px;} */
 
 header {
     position: sticky;
@@ -37,12 +37,12 @@ body {
     border-radius: 50%;
     aspect-ratio: 1.8/1;
     max-width: 1050px;
-    min-width: 1050px;
+    min-width: 835px;
     /* min-width: 885px; */
-    /* margin: 0 auto; */
-    top: 50%;
+    margin: 0 auto;
+    /* top: 50%;
     left: 50%;
-    transform: translate(-50%, -0%);
+    transform: translate(-50%, -0%); */
 }
 
 #box {
@@ -78,12 +78,14 @@ body {
     /* min-width: 725px; */
     aspect-ratio: 2.8/1;
     /* padding: 0 5em; */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -65%);
+    top: 15%;
+    /* left: 50%;
+    transform: translate(-50%, -65%); */
     z-index: 2;
-    /* top: 1%;
-    margin-inline: auto; */
+    /* top: 1%; */
+    /* margin-inline: auto; */
+    margin: 0 auto;
+    justify-content: center;
 }
 
 #selfie{
@@ -95,7 +97,10 @@ body {
 
 #send-message{
     border: solid;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
+    min-width: 811px;
+    margin: 0 auto 10px;
+    /* width: 95vw; */
 }
 
 footer {
@@ -113,6 +118,19 @@ footer a {
     border: solid 2px;
     width: 95vw;
     margin: 0 auto;
-    min-width: 1050px;
+    min-width: 835px;
     box-sizing: border-box;
+}
+
+@media only screen and (max-width: 1090px) {
+    #selfie {display: none;}
+    #about-child {
+        aspect-ratio: 2/1;
+        /* width: 600px; */
+        top: 17px;
+        /* left: 50%;
+        transform: translate(-50%, -50%); */
+        margin: 0 80px;
+
+    }
 }
