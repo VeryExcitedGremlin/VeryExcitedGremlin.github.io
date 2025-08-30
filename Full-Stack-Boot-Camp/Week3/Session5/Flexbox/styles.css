@@ -19,7 +19,8 @@ h1 {
 /* TODO: Add flexbox properties to make this a responsive gallery */
 .gallery {
     /* Add your flexbox styles here */
-
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .photo-item {
@@ -29,6 +30,8 @@ h1 {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin: 10px;
     /* TODO: Add flex properties for responsive sizing */
+    /* flex: 1 1 300px; */
+    flex: 300px;
 }
 
 .photo-placeholder {
