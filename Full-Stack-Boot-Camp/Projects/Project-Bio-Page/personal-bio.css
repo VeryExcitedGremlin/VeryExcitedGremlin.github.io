@@ -39,7 +39,10 @@ body {
     max-width: 1050px;
     min-width: 1050px;
     /* min-width: 885px; */
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -0%);
 }
 
 #box {
