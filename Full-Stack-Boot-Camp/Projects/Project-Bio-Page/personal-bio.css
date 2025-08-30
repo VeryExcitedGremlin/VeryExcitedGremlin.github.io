@@ -1,3 +1,5 @@
+main {min-width: 1050px;}
+
 header {
     position: sticky;
     top: 8px;
@@ -28,8 +30,16 @@ body {
 #about {
     position: relative;
     /* width: 1400px; */
-    height: 580px;
+    /* height: 580px; */
     /* margin-inline: auto; */
+    background-color: rgb(231, 164, 76);
+    filter: drop-shadow(-15px 15px rgb(255, 217, 0));
+    border-radius: 50%;
+    aspect-ratio: 1.8/1;
+    max-width: 1050px;
+    min-width: 1050px;
+    /* min-width: 885px; */
+    margin: 0 auto;
 }
 
 #box {
@@ -56,13 +66,18 @@ body {
 #about-child{
     position: relative;
     display: flex;
-    margin: 32px;
-    padding: 32px;
+    /* margin: 32px; */
+    /* padding: 32px; */
     align-items: center;
-    width: 770px;
-    top: 40%;
+    /* width: 770px; */
+    /* width: .8em; */
+    max-width: 890px;
+    /* min-width: 725px; */
+    aspect-ratio: 2.8/1;
+    /* padding: 0 5em; */
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -65%);
     z-index: 2;
     /* top: 1%;
     margin-inline: auto; */
@@ -95,6 +110,6 @@ footer a {
     border: solid 2px;
     width: 95vw;
     margin: 0 auto;
-    min-width: 448px;
+    min-width: 1050px;
     box-sizing: border-box;
 }
