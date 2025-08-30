@@ -29,6 +29,10 @@ body {
 
 #about {
     position: relative;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; */
     /* width: 1400px; */
     /* height: 580px; */
     /* margin-inline: auto; */
@@ -36,8 +40,10 @@ body {
     filter: drop-shadow(-15px 15px rgb(255, 217, 0));
     border-radius: 50%;
     aspect-ratio: 1.8/1;
+    width: 90vw;
     max-width: 1050px;
-    min-width: 835px;
+    min-width: 797px;
+    /* min-width: 835px; */
     /* min-width: 885px; */
     margin: 0 auto;
     /* top: 50%;
@@ -45,7 +51,7 @@ body {
     transform: translate(-50%, -0%); */
 }
 
-#box {
+/* #box {
     position: absolute;
     height: 580px;
     width: 1050px;
@@ -56,7 +62,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-}
+} */
 
 #about h2 {
     position: relative;
@@ -74,18 +80,17 @@ body {
     align-items: center;
     /* width: 770px; */
     /* width: .8em; */
-    max-width: 890px;
+    max-width: 830px;
     /* min-width: 725px; */
     aspect-ratio: 2.8/1;
     /* padding: 0 5em; */
-    top: 15%;
-    /* left: 50%;
-    transform: translate(-50%, -65%); */
+    top: 50%;
+    /* left: 50%; */
+    transform: translate(-0%, -65%);
     z-index: 2;
     /* top: 1%; */
     /* margin-inline: auto; */
     margin: 0 auto;
-    justify-content: center;
 }
 
 #selfie{
@@ -98,9 +103,11 @@ body {
 #send-message{
     border: solid;
     /* margin-bottom: 10px; */
-    min-width: 811px;
+    /* min-width: 446px; */
+    min-width: 797px;
     margin: 0 auto 10px;
-    /* width: 95vw; */
+    box-sizing: border-box;
+    width: 95vw;
 }
 
 footer {
@@ -118,19 +125,22 @@ footer a {
     border: solid 2px;
     width: 95vw;
     margin: 0 auto;
-    min-width: 835px;
+    /* min-width: 446px; */
+    min-width: 797px;
     box-sizing: border-box;
 }
 
 @media only screen and (max-width: 1090px) {
     #selfie {display: none;}
     #about-child {
-        aspect-ratio: 2/1;
+        aspect-ratio: 2 auto;
         /* width: 600px; */
-        top: 17px;
+        /* top: 17px; */
+        left: 10px;
         /* left: 50%;
         transform: translate(-50%, -50%); */
         margin: 0 80px;
+        min-width: 668px;
 
     }
 }
