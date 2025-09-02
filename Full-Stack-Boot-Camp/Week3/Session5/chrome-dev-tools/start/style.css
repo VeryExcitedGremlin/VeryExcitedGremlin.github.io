@@ -315,6 +315,19 @@ body {
     margin-top: 3rem;
 }
 
+.bookend {
+    background-color: rgb(159, 95, 219);
+    border: solid .2em;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 1em 0;
+    padding: 1em;
+}
+
+.bookend a {
+    display: block;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .header-content {
