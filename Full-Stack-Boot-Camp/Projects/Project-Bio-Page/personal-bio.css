@@ -19,7 +19,7 @@ header nav {
     margin-right: 2em;
 }
 
-header nav a{
+header nav a {
     padding: 1em;
 }
 
@@ -49,7 +49,7 @@ body {
     z-index: 1;
 }
 
-#about-child{
+#about-child {
     position: relative;
     display: flex;
     align-items: center;
@@ -107,4 +107,33 @@ footer a {
     width: 95vw;
     margin: 0 auto;
     box-sizing: border-box;
+}
+
+@media only screen and (max-width: 1200px) {
+    body {font-size: 1vw;}
+    #about-child {width: 50vw;}
+}
+
+@media only screen and (max-width: 992px) {
+    body {font-size: 1.25vw;}
+    #about-child {width: 60vw;}
+    #about-head {top: 4em;}
+}
+
+@media only screen and (max-width: 768px) {
+    body {font-size: 1.5vw;}
+    #about-child {width: 70vw;}
+    #about-head {top: 4em;}
+}
+@media only screen and (max-width: 600px) {
+    body {font-size: 1.75vw;}
+    #about-child {
+        width: 75vw;
+        aspect-ratio: 2 auto;
+        margin-left: 6em;
+    }
+    #about-head {top: 4em;}
+    #selfie {width: 8em;}
+    #about-head {top: 3em;}
+    
 }
