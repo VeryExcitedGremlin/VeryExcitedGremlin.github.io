@@ -27,6 +27,13 @@ body {
     background-color: rgb(240, 182, 255);
 }
 
+#about-head {
+    position: relative;
+    text-align: center;
+    top: 5em;
+    z-index: 1;
+}
+
 #about {
     position: relative;
     background-color: rgb(231, 164, 76);
@@ -42,13 +49,6 @@ body {
     justify-content: center;
 }
 
-#about-head {
-    position: relative;
-    text-align: center;
-    top: 5em;
-    z-index: 1;
-}
-
 #about-child {
     position: relative;
     display: flex;
@@ -59,11 +59,13 @@ body {
 }
 
 #selfie{
-    display: block;
-    float: right;
     margin-left: 1em;
     border: solid .15em;
     width: 15em;
+}
+
+#selfie2 {
+    display: none;
 }
 
 .section {
@@ -74,6 +76,9 @@ body {
     margin-left: 2.5em;
 }
 
+ul {
+    padding-left: 4em;
+}
 
 #send-message {
     border: solid;
@@ -122,21 +127,24 @@ footer a {
 
 @media only screen and (max-width: 768px) {
     body {font-size: 1.5vw;}
-    #about-child {width: 70vw;}
-    #about-head {top: 4em;}
+    #about-child {
+        margin-left: 7.5em;
+        width: 70vw;
+    }
 }
 @media only screen and (max-width: 600px) {
     body {font-size: 1.75vw;}
+    #about-head {top: 3.5em;}
     #about-child {
-        width: 75vw;
-        aspect-ratio: 2 auto;
-        margin-left: 7em;
+        margin-left: 5.5em;
+        width: 73vw;
+        aspect-ratio: 4 auto;
     }
-    #about-head {top: 4em;}
-    #selfie {
-        width: 8em;
-        margin-left: 0;
+    #selfie {display: none;}
+    #selfie2 {
+        display: block;
+        margin: 2em 0 0 .3em;
+        border: solid .15em;
+        width: 13em;
     }
-    #about-head {top: 3em;}
-    
 }
