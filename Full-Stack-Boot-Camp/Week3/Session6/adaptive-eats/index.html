@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdaptiveEats Restaurant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">AdaptiveEats</h1>
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#menu" class="nav-link">Menu</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2 class="hero-title">Fresh Food, Delivered Fast</h2>
+                <p class="hero-description">Experience gourmet meals that adapt perfectly to your device and your taste.</p>
+                <button class="btn btn-primary">Order Now</button>
+            </div>
+        </section>
+
+        <section class="featured" id="menu">
+            <div class="container">
+                <h2 class="section-title">Today's Specials</h2>
+                <div class="menu-grid">
+                    <div class="menu-item" id="special-pasta">
+                        <img src="https://via.placeholder.com/300x200" alt="Special Pasta">
+                        <h3 class="item-title">Truffle Pasta</h3>
+                        <p class="item-description">Handmade pasta with truffle oil and parmesan cheese</p>
+                        <span class="item-price">$24.99</span>
+                        <button class="btn btn-secondary">Add to Cart</button>
+                    </div>
+                    
+                    <div class="menu-item featured-item">
+                        <img src="https://via.placeholder.com/300x200" alt="Grilled Salmon">
+                        <h3 class="item-title">Grilled Salmon</h3>
+                        <p class="item-description">Fresh Atlantic salmon with seasonal vegetables</p>
+                        <span class="item-price">$28.99</span>
+                        <button class="btn btn-secondary">Add to Cart</button>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <img src="https://via.placeholder.com/300x200" alt="Caesar Salad">
+                        <h3 class="item-title">Caesar Salad</h3>
+                        <p class="item-description">Crisp romaine lettuce with house-made dressing</p>
+                        <span class="item-price">$16.99</span>
+                        <button class="btn btn-secondary">Add to Cart</button>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <img src="https://via.placeholder.com/300x200" alt="Chocolate Cake">
+                        <h3 class="item-title">Chocolate Cake</h3>
+                        <p class="item-description">Rich chocolate cake with berry compote</p>
+                        <span class="item-price">$12.99</span>
+                        <button class="btn btn-secondary">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 class="section-title">About AdaptiveEats</h2>
+                        <p>We believe great food should be accessible everywhere, on every device. Our responsive design ensures a perfect dining experience whether you're ordering on your phone during your commute or browsing our full menu on your desktop.</p>
+                        <p class="highlight-text">Our chefs use only the finest ingredients, sourced locally whenever possible.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://via.placeholder.com/400x300" alt="Restaurant Interior">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>123 Foodie Lane<br>
+                    Culinary City, CC 12345<br>
+                    Phone: (555) 123-EATS</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Hours</h3>
+                    <p>Monday - Thursday: 11am - 10pm<br>
+                    Friday - Saturday: 11am - 11pm<br>
+                    Sunday: 12pm - 9pm</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 AdaptiveEats Restaurant. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 
+    GUIDED PRACTICE TASKS:
+    
+    1. SPECIFICITY DEBUG (3 minutes):
+       - Fix the competing styles for the featured menu item
+       - Ensure the special pasta has red text color
+       - Make sure buttons have consistent styling
+    
+    2. MOBILE LAYOUT (3 minutes):
+       - Style the navigation for mobile (vertical stack)
+       - Make the menu grid single column on mobile
+       - Ensure proper mobile spacing and typography
+    
+    3. TABLET BREAKPOINT (3 minutes):
+       - Add media query for 768px and up
+       - Make navigation horizontal
+       - Create 2-column menu grid
+       - Adjust typography sizes
+    
+    4. DESKTOP ENHANCEMENT (3 minutes):
+       - Add media query for 1024px and up
+       - Create 3-column menu grid
+       - Add sidebar layout for about section
+       - Optimize spacing and typography
+    
+    5. CROSS-DEVICE TEST (3 minutes):
+       - Test responsive behavior
+       - Fix any layout issues
+       - Ensure consistent user experience
+    
+    STRETCH GOALS:
+    1. Add hover effects for buttons on desktop
+    2. Implement orientation-specific layout adjustments
+    3. Add support for high-resolution displays
+    -->
+</body>
+</html>
