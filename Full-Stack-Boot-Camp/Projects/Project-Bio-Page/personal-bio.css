@@ -130,10 +130,13 @@ footer a {
     #about-child {
         width: 75vw;
         aspect-ratio: 2 auto;
-        margin-left: 6em;
+        margin-left: 7em;
     }
     #about-head {top: 4em;}
-    #selfie {width: 8em;}
+    #selfie {
+        width: 8em;
+        margin-left: 0;
+    }
     #about-head {top: 3em;}
     
 }
