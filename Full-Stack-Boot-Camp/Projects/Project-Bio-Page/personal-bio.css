@@ -79,6 +79,10 @@ ul {
     padding-left: 4em;
 }
 
+ul ul {
+    padding-left: 2em;
+}
+
 #send-message {
     border: solid;
     min-width: 28em;
