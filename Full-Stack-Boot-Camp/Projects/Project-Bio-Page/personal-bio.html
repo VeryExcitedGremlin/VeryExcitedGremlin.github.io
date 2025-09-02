@@ -46,7 +46,7 @@
                         <abbr title="Tabletop role-playing games">TTRPGs</abbr>.
                     </p>
                 </div>
-                <img id='selfie' src="bio-pic.jpg" width="250" alt="Ashton posing at Super Nintendo World, kneeling down on one knee punching a question block from below."/>
+                <img id='selfie' src="bio-pic.jpg" alt="Ashton posing at Super Nintendo World, kneeling down on one knee punching a question block from below."/>
             </div>
         </section>
         <!-- TODO: Add Skills section with id="skills" -->
@@ -102,17 +102,17 @@
                     <legend><h3>Send me a message!</h3></legend>
                     <div>
                         <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <input class='input' type="text" id="name" name="name" required>
                     </div>
 
                     <div>
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <input class='input' type="email" id="email" name="email" required>
                     </div>
 
                     <div>
                         <label for="subject">Subject</label>
-                        <input type="text" name="subject" list="subject" placeholder="Choose or type your own" required>
+                        <input class='input' type="text" name="subject" list="subject" placeholder="Choose or type your own" required>
                             <datalist id="subject">
                                 <option value="Business">
                                 <option value="Pleasure">
@@ -121,10 +121,10 @@
 
                     <div>
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="I'd love to hear from you!" required></textarea>
+                        <textarea class='input' id="message" name="message" placeholder="I'd love to hear from you!" required></textarea>
                     </div>
                     
-                    <button type="submit">Send Message</button>
+                    <button class='input' type="submit">Send Message</button>
                 </fieldset>
             </form>
         </section>
