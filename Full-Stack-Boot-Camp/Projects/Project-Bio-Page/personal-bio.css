@@ -1,4 +1,4 @@
-body {font-size: 1.5vw;}
+body {font-size: 1vw;}
 
 header {
     position: sticky;
@@ -88,7 +88,7 @@ body {
     /* width: 770px; */
     /* width: .8em; */
     /* max-width: 830px; */
-    width: 75vw;
+    width: 50vw;
     /* max-width: 50em; */
     /* min-width: 725px; */
     aspect-ratio: 2 auto;
