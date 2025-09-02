@@ -70,6 +70,11 @@ body {
     margin-left: 2em;
 }
 
+.section div {
+    margin-left: 2.5em;
+}
+
+
 #send-message {
     border: solid;
     min-width: 28em;
