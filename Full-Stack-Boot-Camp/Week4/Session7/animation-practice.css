@@ -5,7 +5,7 @@
     position: absolute;
 }
 
-circle:nth-child(odd) {
+/* circle:nth-child(odd) {
     animation: pulse ease-in-out 4s infinite;
     fill: rgb(168, 168, 168);
 }
@@ -13,7 +13,12 @@ circle:nth-child(odd) {
 circle:nth-child(even) {
     animation: pulse2 ease-in-out 4s infinite;
     fill: rgb(168, 168, 168);
-}
+} */
+
+ circle {
+    animation: pulse ease-in-out 4s infinite;
+    fill: rgb(168, 168, 168);
+ }
 
 .pulse0 {
     color: hotpink;
@@ -32,18 +37,19 @@ circle:nth-child(even) {
 }
 .pulse4 {
     color: yellowgreen;
+    animation-delay: 2s;
 }
 .pulse5 {
     color: turquoise;
-    animation-delay: 0.5s;
+    animation-delay: 2.5s;
 }
 .pulse6 {
     color: blue;
-    animation-delay: 1s;
+    animation-delay: 3s;
 }
 .pulse7 {
     color: purple;
-    animation-delay: 1.5s;
+    animation-delay: 3.5s;
 }
 
 @keyframes pulse {
