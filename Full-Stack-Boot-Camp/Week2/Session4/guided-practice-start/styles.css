@@ -10,6 +10,7 @@ body {
     color: white;
     /* TODO 5: Add dark blue background-color */
     background-color: #2c3e50;
+    z-index: 0;
 }
 
 header {
@@ -18,6 +19,8 @@ header {
     /* TODO 15: Add sticky positioning */
     position: sticky;
     top: 0;
+    z-index: 1;
+    background-color: #2c3e50;
 }
 
 .title {
@@ -54,6 +57,7 @@ header {
     position: fixed;
     top: 20px;
     right: 20px;
+    z-index: 1;
 }
 
 main {
