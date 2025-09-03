@@ -30,8 +30,8 @@ h1 {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin: 10px;
     /* TODO: Add flex properties for responsive sizing */
-    /* flex: 1 1 300px; */
     flex: 300px;
+    /* flex: 1 1 300px; */
 }
 
 .photo-placeholder {
@@ -65,4 +65,17 @@ h1 {
     /* Add hover styles here */
     transform: translateY(-5px);
     filter: drop-shadow(-10px 10px 5px rgba(0, 0, 0, 0.267));
+}
+
+.bookend {
+    background-color: rgb(159, 95, 219);
+    border: solid .2em;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 1em 0;
+    padding: 1em;
+}
+
+.bookend a {
+    display: block;
 }
