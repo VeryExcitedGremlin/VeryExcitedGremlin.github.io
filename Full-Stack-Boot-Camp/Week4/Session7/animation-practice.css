@@ -1,51 +1,45 @@
 .content {
-    height: 1000px;
-    width: 1000px;
+    height: 100px;
+    width: 100px;
     margin: 0 auto;
+    position: absolute;
 }
 
-/* .content svg {
+circle {
+    animation: pulse ease-in-out 4s infinite;
     fill: rgb(168, 168, 168);
-    z-index: 1;
-    display: none;
-} */
-
-svg {
-    fill: rgb(168, 168, 168);
-    /* z-index: 2; */
 }
 
 .pulse0 {
-    animation: pulse 9s infinite;
     color: hotpink;
 }
 .pulse1 {
-    animation: pulse 9s 1s infinite;
     color: red;
+    animation-delay: .5s;
 }
 .pulse2 {
-    animation: pulse 9s 2s infinite;
     color: rgb(255, 102, 0);
+    animation-delay: 1s;
 }
 .pulse3 {
-    animation: pulse 9s 3s infinite;
     color: rgb(255, 187, 0);
+    animation-delay: 1.5s;
 }
 .pulse4 {
-    animation: pulse 9s 4s infinite;
     color: yellowgreen;
+    animation-delay: 2s;
 }
 .pulse5 {
-    animation: pulse 9s 5s infinite;
     color: turquoise;
+    animation-delay: 2.5s;
 }
 .pulse6 {
-    animation: pulse 9s 6s infinite;
     color: blue;
+    animation-delay: 3s;
 }
 .pulse7 {
-    animation: pulse 9s 7s infinite;
     color: purple;
+    animation-delay: 3.5s;
 }
 
 @keyframes pulse {

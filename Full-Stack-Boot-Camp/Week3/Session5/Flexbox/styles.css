@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 20px;
     background-color: #f0f0f0;
+    min-width: 200px;
 }
 
 .container {
@@ -31,7 +32,7 @@ h1 {
     margin: 10px;
     /* TODO: Add flex properties for responsive sizing */
     flex: 300px;
-    /* flex: 1 1 300px; */
+    flex: 1 1 300px;
 }
 
 .photo-placeholder {
