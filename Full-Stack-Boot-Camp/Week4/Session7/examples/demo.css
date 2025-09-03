@@ -22,9 +22,11 @@ div {
   /* initial state or our properties */
   from {
     opacity: 0;
+    text-align: left;
   }
   to {
     opacity: 1;
+    text-align: right;
   }
 }
 
