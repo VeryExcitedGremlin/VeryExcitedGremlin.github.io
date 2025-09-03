@@ -1,0 +1,57 @@
+.content {
+    height: 1000px;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/* .content svg {
+    fill: rgb(168, 168, 168);
+    z-index: 1;
+    display: none;
+} */
+
+svg {
+    fill: rgb(168, 168, 168);
+    /* z-index: 2; */
+}
+
+.pulse0 {
+    animation: pulse 9s infinite;
+    color: hotpink;
+}
+.pulse1 {
+    animation: pulse 9s 1s infinite;
+    color: red;
+}
+.pulse2 {
+    animation: pulse 9s 2s infinite;
+    color: rgb(255, 102, 0);
+}
+.pulse3 {
+    animation: pulse 9s 3s infinite;
+    color: rgb(255, 187, 0);
+}
+.pulse4 {
+    animation: pulse 9s 4s infinite;
+    color: yellowgreen;
+}
+.pulse5 {
+    animation: pulse 9s 5s infinite;
+    color: turquoise;
+}
+.pulse6 {
+    animation: pulse 9s 6s infinite;
+    color: blue;
+}
+.pulse7 {
+    animation: pulse 9s 7s infinite;
+    color: purple;
+}
+
+@keyframes pulse {
+    0% {fill: rgb(168, 168, 168);}
+
+    50% {fill: currentColor;}
+
+    100% {fill: rgb(168, 168, 168);}
+}
