@@ -142,4 +142,16 @@ h1, h2 {
     margin-bottom: 1rem;
 }
 
+.bookend {
+    background-color: rgb(159, 95, 219);
+    border: solid .2em;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 1em 0;
+    padding: 1em;
+}
+
+.bookend a {
+    display: block;
+}
 /* TODO: Add responsive design for mobile */
