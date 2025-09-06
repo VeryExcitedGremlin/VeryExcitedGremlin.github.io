@@ -75,11 +75,23 @@ button {
 .btn-primary {
     background-color: #007bff;
     color: white;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+.btn-primary:hover {
+    background-color: #0011ff;
 }
 
 .btn-secondary {
     background-color: #6c757d;
     color: white;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+.btn-secondary:hover {
+    background-color: #979797;
 }
 
 /* This style might not apply due to specificity issues */
@@ -123,6 +135,14 @@ button {
     text-decoration: none;
     padding: 0.5rem;
     display: block;
+    border: solid 2px grey;
+    border-radius: 0.5rem;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+.nav-link:hover {
+    background-color: #979797;
 }
 
 /* Hero section */
@@ -141,6 +161,7 @@ button {
 .hero-description {
     font-size: 1.1rem;
     margin-bottom: 2rem;
+    color: rgba(0, 0, 0, 0.575);
 }
 
 /* Featured section */
@@ -198,6 +219,8 @@ button {
 
 .about-content {
     /* TODO: Add responsive layout for text and image */
+    display: grid;
+    gap: 2rem;
 }
 
 .about-text {
@@ -238,6 +261,14 @@ button {
     color: #ecf0f1;
     text-decoration: none;
     padding: 0.5rem;
+    background-color: #6c757d;
+    border-radius: 0.5rem;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+.social-link:hover {
+    background-color: #5c6770d0;
 }
 
 .footer-bottom {
@@ -273,21 +304,35 @@ button {
     }
     .header .container {
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-around;
     }
 /* - Create 2-column menu grid */
     .menu-grid {grid-template-columns: 1fr 1fr;}
 /* - Side-by-side about section */
+    .about-content { 
+        grid-template-columns: 2fr 1fr;
+    }
+    .footer-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
 }
 
 /* Desktop and up (1024px+) */
 /* TODO: Add media query for 1024px and up */
+@media (min-width: 1024px){
 /* - 3-column menu grid */
+    .menu-grid {grid-template-columns: 1fr 1fr 1fr;}
 /* - Larger typography */
 /* - Optimized spacing */
+}
 
 /* Large desktop (1200px+) */
 /* TODO: Add media query for 1200px and up */
+@media (min-width: 1200px){
+    .menu-grid {grid-template-columns: repeat(4, 1fr);}
+}
 
 /* STRETCH GOALS - TODO */
 /* 1. Add hover effects for buttons on desktop */
