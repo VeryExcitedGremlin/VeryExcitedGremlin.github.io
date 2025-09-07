@@ -1,0 +1,26 @@
+body {
+    font-family: sans-serif;
+    font-size: 1vw;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    filter: drop-shadow(0em 0.75em 0.5em rgba(0, 0, 0, 0.205));
+    position: sticky;
+    top: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style-type: none;
+}
+
+#head-nav li {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 1em;
+}
+
+#emojis {display: none;}
