@@ -1,4 +1,4 @@
 {
   "livePreview.customExternalBrowser": "Chrome",
-  "livePreview.openPreviewTarget": "External Browser"
+  "livePreview.openPreviewTarget": "Embedded Preview"
 }

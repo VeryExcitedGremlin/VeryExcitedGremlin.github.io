@@ -6,7 +6,7 @@
 
 ### **Must Have (Required for Passing):**
 
-- [ ] HTML5 document structure (DOCTYPE, html, head, body)
+- [-] HTML5 document structure (DOCTYPE, html, head, body)
 - [ ] Semantic HTML5 elements (header, nav, main, section, footer)
 - [ ] External CSS stylesheet properly linked
 - [ ] Meta description and title optimization
