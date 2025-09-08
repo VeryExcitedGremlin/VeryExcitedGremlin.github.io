@@ -7,14 +7,20 @@ header {
     display: flex;
     justify-content: space-around;
     background-color: white;
-    filter: drop-shadow(0em 0.75em 0.5em rgba(0, 0, 0, 0.205));
+    filter: drop-shadow(0em .1em 0.1em rgba(0, 0, 0, 0.205));
     position: sticky;
-    top: 0;
-    box-sizing: border-box;
+    top: 8px;
+    /* width: 100vw; */
+    margin: 8px auto;
+    /* box-sizing: border-box; */
 }
 
 ul {
     list-style-type: none;
+}
+
+a {
+    text-decoration: none;
 }
 
 #head-nav li {
