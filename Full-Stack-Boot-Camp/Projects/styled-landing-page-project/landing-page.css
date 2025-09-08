@@ -1,16 +1,38 @@
 body {
     font-family: sans-serif;
-    font-size: 1vw;
+    font-size: 1.5vw;
     margin: 0;
     background-color: rgb(241, 245, 248);
 }
 
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    transition-property: text-decoration;
+    transition-duration: 0.5s;
+}
+
+p {
+    color: grey
+}
+
+#head-nav li {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 1em;
+}
+
 header {
+    background-color: white;
+    filter: drop-shadow(0em .1em .5em rgba(0, 0, 0, 0.205));
     display: flex;
     /* justify-content: space-around; */
     justify-content: space-between;
-    background-color: white;
-    filter: drop-shadow(0em .1em .5em rgba(0, 0, 0, 0.205));
     position: sticky;
     /* top: 8px; */
     top: 0;
@@ -25,32 +47,83 @@ header {
     color: black;
 }
 
+/* } */
+
+a:hover {
+    text-decoration: underline;
+}
+
 #hero {
+    background-color: white;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     /* justify-content: center; */
     align-items: center;
     box-sizing: border-box;
-    background-color: white;
-    padding: 10em 3em;
-    margin: 5em;
-    margin-top: 1em;
+    width: 60em;
     border-radius: 3em;
+    padding: 3em;
+    margin: 1em auto 5em;
+    /* margin-top: 1em; */
 }
 
 #hero-container {
     font-size: 1.5vw;
     box-sizing: border-box;
-    width: 30em;
+    width: 21em;
 }
 
 #hero-container h2 {
     font-size: 4vw;
 }
 
+#more {
+    display: flex;
+    justify-content: space-between;
+    /* padding: 0; */
+}
+
+.btn {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 1em 2em;
+    border: 0.1em solid rgb(75, 113, 236);
+    border-radius: 0.5em;
+    transition-property: color, background-color;
+    transition-duration: 0.5s;
+}
+
+.btn a:hover {
+    text-decoration: none;
+}
+
+#start {
+    color: white;
+    background-color: rgb(75, 113, 236);
+}
+#start a {
+    color: inherit;
+}
+#start:hover {
+    color: rgb(75, 113, 236);
+    background-color: white;
+}
+
+#learn {
+    color: rgb(75, 113, 236);
+    background-color: white;
+}
+#learn a {
+    color: inherit;
+}
+#learn:hover {
+    color: white;
+    background-color: rgb(75, 113, 236);
+}
+
 #img1 {
     /* width: 30em; */
-    height: 20em;
+    height: 15em;
     border-radius: 4%;
 }
 
@@ -58,9 +131,10 @@ header {
     margin-bottom: 3em;
 }
 
-#features h2 {
+.heading {
     text-align: center;
     margin-bottom: 2em;
+    font-size: 3vw;
 }
 
 #card-container {
@@ -69,6 +143,8 @@ header {
     align-items: center;
     justify-items: center;
     filter: drop-shadow(0em 0em .5em rgba(0, 0, 0, 0.205));
+    width: 60em;
+    margin: 0 auto;
 }
 
 .emoji {
@@ -77,34 +153,50 @@ header {
 }
 
 .card {
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 20em;
-    background-color: white;
+    width: 15em;
     /* box-sizing: border-box; */
     padding: 4em 2em;
     border-radius: 10%;
     text-align: center;
 }
 
+#about {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 3em;
+    box-sizing: border-box;
+    width: 60em;
+    border-radius: 3em;
+    margin: 5em auto;
+}
+
+#bumpers {
+    display: flex;
+    justify-content: space-around;
+}
+
 #img2 {
-    width: 25em;
+    height: 12em;
     border-radius: 4%;
 }
 
-ul {
-    list-style-type: none;
+#gateway {
+    background-color: rgb(26, 40, 65);
+    color: white;
+    display: flex;
+    justify-content: space-around;
 }
 
-a {
-    text-decoration: none;
-}
-
-#head-nav li {
-    display: inline-block;
-    box-sizing: border-box;
-    padding: 1em;
+#copy {
+    text-align: center;
+    margin: 0 auto;
+    padding: 2em;
+    background-color: rgb(26, 40, 65);
 }
 
 #emojis {display: none;}
