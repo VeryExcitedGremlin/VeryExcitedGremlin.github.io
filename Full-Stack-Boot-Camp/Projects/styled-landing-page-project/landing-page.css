@@ -287,20 +287,20 @@ header {
     }
     #bumpers {margin: 3em 0;}
 
-    .decorate a:focus {text-decoration: underline;}
-    #start:focus {
+    .decorate a:active {text-decoration: underline;}
+    #start:active {
         color: rgb(75, 113, 236);
         background-color: white;
     }
-    #learn:focus {
+    #learn:active {
         color: white;
         background-color: rgb(75, 113, 236);
     }
-    .card:focus {
+    .card:active {
         transform: translateY(-3em);
         filter: drop-shadow(0em 3em 1em rgba(0, 0, 0, 0.205));
     }
-    .bump:focus {
+    .bump:active {
         filter: drop-shadow(0em 0em 2em rgb(75, 113, 236));
         transform: translateY(-1em);
     }
