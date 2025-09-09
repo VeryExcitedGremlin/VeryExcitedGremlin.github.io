@@ -32,7 +32,7 @@ header {
     top: 0;
     box-sizing: border-box;
     padding: 0 5em;
-    z-index: 3;
+    z-index: 4;
 }
 
 .logo {color: rgb(75, 113, 236);}
@@ -176,8 +176,9 @@ header {
     box-sizing: border-box;
     border-radius: 1em;
     padding: 0.65em;
-    transition-property: transform, filter;
+    transition-property: transform, filter, z-index;
     transition-duration: 0.5s;
+    z-index: 2;
 }
 
 .bump h3 {
@@ -239,6 +240,7 @@ header {
 .bump:hover {
     filter: drop-shadow(0em 0em 2em rgb(75, 113, 236));
     transform: translateY(-1em);
+    z-index: 3;
 }
 
 }
@@ -294,6 +296,7 @@ header {
     .bump:active {
         filter: drop-shadow(0em 0em 2em rgb(75, 113, 236));
         transform: translateY(-1em);
+        z-index: 3;
     }
 }
 
