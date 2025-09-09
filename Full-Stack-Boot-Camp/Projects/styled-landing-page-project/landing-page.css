@@ -105,9 +105,9 @@ header {
     color: white;
     background-color: rgb(75, 113, 236);
 }
-#start a {
+/* #start a {
     color: inherit;
-}
+} */
 #start:hover {
     color: rgb(75, 113, 236);
     background-color: white;
