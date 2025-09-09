@@ -31,9 +31,9 @@
 - [ ] Implement Max Width and center the body on viewport
 - [-] Advanced CSS Grid with named areas
 - [-] Complex Flexbox patterns and combinations
-- [ ] CSS transitions and animations
+- [-] CSS transitions and animations
 - [ ] Advanced color techniques (HSL, gradients)
-- [ ] Creative positioning and overlapping elements
+- [-] Creative positioning and overlapping elements
 - [ ] Enhanced accessibility features
 - [ ] CSS custom properties (variables)
 - [ ] Advanced typography techniques

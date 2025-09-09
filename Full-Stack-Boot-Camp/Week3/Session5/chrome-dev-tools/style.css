@@ -103,6 +103,7 @@ body {
     border-radius: 8px;
     margin-bottom: 3rem;
     border-left: 4px solid #3498db;
+    display: none;
 }
 
 .instructions h3 {
@@ -240,6 +241,7 @@ body {
 /* Tools Section */
 .tools-section {
     margin-top: 4rem;
+    display: none;
 }
 
 .tools-section h3 {
