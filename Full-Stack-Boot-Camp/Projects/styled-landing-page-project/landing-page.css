@@ -5,11 +5,6 @@ body {
     background-color: rgb(241, 245, 248);
 }
 
-/* main {
- width: 90vw;
- margin: 0 auto;
-} */
-
 ul {
     list-style-type: none;
     padding: 0;
@@ -105,9 +100,6 @@ header {
     color: white;
     background-color: rgb(75, 113, 236);
 }
-/* #start a {
-    color: inherit;
-} */
 #start:hover {
     color: rgb(75, 113, 236);
     background-color: white;
@@ -255,3 +247,40 @@ header {
 }
 
 #emojis {display: none;}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+    #head-nav {margin: 0.5em 0;}
+    #big-logo {margin-bottom: 0;}
+    body {font-size: 1.5vw;}
+    #hero {
+        flex-direction: column;
+        width: 40em;
+    }
+    #hero-container {
+        width: 30em;
+        text-align: center;
+    }
+    #more {justify-content: center;}
+    .btn {margin: 2em 1em;}
+    #card-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 
+                    'smart fast'
+                    'secure secure';
+        width: 45em;
+    }
+    #smart {grid-area: smart;}
+    #fast {grid-area: fast;}
+    #secure {grid-area: secure;}
+    .card {margin: 2em;}
+    #about {
+        flex-direction: column;
+        width: 40em;
+    }
+    #bumpers {margin: 3em 0;}
+    /* #about-container {width: 30em;} */
+}
