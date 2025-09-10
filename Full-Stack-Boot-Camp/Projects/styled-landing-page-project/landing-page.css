@@ -11,7 +11,7 @@ ul {
 }
 
 p {
-    color: grey
+    color: grey;
 }
 
 a {
@@ -219,30 +219,24 @@ header {
 #emojis {display: none;}
 
 @media (hover: hover){
-
-.decorate a:hover {
-    text-decoration: underline;
-}
-#start:hover {
-    color: rgb(75, 113, 236);
-    background-color: white;
-}
-#learn:hover {
-    color: white;
-    background-color: rgb(75, 113, 236);
-}
-
-.card:hover {
-    transform: translateY(-3em);
-    filter: drop-shadow(0em 3em 1em rgba(0, 0, 0, 0.205));
-}
-
-.bump:hover {
-    filter: drop-shadow(0em 0em 2em rgb(75, 113, 236));
-    transform: translateY(-1em);
-    z-index: 3;
-}
-
+    .decorate a:hover {text-decoration: underline;}
+    #start:hover {
+        color: rgb(75, 113, 236);
+        background-color: white;
+    }
+    #learn:hover {
+        color: white;
+        background-color: rgb(75, 113, 236);
+    }
+    .card:hover {
+        transform: translateY(-3em);
+        filter: drop-shadow(0em 3em 1em rgba(0, 0, 0, 0.205));
+    }
+    .bump:hover {
+        filter: drop-shadow(0em 0em 2em rgb(75, 113, 236));
+        transform: translateY(-1em);
+        z-index: 3;
+    }
 }
 
 @media (max-width: 768px) {
