@@ -176,7 +176,7 @@ header {
     box-sizing: border-box;
     border-radius: 1em;
     padding: 0.65em;
-    transition-property: transform, filter, z-index;
+    transition-property: transform, filter;
     transition-duration: 0.5s;
     z-index: 2;
 }
