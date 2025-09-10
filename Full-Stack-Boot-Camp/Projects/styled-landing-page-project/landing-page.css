@@ -160,9 +160,9 @@ header {
     box-sizing: border-box;
     border-radius: 1em;
     padding: 0.65em;
+    /* z-index: 2; */
     transition-property: transform, filter;
     transition-duration: 0.5s;
-    z-index: 2;
 }
 
 .bump h3 {
@@ -215,7 +215,7 @@ header {
 .bump:active {
     filter: drop-shadow(0em 0em 2em rgb(75, 113, 236));
     transform: translateY(-1em);
-    z-index: 3;
+    /* z-index: 3; */
 }
 
 @media (hover: hover){
@@ -235,7 +235,7 @@ header {
     .bump:hover {
         filter: drop-shadow(0em 0em 2em rgb(75, 113, 236));
         transform: translateY(-1em);
-        z-index: 3;
+        z-index: 2;
     }
 }
 
