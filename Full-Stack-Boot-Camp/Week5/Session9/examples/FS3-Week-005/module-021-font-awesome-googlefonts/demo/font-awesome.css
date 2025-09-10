@@ -1,0 +1,26 @@
+div {
+  margin-bottom: 20px;
+}
+.custom-sizing {
+  font-size: 2.314em;
+}
+
+.fa-twitter {
+  color: rgb(45, 45, 141);
+}
+
+.fa-linkedin {
+  color: brown;
+}
+
+.fa-github {
+  color: gold;
+}
+
+.spacing {
+  margin-left: 100px;
+}
+
+.container {
+  display: flex;
+}
