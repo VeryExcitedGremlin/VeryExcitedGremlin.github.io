@@ -11,7 +11,7 @@ ul {
 }
 
 p {
-    color: grey
+    color: grey;
 }
 
 a {
@@ -294,6 +294,7 @@ header {
     .bump:active {
         filter: drop-shadow(0em 0em 2em rgb(75, 113, 236));
         transform: translateY(-1em);
+        z-index: 2;
     }
 }
 
