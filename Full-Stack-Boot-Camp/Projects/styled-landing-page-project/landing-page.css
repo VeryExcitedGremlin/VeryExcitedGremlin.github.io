@@ -217,22 +217,22 @@ header {
 
 #emojis {display: none;}
 
-.decorate a:focus, .decorate a:active {
+.decorate a:active {
     text-decoration: underline;
 }
-#start:focus, #start:active {
+#start:active {
     color: rgb(75, 113, 236);
     background-color: white;
 }
-#learn:focus, #learn:active {
+#learn:active {
     color: white;
     background-color: rgb(75, 113, 236);
 }
-.card:focus, .card:active {
+.card:active {
     transform: translateY(-3em);
     filter: drop-shadow(0em 3em 1em rgba(0, 0, 0, 0.205));
 }
-.bump:focus, .bump:active {
+.bump:active {
     filter: drop-shadow(0em 0em 2em rgb(75, 113, 236));
     transform: translateY(-1em);
     z-index: 2;
