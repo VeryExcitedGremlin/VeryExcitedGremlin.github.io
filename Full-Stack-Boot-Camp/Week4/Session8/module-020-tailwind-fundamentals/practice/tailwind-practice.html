@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ashton Oder - Aspiring Web and Software Developer">
+    <!-- <link rel="stylesheet" href="personal-bio.css" /> -->
+    <title>Ashton Oder | Aspiring Web and Software Developer</title>
+</head>
+<body id="nav1">
+    <header class="bookend">
+        <h1>Ashton Oder</h1>
+        <nav>
+            <a href="#nav1">About</a>
+            <a href="#nav2">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div>Aspiring Web Developer</div>
+    </header>
+    <main>
+        <section id="about">
+        <h2 id="about-head">About Me</h2>
+            <div id="about-child">
+                <div>
+                    <p>I am a customer service professional of 10 years looking to make a career transition into web and software development.
+                        To that end I have been studying with Codecademy for 2 years, and have learning experience with 
+                        <abbr title='Hypertext Markup Langage'>HTML</abbr>, <abbr title='Cascading Style Sheets'>CSS</abbr>, python and <abbr title='Structured Query Langage'>SQL</abbr>.
+                        My experience in customer service lends itself to programming in that I have experience working with others,
+                        problem solving both individually and with a team, and working with customers to find products and solutions to problems.
+                    </p>
+                    <p>I discovered my love for coding after playing the game "While True: Learn()" and taking the game's suggesion "If you like this game, try learning to code!"
+                        Python was my first language, suggested due to its relative simplicity compared to some other languages.
+                        I absolutely fell in love, it reminded me of every puzzle game I ever enjoyed and I just could not stop doing problems on 
+                        <abbr title="Don Mills Online Judge or Modern Online Judge"><a href="https://dmoj.ca/">DMOJ</a></abbr>.
+                        Since then my love of programming has expanded to multiple languages. One day I hope to take my passion for development and problem solving to a professional level.
+                    </p>
+                    <p id="nav2">When I'm not studying, you can find me playing my favorite puzzle games or getting together with friends to play our favorite 
+                        <abbr title="Tabletop role-playing games">TTRPGs</abbr>.
+                    </p>
+                </div>
+                <img id='selfie' src="bio-pic.jpg" alt="Ashton posing at Super Nintendo World, kneeling down on one knee punching a question block from below."/>
+            </div>
+        </section>
+        <section id="skills" class="section">
+            <img id='selfie2' src="bio-pic.jpg" alt="Ashton posing at Super Nintendo World, kneeling down on one knee punching a question block from below."/>
+            <h2>Skills and Experience</h2>
+            <div>
+                <h3>Professional Skills</h3>
+                <ul>
+                    <li>Customer Service</li>
+                    <li>Conflict Resolution</li>
+                    <li>Team Management</li>
+                    <li>Project Management</li>
+                    <li>Professional Communication</li>
+                    <li>Self-Motivator</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Some Experience With</h3>
+                <ul>
+                    <li>Git and GitHub</li>
+                    <li>VS Code</li>
+                    <li>SQL</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>Python<ul>
+                        <li>Flask</li>
+                        <li>Pandas</li>
+                    </ul></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Currently Learning</h3>
+                <ul>
+                    <li>Data Science</li>
+                    <li>Data Analysis</li>
+                    <li>Statistics</li>
+                    <li>Full-Stack Web Development</li>
+                </ul>
+            </div>
+        </section>
+        <section id="contact">
+            <div class="section">
+                <h2>Let's Connect</h2>
+                <div>
+                    <p><strong>Email:</strong> <a href='#'>you-don't@actually-get-to.email-me</a></p>
+                    <p><strong>LinkedIn:</strong> <a href='#'>This is just here for credit</a></p>
+                    <p><strong>GitHub:</strong> <a href='https://github.com/VeryExcitedGremlin'>VeryExcitedGremlin</a> &lt;--This one actually works</p>
+                </div>
+            </div>
+            <form action="submit-message.html">
+                <fieldset id="send-message">
+                    <legend><h3>Send me a message!</h3></legend>
+                    <div>
+                        <label for="name">Name</label>
+                        <input class='input' type="text" id="name" name="name" required>
+                    </div>
+
+                    <div>
+                        <label for="email">Email</label>
+                        <input class='input' type="email" id="email" name="email" required>
+                    </div>
+
+                    <div>
+                        <label>Subject</label>
+                        <input class='input' type="text" name="subject" list="subject" placeholder="Choose or type your own" required>
+                            <datalist id="subject">
+                                <option value="Business">
+                                <option value="Pleasure">
+                            </datalist>
+                    </div>
+
+                    <div>
+                        <label for="message">Message</label>
+                        <textarea class='input' id="message" name="message" placeholder="I'd love to hear from you!" required></textarea>
+                    </div>
+                    
+                    <button class='input' type="submit">Send Message</button>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+    <footer class="bookend">
+        <div>Posted by Ashton Oder 2025</div><br>
+        <nav>
+            <a href="#top">Back to Top</a>
+            <a href="/">Return to projects homepage</a>
+        </nav>
+    </footer>
+</body>
+</html>
