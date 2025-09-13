@@ -1,4 +1,12 @@
 
+body {
+    font-size: 1vw;
+}
+
+/* ul {
+    list-style-type: none;
+} */
+
 .bookend {
     background-color: rgb(159, 95, 219);
     border: solid .2em;
