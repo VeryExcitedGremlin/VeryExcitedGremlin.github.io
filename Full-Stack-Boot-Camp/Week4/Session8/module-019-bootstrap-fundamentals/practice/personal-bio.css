@@ -9,13 +9,35 @@ body {
 
 .bookend {
     background-color: rgb(159, 95, 219);
-    border: solid .2em;
-    /* box-sizing: border-box;
-    text-align: center;
-    margin: 1em 0;
-    padding: 1em; */
+    border: solid 0.3em;
 }
 
-/* .bookend a {
-    display: block;
-} */
+#skills {
+    border: black solid 0.3em;
+    padding: 0;
+    border-radius: 3em;
+    height: 30em;
+}
+
+#send-message {
+    border: solid black 0.3em;
+}
+
+legend {
+    width: auto;
+}
+
+footer {
+    box-sizing: border-box;
+    text-align: center;
+    margin: 1em 0;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer nav {
+    display: flex;
+    align-items: center;
+}
