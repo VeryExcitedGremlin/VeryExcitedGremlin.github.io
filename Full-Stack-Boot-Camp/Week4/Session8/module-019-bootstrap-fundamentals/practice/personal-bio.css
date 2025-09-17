@@ -1,7 +1,7 @@
 
-body {
+/* body {
     font-size: 1vw;
-}
+} */
 
 /* ul {
     list-style-type: none;
@@ -16,7 +16,7 @@ body {
     border: black solid 0.3em;
     padding: 0;
     border-radius: 3em;
-    height: 30em;
+    /* height: 30em; */
 }
 
 #send-message {
