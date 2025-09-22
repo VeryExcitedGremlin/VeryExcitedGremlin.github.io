@@ -149,14 +149,37 @@ console.log("Exercise 4 completed!");
 // Practice for loops, while loops, and loop control
 
 // TODO: Create a for loop that counts from 1 to 5
+for (let i = 1; i <= 5; i++) {
+  console.log(i);
+}
 
 // TODO: Create a while loop that counts down from 5 to 1
+let i = 5;
+while (i > 0) {
+  console.log(i);
+  i--;
+}
 
 // TODO: Challenge - Create a for loop from 1 to 10, but use break to exit when you reach 6
+for (let i = 1; i <= 10; i++) {
+  console.log(i)
+  if (i == 6) {break}
+}
 
 // TODO: Challenge - Create a for loop from 1 to 5, but use continue to skip number 3
+for (let i = 1; i <= 5; i++) {
+  if (i==3) {continue}
+  console.log(i);
+}
 
 // TODO: Create a nested loop (loop inside a loop)
+for (let i = 1; i <= 10; i++) {
+  for (let j = 1; j <= 5; j++) {
+    let k = i + j;
+    if (k > 15) {break}
+    console.log(`i + j = ${k}`);
+  }
+}
 
 console.log("Exercise 5 completed!");
 console.log(
