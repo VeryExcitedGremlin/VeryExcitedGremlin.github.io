@@ -12,7 +12,7 @@
 - [ ] Slack Off
 
 ```javascript
-console.log("Hello World!")
+console.log("Hello World!");
 ```
 
 ![placeholderimage](https://placehold.co/600x400/png)
