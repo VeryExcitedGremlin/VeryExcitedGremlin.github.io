@@ -71,10 +71,10 @@ function handleNumber(number) {
 /**
  * Handles decimal point input - This is an Optional Stretch
  */
-function handleDecimal() {
-  // Your code here
-  // Make sure you don't add multiple decimal points to one number
-}
+// function handleDecimal() {
+//   // Your code here
+//   // Make sure you don't add multiple decimal points to one number
+// }
 
 /**
  * Handles operator input (+, -, *, /)
