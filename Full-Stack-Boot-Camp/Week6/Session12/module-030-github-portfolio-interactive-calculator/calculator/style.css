@@ -10,7 +10,7 @@ body {
 }
 
 .calculator {
-  background-color: #333;
+  background-color: #8D55C2;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -48,23 +48,23 @@ button {
 
 .number,
 .decimal {
-  background-color: #666;
-  color: white;
+  background-color: #F6FCC2;
+  color: black;
 }
 
 .operator {
-  background-color: #ff9500;
-  color: white;
+  background-color: #FCFC42;
+  color: black;
 }
 
 .clear {
-  background-color: #a6a6a6;
+  background-color: #F5F5F5;
   color: black;
 }
 
 .equals {
-  background-color: #ff9500;
-  color: white;
+  background-color: #FCFC42;
+  color: black;
 }
 
 button:hover {
