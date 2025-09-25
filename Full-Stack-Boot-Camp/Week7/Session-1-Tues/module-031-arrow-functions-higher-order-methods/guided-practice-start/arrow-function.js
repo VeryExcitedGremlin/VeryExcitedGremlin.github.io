@@ -48,10 +48,17 @@ const calculateArea = function(length, width, height) {
 // - Name it: calculateAreaArrow
 
 // Write your arrow function here:
-
+const calculateAreaArrow = (length, width, height) => {
+  const area = length * width;
+  const volume = area * height;
+  return {
+    surfaceArea: area,
+    volume: volume,
+  };
+};
 
 // Test your function (uncomment to test):
-// console.log(calculateAreaArrow(5, 3, 2));
+console.log(calculateAreaArrow(5, 3, 2));
 
 
 // ============================================
@@ -83,18 +90,30 @@ function processStudentGrades(students, passingGrade) {
 // - Name it: processStudentGradesArrow
 
 // Write your arrow function here:
-
+const processStudentGradesArrow = (students, passingGrade) => {
+    const results = [];
+    for (let i = 0; i < students.length; i++) {
+        const student = students[i];
+        const status = student.grade >= passingGrade ? 'PASS' : 'FAIL';
+        results.push({
+            name: student.name,
+            grade: student.grade,
+            status: status
+        });
+    }
+    return results;
+}
 
 // Test data (uncomment to test):
-// const testStudents = [
-//     { name: "John", grade: 85 },
-//     { name: "Sarah", grade: 92 },
-//     { name: "Mike", grade: 67 },
-//     { name: "Emma", grade: 78 }
-// ];
+const testStudents = [
+    { name: "John", grade: 85 },
+    { name: "Sarah", grade: 92 },
+    { name: "Mike", grade: 67 },
+    { name: "Emma", grade: 78 }
+];
 
 // Test your function (uncomment to test):
-// console.log(processStudentGradesArrow(testStudents, 70));
+console.log(processStudentGradesArrow(testStudents, 70));
 
 
 // ============================================
