@@ -40,6 +40,9 @@ console.log("Initial value of display: ", getDisplay());
  * 5. Check if input is clear (C) and reset the calculator
  * 6. Don't forget to call setDisplay() at the end to refresh the screen!
  */
+var num1=0, num2=0, operator, operatorKnown=false, savedOperator
+
+
 function handleInput(input) {
   console.log(`Button clicked: ${input}`);
   // Your code here
@@ -47,7 +50,15 @@ function handleInput(input) {
   // Then call the appropriate helper function
   // you may need to use parseFloat
   // use typeof to check data types
-
+  // console.log(typeof(parseFloat(input)));
+  if (["+", "-", "*", "/",'='].includes(input)) {
+    handleOperator(input);
+  } else if (['C','CE'].includes(input)) {
+    resetCalculator(input);
+  } else {
+    handleNumber(parseFloat(input));
+    // operatorKnown = false;
+  }
   // Don't forget to call setDisplay() at the end!
 }
 
@@ -66,6 +77,19 @@ function handleNumber(number) {
   // This function should update the display with setDisplay
   // for example, if we have the number 9 already and are adding another 9
   // Consider: Are we starting fresh? Continuing a number?
+  if (savedOperator) {resetCalculator('CE');}
+  console.log(`num2: ${num2}`);
+  num2 = num2 * 10 + number;
+  console.log(`num2: ${num2}`);
+  setDisplay(num2);
+
+  // if (operatorKnown == false) {
+  //   console.log(`num1: ${num1}`);
+  //   num1 = (num1*10)+number;
+  //   console.log(`num1: ${num1}`);
+  //   setDisplay(num1);
+  // }
+  console.log(`Number handled: ${number}`);
 }
 
 /**
@@ -85,6 +109,30 @@ function handleOperator(nextOperator) {
   // Store the operator
   // Store the first number
   // Prepare for the second number input
+  if (nextOperator == "=") {
+    if (savedOperator) {
+      operator = savedOperator;
+      executeOperation();
+      operator = '';
+    }else if (operator) {
+      executeOperation();
+      savedOperator = operator;
+      operator = '';
+    }else {
+      setDisplay(num2);
+    } 
+  } else {
+      if (operator) {
+      executeOperation();
+    } else if (!savedOperator) {
+      num1 = num2;
+    }
+    operator = nextOperator;
+    savedOperator = '';
+    num2 = 0; 
+  }
+  // setDisplay(num1);
+  console.log("Operator handled");
 }
 
 /**
@@ -94,13 +142,68 @@ function executeOperation() {
   // Your code here
   // Use if/else statements to call the right operation function
   // Handle the result and any errors
+  if (operator == "+") {
+    num1 = add(num1, num2);
+  } else if (operator == "-") {
+    num1 = sub(num1, num2);
+  } else if (operator == "*") {
+    num1 = mult(num1, num2);
+  } else if (operator == "/") {
+    num1 = div(num1, num2);
+  }
+  setDisplay(num1);
+  console.log('Executed');
 }
 
 /**
  * Resets the calculator (C button)
  */
-function resetCalculator() {
+function resetCalculator(clear) {
   // Your code here
   // Reset all state variables and display
+  if (clear == 'C') {
+    num2 = 0;
+    setDisplay('0');
+    console.log('Clear');
+  }
+  else if (clear == 'CE') {
+    num1 = 0;
+    num2 = 0;
+    operator = '';
+    // operatorKnown = false;
+    savedOperator = '';
+    setDisplay("0");
+    console.log('All Clear');
+  }
 }
 
+const add = (num1, num2) => {
+  result = num1 + num2; 
+  console.log(`${num1} + ${num2} = ${result}`);
+  return result;
+}
+// console.log(add(1,2));
+
+const sub = (num1, num2) => {
+  result = num1 - num2; 
+  console.log(`${num1} - ${num2} = ${result}`);
+  return result;
+}
+// console.log(sub(1, 2));
+
+const mult = (num1, num2) => {
+  result = num1 * num2; 
+  console.log(`${num1} * ${num2} = ${result}`);
+  return result
+}
+// console.log(mult(1, 2));
+
+function div (num1, num2) {
+  if (num2 !== 0) {
+    result = num1 / num2;
+    console.log(`${num1} / ${num2} = ${result}`); 
+    return result;
+  } else {return 'Error'};
+}
+// console.log(div(1, 2));
+// console.log(div(1, 0));
