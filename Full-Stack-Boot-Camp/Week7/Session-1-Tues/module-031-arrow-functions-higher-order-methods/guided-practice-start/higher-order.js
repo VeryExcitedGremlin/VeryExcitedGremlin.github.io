@@ -27,17 +27,19 @@ const testNumbers = [2, 4, 6, 8, 10];
 // Example: doubleAndAdd5(3) should return 11 (3 * 2 + 5 = 11)
 
 // Write your named function here:
-
+function doubleAndAdd5 (number) {
+    return (number * 2 ) + 5;
+}
 
 // TODO: Use the processNumbers higher-order function with your named function
 // Call: processNumbers(testNumbers, doubleAndAdd5)
 // Store the result in a variable called 'part1Result'
 
 // Write your function call here:
-
+part1Result = processNumbers(testNumbers, doubleAndAdd5);
 
 // Test your result (uncomment to test):
-// console.log("Part 1 Result:", part1Result);
+console.log("Part 1 Result:", part1Result);
 // Expected: [9, 13, 17, 21, 25]
 
 
@@ -56,10 +58,10 @@ const testNumbers = [2, 4, 6, 8, 10];
 // Store the result in a variable called 'part2Result'
 
 // Write your function call here:
-
+part2Result = processNumbers(testNumbers, function(number){return(number**2)-1});
 
 // Test your result (uncomment to test):
-// console.log("Part 2 Result:", part2Result);
+console.log("Part 2 Result:", part2Result);
 // Expected: [3, 15, 35, 63, 99]
 
 
@@ -69,9 +71,9 @@ const testNumbers = [2, 4, 6, 8, 10];
 
 // Uncomment the lines below to see both results:
 // console.log("\n=== COMPARISON ===");
-// console.log("Original numbers:", testNumbers);
-// console.log("Part 1 (named function):", part1Result);
-// console.log("Part 2 (anonymous function):", part2Result);
+console.log("Original numbers:", testNumbers);
+console.log("Part 1 (named function):", part1Result);
+console.log("Part 2 (anonymous function):", part2Result);
 
 // ============================================
 // BONUS CHALLENGE
@@ -88,8 +90,19 @@ const testNumbers = [2, 4, 6, 8, 10];
 // Should return: [30, 40, 50]
 
 // Write your bonus function here:
+const filter = num => num > 2;
+const transform = num => num * 10;
+const arr = [1, 2, 3, 4, 5];
 
+function filterAndTransform (arr, filter, transform) {
+    results = [];
+    for (const el of arr) {
+        if (filter(el)) {results.push(transform(el))}
+    } return results;
+}
 
+filteredAndTransformed = filterAndTransform(arr, filter, transform);
+console.log(filteredAndTransformed);
 // Notes:
 // - Higher-order functions accept other functions as parameters
 // - Named functions can be passed by reference (just the function name)
