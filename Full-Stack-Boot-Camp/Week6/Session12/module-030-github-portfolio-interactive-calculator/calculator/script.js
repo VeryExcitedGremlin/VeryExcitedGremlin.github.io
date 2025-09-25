@@ -103,3 +103,4 @@ function resetCalculator() {
   // Your code here
   // Reset all state variables and display
 }
+
