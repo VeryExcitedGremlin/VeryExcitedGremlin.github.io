@@ -6,6 +6,7 @@
 function setDisplay(value) {
   const display = document.getElementById("display");
   display.value = String(parseFloat(value));
+  console.log(`Display updated: ${value}`);
 }
 
 // Gets the value from the readonly display input
@@ -150,6 +151,7 @@ function executeOperation() {
     num1 = mult(num1, num2);
   } else if (operator == "/") {
     num1 = div(num1, num2);
+    console.log(num1);
   }
   setDisplay(num1);
   console.log('Executed');
@@ -203,7 +205,7 @@ function div (num1, num2) {
     result = num1 / num2;
     console.log(`${num1} / ${num2} = ${result}`); 
     return result;
-  } else {return 'Error'};
+  } else {return 'E'};
 }
 // console.log(div(1, 2));
 // console.log(div(1, 0));
