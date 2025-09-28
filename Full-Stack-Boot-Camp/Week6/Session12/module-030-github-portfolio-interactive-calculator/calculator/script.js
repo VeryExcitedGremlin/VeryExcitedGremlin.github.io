@@ -41,7 +41,7 @@ console.log("Initial value of display: ", getDisplay());
  * 5. Check if input is clear (C) and reset the calculator
  * 6. Don't forget to call setDisplay() at the end to refresh the screen!
  */
-var num1=0, num2=0, operator, operatorKnown=false, savedOperator
+var num1=0, num2=0, operator, operatorKnown=false, savedOperator, decimal, decimalCount
 
 
 function handleInput(input) {
@@ -52,7 +52,7 @@ function handleInput(input) {
   // you may need to use parseFloat
   // use typeof to check data types
   // console.log(typeof(parseFloat(input)));
-  if (["+", "-", "*", "/",'='].includes(input)) {
+  if (["+", "-", "*", "/",'=','.'].includes(input)) {
     handleOperator(input);
   } else if (['C','CE'].includes(input)) {
     resetCalculator(input);
@@ -79,9 +79,17 @@ function handleNumber(number) {
   // for example, if we have the number 9 already and are adding another 9
   // Consider: Are we starting fresh? Continuing a number?
   if (savedOperator) {resetCalculator('CE');}
-  console.log(`num2: ${num2}`);
-  num2 = num2 * 10 + number;
-  console.log(`num2: ${num2}`);
+  if (decimal) {
+    decimalCount++
+    console.log(decimalCount)
+    console.log(10 ** decimalCount);
+    console.log(number / (10**decimalCount));
+    num2 = num2 + (number/(decimalCount*10))
+  } else {
+    // console.log(`num2: ${num2}`);
+    num2 = num2 * 10 + number;
+    // console.log(`num2: ${num2}`);
+  }
   setDisplay(num2);
 
   // if (operatorKnown == false) {
@@ -110,27 +118,31 @@ function handleOperator(nextOperator) {
   // Store the operator
   // Store the first number
   // Prepare for the second number input
+  if (decimal && nextOperator !== '.') {
+    decimal = false;
+  }
   if (nextOperator == "=") {
     if (savedOperator) {
-      operator = savedOperator;
-      executeOperation();
-      operator = '';
+      executeOperation(savedOperator);
     }else if (operator) {
-      executeOperation();
+      executeOperation(operator);
       savedOperator = operator;
       operator = '';
     }else {
-      setDisplay(num2);
+      num2 = 0;
     } 
+  } else if (nextOperator == "." && !decimal) {
+    decimal = true;
+    decimalCount = 0;
   } else {
-      if (operator) {
-      executeOperation();
+    if (operator) {
+      executeOperation(operator);
     } else if (!savedOperator) {
       num1 = num2;
     }
     operator = nextOperator;
-    savedOperator = '';
-    num2 = 0; 
+    savedOperator = "";
+    num2 = 0;
   }
   // setDisplay(num1);
   console.log("Operator handled");
@@ -139,7 +151,7 @@ function handleOperator(nextOperator) {
 /**
  * Executes the calculation when = is pressed
  */
-function executeOperation() {
+function executeOperation(operator) {
   // Your code here
   // Use if/else statements to call the right operation function
   // Handle the result and any errors
@@ -163,6 +175,7 @@ function executeOperation() {
 function resetCalculator(clear) {
   // Your code here
   // Reset all state variables and display
+  if (decimal) {decimal = false;}
   if (clear == 'C') {
     num2 = 0;
     setDisplay('0');
