@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cat Mood Tracker - DOM Practice</title>
+    <link rel="stylesheet" href="cat-mood-tracker-start.css" />
+    <script defer src="cat-mood-tracker-start.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>🐱 Cat Mood Tracker</h1>
+        <p class="subtitle">
+          Track the ever-changing moods of our feline overlords
+        </p>
+      </header>
+
+      <main>
+        <!-- Cat Collection -->
+        <section class="cats-section">
+          <h2>Our Cats</h2>
+
+          <div class="cat-grid">
+            <!-- Cat 1 -->
+            <div class="cat-card" data-mood="happy">
+              <div class="cat-face">😸</div>
+              <h3 class="cat-name">Whiskers</h3>
+              <p class="cat-mood">Happy</p>
+              <div class="mood-buttons">
+                <button 
+                ="changeCatMood(this, 'happy')">😸 Happy</button>
+                <button onclick="changeCatMood(this, 'grumpy')">
+                  😾 Grumpy
+                </button>
+                <button onclick="changeCatMood(this, 'sleepy')">
+                  😴 Sleepy
+                </button>
+                <button onclick="removeCat(this)" class="remove-btn">
+                  🗑️ Remove
+                </button>
+              </div>
+            </div>
+
+            <!-- Cat 2 -->
+            <div class="cat-card" data-mood="grumpy">
+              <div class="cat-face">😾</div>
+              <h3 class="cat-name">Mr. Fluffington</h3>
+              <p class="cat-mood">Grumpy</p>
+              <div class="mood-buttons">
+                <button onclick="changeCatMood(this, 'happy')">😸 Happy</button>
+                <button onclick="changeCatMood(this, 'grumpy')">
+                  😾 Grumpy
+                </button>
+                <button onclick="changeCatMood(this, 'sleepy')">
+                  😴 Sleepy
+                </button>
+                <button onclick="removeCat(this)" class="remove-btn">
+                  🗑️ Remove
+                </button>
+              </div>
+            </div>
+
+            <!-- Cat 3 -->
+            <div class="cat-card" data-mood="sleepy">
+              <div class="cat-face">😴</div>
+              <h3 class="cat-name">Princess Mittens</h3>
+              <p class="cat-mood">Sleepy</p>
+              <div class="mood-buttons">
+                <button onclick="changeCatMood(this, 'happy')">😸 Happy</button>
+                <button onclick="changeCatMood(this, 'grumpy')">
+                  😾 Grumpy
+                </button>
+                <button onclick="changeCatMood(this, 'sleepy')">
+                  😴 Sleepy
+                </button>
+                <button onclick="removeCat(this)" class="remove-btn">
+                  🗑️ Remove
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Control Panel -->
+        <section class="controls-section">
+          <h2>Cat Management Controls</h2>
+
+          <div class="control-buttons">
+            <button id="add-cat-btn" class="control-btn">🐱 Add New Cat</button>
+            <button id="prepend-cat-btn" class="control-btn">
+              ⬆️ Add Cat to Start
+            </button>
+            <button id="remove-last-cat-btn" class="control-btn">
+              ❌ Remove Last Cat
+            </button>
+            <button id="make-all-happy-btn" class="control-btn">
+              😸 Make All Happy
+            </button>
+            <button id="make-all-grumpy-btn" class="control-btn">
+              😾 Make All Grumpy
+            </button>
+            <button id="random-moods-btn" class="control-btn">
+              🎲 Random Moods
+            </button>
+          </div>
+        </section>
+
+        <!-- Stats Display -->
+        <section class="stats-section">
+          <h2>Mood Statistics</h2>
+          <div class="stats-display">
+            <div class="stat-item">
+              <span class="stat-emoji">😸</span>
+              <span class="stat-label">Happy Cats:</span>
+              <span id="happy-count" class="stat-number">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-emoji">😾</span>
+              <span class="stat-label">Grumpy Cats:</span>
+              <span id="grumpy-count" class="stat-number">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-emoji">😴</span>
+              <span class="stat-label">Sleepy Cats:</span>
+              <span id="sleepy-count" class="stat-number">0</span>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
