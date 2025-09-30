@@ -34,15 +34,18 @@ console.log('Removed fruit:', removedFruit);
 // TODO: Use the find() method to find the first number greater than 3
 // Store the result in a variable called 'foundNumber'
 // Write your code here:
-numbers.find(
+foundNumber = numbers.find((currentValue) => currentValue > 3);
+// console.log(foundNumber);
 
 // TODO: Use the includes() method to check if 'banana' is in the fruits array
 // Store the result in a variable called 'hasBanana'
 // Write your code here:
+hasBanana = fruits.includes('banana');
+// console.log(hasBanana);
 
 // Test (uncomment to see results):
-// console.log('Found number:', foundNumber);
-// console.log('Has banana:', hasBanana);
+console.log('Found number:', foundNumber);
+console.log('Has banana:', hasBanana);
 
 // ============================================
 // PART 3: Transforming Arrays
@@ -51,16 +54,18 @@ numbers.find(
 // TODO: Use the map() method to create a new array with all numbers doubled
 // Store the result in a variable called 'doubledNumbers'
 // Write your code here:
+doubledNumbers = numbers.map(val => val*2);
 
 // TODO: Use the filter() method to create a new array with only prices under 20
 // Store the result in a variable called 'cheapPrices'
 // Write your code here:
+cheapPrices = prices.filter(val => val<20);
 
 // Test (uncomment to see results):
-// console.log('Original numbers:', numbers);
-// console.log('Doubled numbers:', doubledNumbers);
-// console.log('Original prices:', prices);
-// console.log('Cheap prices:', cheapPrices);
+console.log('Original numbers:', numbers);
+console.log('Doubled numbers:', doubledNumbers);
+console.log('Original prices:', prices);
+console.log('Cheap prices:', cheapPrices);
 
 // ============================================
 // PART 4: Array Information
@@ -69,14 +74,16 @@ numbers.find(
 // TODO: Use the length property to find how many items are in the fruits array
 // Store the result in a variable called 'fruitCount'
 // Write your code here:
+fruitCount = fruits.length;
 
 // TODO: Use the indexOf() method to find the position of 'cherry' in fruits
 // Store the result in a variable called 'cherryPosition'
 // Write your code here:
+cherryPosition = fruits.indexOf('cherry');
 
 // Test (uncomment to see results):
-// console.log('Number of fruits:', fruitCount);
-// console.log('Cherry is at position:', cherryPosition);
+console.log('Number of fruits:', fruitCount);
+console.log('Cherry is at position:', cherryPosition);
 
 // ============================================
 // BONUS CHALLENGE
@@ -86,7 +93,16 @@ numbers.find(
 // Then use THREE different array methods on it and log the results
 
 // Write your bonus code here:
+const colors = ['red', 'blue', 'green', 'yellow'];
 
+colors.push('purple');
+console.log(colors);
+
+colorsMap = colors.map(val => val.length > 4);
+console.log(colorsMap);
+
+colorsFilter = colors.filter(val => val.length > 4);
+console.log(colorsFilter);
 // Notes for beginners:
 // - push() adds to the end, pop() removes from the end
 // - find() returns the first matching element
