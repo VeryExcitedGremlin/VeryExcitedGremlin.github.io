@@ -52,7 +52,9 @@ function handleInput(input) {
   // you may need to use parseFloat
   // use typeof to check data types
   // console.log(typeof(parseFloat(input)));
-  if (["+", "-", "*", "/",'=','.'].includes(input)) {
+  
+  // if (["+", "-", "*", "/",'=','.'].includes(input)) {
+  if (["+", "-", "*", "/",'='].includes(input)) {
     handleOperator(input);
   } else if (['C','CE'].includes(input)) {
     resetCalculator(input);
@@ -79,17 +81,18 @@ function handleNumber(number) {
   // for example, if we have the number 9 already and are adding another 9
   // Consider: Are we starting fresh? Continuing a number?
   if (savedOperator) {resetCalculator('CE');}
-  if (decimal) {
-    decimalCount++
-    console.log(decimalCount)
-    console.log(10 ** decimalCount);
-    console.log(number / (10**decimalCount));
-    num2 = num2 + (number/(decimalCount*10))
-  } else {
+  // if (decimal) {
+  //   decimalCount++
+  //   console.log(decimalCount)
+  //   console.log(10 ** decimalCount);
+  //   console.log(number / (10**decimalCount));
+  //   num2 = num2 + (number/(decimalCount*10))
+  // } else {
+
     // console.log(`num2: ${num2}`);
     num2 = num2 * 10 + number;
     // console.log(`num2: ${num2}`);
-  }
+  // }
   setDisplay(num2);
 
   // if (operatorKnown == false) {
@@ -118,9 +121,10 @@ function handleOperator(nextOperator) {
   // Store the operator
   // Store the first number
   // Prepare for the second number input
-  if (decimal && nextOperator !== '.') {
-    decimal = false;
-  }
+
+  // if (decimal && nextOperator !== '.') {
+  //   decimal = false;
+  // }
   if (nextOperator == "=") {
     if (savedOperator) {
       executeOperation(savedOperator);
@@ -131,10 +135,10 @@ function handleOperator(nextOperator) {
     }else {
       num2 = 0;
     } 
-  } else if (nextOperator == "." && !decimal) {
-    decimal = true;
-    decimalCount = 0;
-  } else {
+  } //else if (nextOperator == "." && !decimal) {
+  //   decimal = true;
+  //   decimalCount = 0;
+  // } else {
     if (operator) {
       executeOperation(operator);
     } else if (!savedOperator) {
@@ -143,7 +147,7 @@ function handleOperator(nextOperator) {
     operator = nextOperator;
     savedOperator = "";
     num2 = 0;
-  }
+  // }
   // setDisplay(num1);
   console.log("Operator handled");
 }
