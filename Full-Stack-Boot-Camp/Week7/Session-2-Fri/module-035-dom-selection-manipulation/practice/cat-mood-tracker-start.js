@@ -16,42 +16,46 @@ const catNames = [
 // TODO: DOM Selection Methods Practice
 // Select important elements using querySelector() and querySelectorAll()
 
-const catGrid = null; // TODO: Select the cat grid container
-const addCatBtn = null; // TODO: Select the "Add New Cat" button
-const prependCatBtn = null; // TODO: Select the "Add Cat to Start" button
-const removeLastCatBtn = null; // TODO: Select the "Remove Last Cat" button
-const makeAllHappyBtn = null; // TODO: Select "Make All Happy" button
-const makeAllGrumpyBtn = null; // TODO: Select "Make All Grumpy" button
-const randomMoodsBtn = null; // TODO: Select "Random Moods" button
+const catGrid = document.querySelector('.cat-grid'); // TODO: Select the cat grid container
+const addCatBtn = document.querySelector('#add-cat-btn'); // TODO: Select the "Add New Cat" button
+// addCatBtn.style.color = 'red';
+const prependCatBtn = document.querySelector("#prepend-cat-btn"); // TODO: Select the "Add Cat to Start" button
+const removeLastCatBtn = document.querySelector("#remove-last-cat-btn"); // TODO: Select the "Remove Last Cat" button
+const makeAllHappyBtn = document.querySelector("#make-all-happy-btn"); // TODO: Select "Make All Happy" button
+const makeAllGrumpyBtn = document.querySelector("#make-all-grumpy-btn"); // TODO: Select "Make All Grumpy" button
+const randomMoodsBtn = document.querySelector("#random-moods-btn"); // TODO: Select "Random Moods" button
 
 // Stats elements
-const happyCountDisplay = null; // TODO: Select happy count display
-const grumpyCountDisplay = null; // TODO: Select grumpy count display
-const sleepyCountDisplay = null; // TODO: Select sleepy count display
+const happyCountDisplay = document.querySelector("#happy-count"); // TODO: Select happy count display
+const grumpyCountDisplay = document.querySelector("#grumpy-count"); // TODO: Select grumpy count display
+const sleepyCountDisplay = document.querySelector("sleepy-count"); // TODO: Select sleepy count display
 
 // Demo elements
-const demoOutput = null; // TODO: Select demo output area
-const demoElementBtn = null; // TODO: Select element demo button
-const demoNodeListBtn = null; // TODO: Select NodeList demo button
-const demoHtmlCollectionBtn = null; // TODO: Select HTMLCollection demo button
+// const demoOutput = null; // TODO: Select demo output area
+// const demoElementBtn = null; // TODO: Select element demo button
+// const demoNodeListBtn = null; // TODO: Select NodeList demo button
+// const demoHtmlCollectionBtn = null; // TODO: Select HTMLCollection demo button
 
 // TODO: Element Content Manipulation
 function changeCatMood(button, newMood) {
   // TODO: Find the parent cat card
-  const catCard = null; // TODO: Use closest() or parentElement to find cat card
+  const catCard = button.closest('.cat-card'); // TODO: Use closest() or parentElement to find cat card
 
   // TODO: Find elements within the cat card to update
-  const catFace = null; // TODO: Find the cat face element
-  const catMoodText = null; // TODO: Find the cat mood text element
+  const catFace = catCard.querySelector('.cat-face'); // TODO: Find the cat face element
+  const catMoodText = catCard.querySelector('.cat-mood'); // TODO: Find the cat mood text element
 
   // TODO: Update the cat face emoji using textContent
   // Happy: 😸, Grumpy: 😾, Sleepy: 😴
-
+  catFace.textContent = newMood =='happy' ? '😸' 
+                      : newMood =='grumpy' ? '😾'
+                      : '😴';
   // TODO: Update the mood text using textContent
   // Capitalize first letter: 'happy' -> 'Happy'
-
+  catMoodText.textConetent =
+    newMood == "happy" ? "Happy" : newMood == "grumpy" ? "Grumpy" : "Sleepy";
   // TODO: Update the card's data attribute using setAttribute() - i.e. data-mood
-
+  catCard.setAttribute('data-mood', newMood);
   // TODO: Update the card's CSS class using classList
   // Remove old mood classes, add new mood class
 
