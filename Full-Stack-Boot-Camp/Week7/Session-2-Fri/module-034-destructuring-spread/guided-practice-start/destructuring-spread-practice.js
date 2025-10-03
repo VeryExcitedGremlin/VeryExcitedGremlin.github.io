@@ -4,13 +4,13 @@
 
 // Starting data
 const person = {
-    firstName: 'Sarah',
-    lastName: 'Johnson',
-    age: 28,
-    city: 'New York'
+  firstName: "Sarah",
+  lastName: "Johnson",
+  age: 28,
+  city: "New York",
 };
 
-const colors = ['red', 'green', 'blue'];
+const colors = ["red", "green", "blue"];
 const numbers = [1, 2, 3, 4, 5];
 
 // ============================================
@@ -20,19 +20,18 @@ const numbers = [1, 2, 3, 4, 5];
 // TODO: Use destructuring to extract firstName and age from the person object
 // Store them in variables with the same names
 // Write your code here:
-const {firstName, age} = person;
-console.log(firstName)
-console.log(age)
+const { firstName, age } = person;
+console.log(firstName);
+console.log(age);
 
 // TODO: Use destructuring with renaming to extract city as 'location'
 // Write your code here:
-
+const {city: location} = person;
 
 // Test (uncomment to see results):
-// console.log('First Name:', firstName);
-// console.log('Age:', age);
-// console.log('Location:', location);
-
+console.log('First Name:', firstName);
+console.log('Age:', age);
+console.log('Location:', location);
 
 // ============================================
 // PART 2: Array Destructuring Basics
@@ -41,83 +40,79 @@ console.log(age)
 // TODO: Use destructuring to get the first and second colors
 // Store them in variables called 'primaryColor' and 'secondaryColor'
 // Write your code here:
-
+const [primaryColor, secondaryColor] = colors;
 
 // TODO: Use destructuring to get the first number and skip the second,
 // then get the third number. Store as 'first' and 'third'
 // Write your code here:
-
+const [first, , third] = numbers;
 
 // Test (uncomment to see results):
-// console.log('Primary Color:', primaryColor);
-// console.log('Secondary Color:', secondaryColor);
-// console.log('First Number:', first);
-// console.log('Third Number:', third);
-
+console.log('Primary Color:', primaryColor);
+console.log('Secondary Color:', secondaryColor);
+console.log('First Number:', first);
+console.log('Third Number:', third);
 
 // ============================================
 // PART 3: Spread Operator with Arrays
 // ============================================
 
-const moreColors = ['yellow', 'purple'];
+const moreColors = ["yellow", "purple"];
 
 // TODO: Use the spread operator to combine colors and moreColors into a new array
 // Store the result in a variable called 'allColors'
 // Write your code here:
-
+allColors = [...colors, ...moreColors];
 
 const newNumbers = [6, 7, 8];
 
 // TODO: Use the spread operator to create an array that has:
 // numbers first, then newNumbers. Store as 'combinedNumbers'
 // Write your code here:
-
+combinedNumbers = [...numbers, ...newNumbers];
 
 // Test (uncomment to see results):
-// console.log('All Colors:', allColors);
-// console.log('Combined Numbers:', combinedNumbers);
-
+console.log('All Colors:', allColors);
+console.log('Combined Numbers:', combinedNumbers);
 
 // ============================================
 // PART 4: Spread Operator with Objects
 // ============================================
 
 const address = {
-    street: '123 Main St',
-    zipCode: '10001'
+  street: "123 Main St",
+  zipCode: "10001",
 };
 
 // TODO: Use the spread operator to create a new object that combines
 // person and address. Store as 'fullProfile'
 // Write your code here:
-
+fullProfile = {...person, ...address};
 
 // TODO: Use the spread operator to create a copy of person but change the age to 29
 // Store as 'updatedPerson'
 // Write your code here:
-
+updatedPerson = {...person, age: 29};
 
 // Test (uncomment to see results):
-// console.log('Full Profile:', fullProfile);
-// console.log('Updated Person:', updatedPerson);
-// console.log('Original Person:', person); // Should be unchanged
-
+console.log('Full Profile:', fullProfile);
+console.log('Updated Person:', updatedPerson);
+console.log('Original Person:', person); // Should be unchanged
 
 // ============================================
 // PART 5: Rest Parameter
 // ============================================
 
-const fruits = ['apple', 'banana', 'cherry', 'date', 'elderberry'];
+const fruits = ["apple", "banana", "cherry", "date", "elderberry"];
 
 // TODO: Use destructuring with rest parameter to get the first fruit
 // and put the remaining fruits in a 'restOfFruits' array
 // Write your code here:
-
+const [firstFruit, ...restOfFruits] = fruits;
 
 // Test (uncomment to see results):
-// console.log('First Fruit:', /* your first fruit variable */);
-// console.log('Rest of Fruits:', restOfFruits);
-
+console.log("First Fruit:", firstFruit);
+console.log('Rest of Fruits:', restOfFruits);
 
 // ============================================
 // BONUS CHALLENGE
@@ -129,11 +124,15 @@ const fruits = ['apple', 'banana', 'cherry', 'date', 'elderberry'];
 // Example: greetPerson({name: "Tom", age: 25}) returns "Hello Tom, you are 25 years old"
 
 // Write your function here:
+function greetPerson ({name, age}) {
+    greeting = `Hello ${name}, you are ${age} years old`;
+    console.log(greeting);
+    return greeting;
+}
 
 
 // Test your function (uncomment to test):
-// console.log(greetPerson({name: "Alice", age: 30}));
-
+console.log(greetPerson({name: "Alice", age: 30}));
 
 // Notes for beginners:
 // - Destructuring extracts values from objects/arrays into variables
