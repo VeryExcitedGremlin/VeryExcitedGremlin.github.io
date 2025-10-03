@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage Practice</title>
+    <link rel="stylesheet" href="localstorage-demo-start.css">
+</head>
+<body>
+    <div class="container">
+        <h1>LocalStorage Demo</h1>
+        
+        <section class="storage-controls">
+            <h2>Storage Operations</h2>
+            
+            <div class="input-group">
+                <label for="key-input">Key:</label>
+                <input type="text" id="key-input" placeholder="Enter key name">
+            </div>
+            
+            <div class="input-group">
+                <label for="value-input">Value:</label>
+                <input type="text" id="value-input" placeholder="Enter value">
+            </div>
+            
+            <div class="button-group">
+                <button id="set-btn">Set Item</button>
+                <button id="get-btn">Get Item</button>
+                <button id="remove-btn">Remove Item</button>
+                <button id="clear-btn">Clear All</button>
+            </div>
+        </section>
+        
+        <section class="display-section">
+            <h2>Storage Contents</h2>
+            <div id="output">
+                <p>No items in storage</p>
+            </div>
+        </section>
+        
+        <section class="preferences-section">
+            <h2>User Preferences</h2>
+            <div class="preference-group">
+                <label for="theme-select">Theme:</label>
+                <select id="theme-select">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+            </div>
+            
+            <div class="preference-group">
+                <label for="username-input">Username:</label>
+                <input type="text" id="username-input" placeholder="Enter username">
+            </div>
+            
+            <button id="save-preferences-btn">Save Preferences</button>
+        </section>
+    </div>
+    
+    <script src="localstorage-demo-start.js"></script>
+</body>
+</html>

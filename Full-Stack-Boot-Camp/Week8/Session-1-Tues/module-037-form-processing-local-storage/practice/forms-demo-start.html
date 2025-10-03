@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms Processing Practice</title>
+    <link rel="stylesheet" href="forms-demo-start.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Form Processing Demo</h1>
+        
+        <section class="form-section">
+            <h2>User Registration Form</h2>
+            
+            <form id="registration-form">
+                <div class="input-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                    <span class="error-message" id="username-error"></span>
+                </div>
+                
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <span class="error-message" id="email-error"></span>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <span class="error-message" id="password-error"></span>
+                </div>
+                
+                <div class="input-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" min="13" max="120">
+                    <span class="error-message" id="age-error"></span>
+                </div>
+                
+                <div class="input-group">
+                    <label for="country">Country:</label>
+                    <select id="country" name="country">
+                        <option value="">Select a country</option>
+                        <option value="us">United States</option>
+                        <option value="ca">Canada</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="de">Germany</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label>
+                        <input type="checkbox" id="terms" name="terms" required>
+                        I agree to the terms and conditions
+                    </label>
+                    <span class="error-message" id="terms-error"></span>
+                </div>
+                
+                <button type="submit">Register</button>
+                <button type="reset">Reset Form</button>
+            </form>
+        </section>
+        
+        <section class="output-section">
+            <h2>Form Data</h2>
+            <div id="form-output">
+                <p>Submit the form to see the data here</p>
+            </div>
+        </section>
+        
+        <section class="formdata-section">
+            <h2>FormData API Demo</h2>
+            <button id="show-formdata">Show FormData Contents</button>
+            <button id="add-extra-data">Add Extra Data</button>
+            <div id="formdata-output">
+                <p>Use buttons above to see FormData in action</p>
+            </div>
+        </section>
+    </div>
+    
+    <script src="forms-demo-start.js"></script>
+</body>
+</html>

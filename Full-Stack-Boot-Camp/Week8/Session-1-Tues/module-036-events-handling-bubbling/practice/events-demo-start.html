@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling Practice</title>
+    <link rel="stylesheet" href="events-demo-start.css">
+</head>
+<body>
+    <h1>Event Handling & Bubbling Demo</h1>
+    
+    <!-- Event delegation container -->
+    <div class="container" id="container">
+        <h3>Container (Event Delegation)</h3>
+        <div class="box" id="box">
+            <h4>Box (Event Target)</h4>
+            <button id="btn1">Click Me</button>
+            <button id="btn2">Or Me</button>
+            <button id="btn3">Add New Button</button>
+        </div>
+    </div>
+
+    <!-- Form for preventDefault demo -->
+    <form id="demo-form">
+        <input type="text" id="text-input" placeholder="Type something...">
+        <input type="submit" value="Submit (prevented)">
+    </form>
+
+    <!-- Remove listener demo -->
+    <button id="remove-listener-btn">Remove My Listener</button>
+
+    <div id="output">
+        <strong>Event Log:</strong><br>
+    </div>
+
+    <script src="events-demo-start.js"></script>
+</body>
+</html>
