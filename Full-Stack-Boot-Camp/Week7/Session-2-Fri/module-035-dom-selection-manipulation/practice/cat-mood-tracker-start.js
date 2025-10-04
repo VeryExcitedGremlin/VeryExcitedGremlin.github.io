@@ -38,6 +38,8 @@ const sleepyCountDisplay = document.querySelector("sleepy-count"); // TODO: Sele
 
 // TODO: Element Content Manipulation
 function changeCatMood(button, newMood) {
+  console.log(button);
+  console.log(newMood);
   // TODO: Find the parent cat card
   const catCard = button.closest('.cat-card'); // TODO: Use closest() or parentElement to find cat card
 
