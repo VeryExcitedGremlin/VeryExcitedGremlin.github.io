@@ -38,23 +38,23 @@ const sleepyCountDisplay = document.querySelector("sleepy-count"); // TODO: Sele
 
 // TODO: Element Content Manipulation
 function changeCatMood(button, newMood) {
-  console.log(button);
-  console.log(newMood);
+  // console.log(button);
+  // console.log(newMood);
   // TODO: Find the parent cat card
   const catCard = button.closest('.cat-card'); // TODO: Use closest() or parentElement to find cat card
-
+  // console.log(catCard);
   // TODO: Find elements within the cat card to update
   const catFace = catCard.querySelector('.cat-face'); // TODO: Find the cat face element
   const catMoodText = catCard.querySelector('.cat-mood'); // TODO: Find the cat mood text element
-
+  // console.log(catFace);
+  // console.log(catMoodText);
   // TODO: Update the cat face emoji using textContent
   // Happy: 😸, Grumpy: 😾, Sleepy: 😴
-  catFace.textContent = newMood =='happy' ? '😸' 
-                      : newMood =='grumpy' ? '😾'
-                      : '😴';
+  catFace.textContent =
+    newMood == "happy" ? "😸" : newMood == "grumpy" ? "😾" : "😴";
   // TODO: Update the mood text using textContent
   // Capitalize first letter: 'happy' -> 'Happy'
-  catMoodText.textConetent =
+  catMoodText.textContent =
     newMood == "happy" ? "Happy" : newMood == "grumpy" ? "Grumpy" : "Sleepy";
   // TODO: Update the card's data attribute using setAttribute() - i.e. data-mood
   catCard.setAttribute('data-mood', newMood);
@@ -68,7 +68,7 @@ function changeCatMood(button, newMood) {
 // TODO: DOM Structure Manipulation
 function addNewCat() {
   // TODO: Create a new cat card element using createElement()
-  const newCatCard = null; // TODO: Create div element
+  const newCatCard = createElement('div'); // TODO: Create div element
 
   // TODO: Generate random cat data
   const moods = ["happy", "grumpy", "sleepy"];
