@@ -12,6 +12,9 @@ const catNames = [
   "Professor Meowington",
   "Duchess Fuzzycoat",
 ];
+  
+const moodEmojis = { happy: "😸", grumpy: "😾", sleepy: "😴" };
+const updateMood = { 'happy': 'Happy', 'grumpy': 'Grumpy', 'sleepy': 'Sleepy'};
 
 // TODO: DOM Selection Methods Practice
 // Select important elements using querySelector() and querySelectorAll()
@@ -50,12 +53,11 @@ function changeCatMood(button, newMood) {
   // console.log(catMoodText);
   // TODO: Update the cat face emoji using textContent
   // Happy: 😸, Grumpy: 😾, Sleepy: 😴
-  catFace.textContent =
-    newMood == "happy" ? "😸" : newMood == "grumpy" ? "😾" : "😴";
+  catFace.textContent = moodEmojis[newMood];
   // TODO: Update the mood text using textContent
   // Capitalize first letter: 'happy' -> 'Happy'
-  catMoodText.textContent =
-    newMood == "happy" ? "Happy" : newMood == "grumpy" ? "Grumpy" : "Sleepy";
+  catMoodText.textContent = updateMood[newMood];
+  
   // TODO: Update the card's data attribute using setAttribute() - i.e. data-mood
   catCard.setAttribute('data-mood', newMood);
   // TODO: Update the card's CSS class using classList
@@ -72,31 +74,31 @@ function addNewCat() {
 
   // TODO: Generate random cat data
   const moods = ["happy", "grumpy", "sleepy"];
-  const moodEmojis = { happy: "😸", grumpy: "😾", sleepy: "😴" };
   const randomName = getRandomItem(catNames);
   const randomMood = getRandomItem(moods);
 
   const moodText = capitalizeFirstLetter(randomMood);
 
   // TODO: Set up the new cat card
-  // use CreateElment
   // Add CSS class using classList.add()
   // Set data attribute using setAttribute()
   // Set innerHTML with cat content
+  newCatCard.classList.add('cat-card');
+  newCatCard.setAttribute('data-mood', randomMood);
 
   // Example of using template literals
   // to create html structure (much faster than)
   // doing it with createElement etc
-  //   const cardHTML = `
-  //         <div class="cat-face">${moodEmojis[randomMood]}</div>
-  //         <h3 class="cat-name">${randomName}</h3>
-  //         <p class="cat-mood">${moodText}</p>
-  //         <div class="mood-buttons">
-  //             <button onclick="changeCatMood(this, 'happy')">😸 Happy</button>
-  //             <button onclick="changeCatMood(this, 'grumpy')">😾 Grumpy</button>
-  //             <button onclick="changeCatMood(this, 'sleepy')">😴 Sleepy</button>
-  //         </div>
-  //     `;
+    const cardHTML = `
+          <div class="cat-face">${moodEmojis[randomMood]}</div>
+          <h3 class="cat-name">${randomName}</h3>
+          <p class="cat-mood">${moodText}</p>
+          <div class="mood-buttons">
+              <button onclick="changeCatMood(this, 'happy')">😸 Happy</button>
+              <button onclick="changeCatMood(this, 'grumpy')">😾 Grumpy</button>
+              <button onclick="changeCatMood(this, 'sleepy')">😴 Sleepy</button>
+          </div>
+      `;
 
   // TODO: Set innerHTML and append to catGrid using appendChild()
 
