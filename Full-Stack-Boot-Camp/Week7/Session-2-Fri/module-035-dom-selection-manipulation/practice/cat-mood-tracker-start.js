@@ -14,7 +14,8 @@ const catNames = [
 ];
   
 const moodEmojis = { happy: "😸", grumpy: "😾", sleepy: "😴" };
-const updateMood = { 'happy': 'Happy', 'grumpy': 'Grumpy', 'sleepy': 'Sleepy'};
+const moods = ["happy", "grumpy", "sleepy"];
+// const updateMood = { 'happy': 'Happy', 'grumpy': 'Grumpy', 'sleepy': 'Sleepy'};
 
 // TODO: DOM Selection Methods Practice
 // Select important elements using querySelector() and querySelectorAll()
@@ -26,12 +27,13 @@ const prependCatBtn = document.querySelector("#prepend-cat-btn"); // TODO: Selec
 const removeLastCatBtn = document.querySelector("#remove-last-cat-btn"); // TODO: Select the "Remove Last Cat" button
 const makeAllHappyBtn = document.querySelector("#make-all-happy-btn"); // TODO: Select "Make All Happy" button
 const makeAllGrumpyBtn = document.querySelector("#make-all-grumpy-btn"); // TODO: Select "Make All Grumpy" button
+const makeAllSleepyBtn = document.querySelector("#make-all-sleepy-btn"); // TODO: Select "Make All Sleepy" button
 const randomMoodsBtn = document.querySelector("#random-moods-btn"); // TODO: Select "Random Moods" button
 
 // Stats elements
 const happyCountDisplay = document.querySelector("#happy-count"); // TODO: Select happy count display
 const grumpyCountDisplay = document.querySelector("#grumpy-count"); // TODO: Select grumpy count display
-const sleepyCountDisplay = document.querySelector("sleepy-count"); // TODO: Select sleepy count display
+const sleepyCountDisplay = document.querySelector("#sleepy-count"); // TODO: Select sleepy count display
 
 // Demo elements
 // const demoOutput = null; // TODO: Select demo output area
@@ -56,7 +58,7 @@ function changeCatMood(button, newMood) {
   catFace.textContent = moodEmojis[newMood];
   // TODO: Update the mood text using textContent
   // Capitalize first letter: 'happy' -> 'Happy'
-  catMoodText.textContent = updateMood[newMood];
+  catMoodText.textContent = capitalizeFirstLetter(newMood);
   
   // TODO: Update the card's data attribute using setAttribute() - i.e. data-mood
   catCard.setAttribute('data-mood', newMood);
@@ -67,13 +69,11 @@ function changeCatMood(button, newMood) {
   updateMoodStatistics();
 }
 
-// TODO: DOM Structure Manipulation
-function addNewCat() {
+function createNewCat() {
   // TODO: Create a new cat card element using createElement()
   const newCatCard = document.createElement("div"); // TODO: Create div element
 
   // TODO: Generate random cat data
-  const moods = ["happy", "grumpy", "sleepy"];
   const randomName = getRandomItem(catNames);
   const randomMood = getRandomItem(moods);
 
@@ -94,40 +94,29 @@ function addNewCat() {
           <h3 class="cat-name">${randomName}</h3>
           <p class="cat-mood">${moodText}</p>
           <div class="mood-buttons">
-              <button onclick="changeCatMood(this, 'happy')">😸 Happy</button>
-              <button onclick="changeCatMood(this, 'grumpy')">😾 Grumpy</button>
-              <button onclick="changeCatMood(this, 'sleepy')">😴 Sleepy</button>
+            <button onclick="changeCatMood(this, 'happy')">😸 Happy</button>
+            <button onclick="changeCatMood(this, 'grumpy')">😾 Grumpy</button>
+            <button onclick="changeCatMood(this, 'sleepy')">😴 Sleepy</button>
+            <button onclick="removeCat(this)" class="remove-btn">🗑️ Remove</button>
           </div>
       `;
 
   // TODO: Set innerHTML and append to catGrid using appendChild()
   newCatCard.innerHTML = cardHTML;
-  catGrid.appendChild(newCatCard);
+  return newCatCard;
+}
 
+// TODO: DOM Structure Manipulation
+function addNewCat() {
+  catGrid.appendChild(createNewCat());
   // TODO: Update statistics
   updateMoodStatistics();
 }
 
 // TODO: Add cat to the beginning of the list
 function addCatToStart() {
-  // TODO: Create a new cat card element using createElement()
-  const newCatCard = null; // TODO: Create div element
-
-  // TODO: Generate random cat data
-  const moods = ["happy", "grumpy", "sleepy"];
-  const moodEmojis = { happy: "😸", grumpy: "😾", sleepy: "😴" };
-  const randomName = getRandomItem(catNames);
-  const randomMood = getRandomItem(moods);
-
-  const moodText = capitalizeFirstLetter(randomMood);
-
-  // TODO: Set up the new cat card
-  // Add CSS class using classList.add()
-  // Set data attribute using setAttribute()
-  // Set innerHTML with cat content
-
   // TODO: Use prepend() to add the cat to the beginning of catGrid
-
+  catGrid.prepend(createNewCat());
   // TODO: Update statistics
   updateMoodStatistics();
 }
@@ -135,13 +124,15 @@ function addCatToStart() {
 // TODO: Remove the last cat from the list
 function removeLastCat() {
   // TODO: Get all cat cards using querySelectorAll()
-  const allCats = null;
-
+  const allCats = document.querySelectorAll('.cat-card');
+  Length = allCats.length;
   // TODO: Check if there are any cats to remove
-  // if (allCats.length > 0) {
-  // TODO: Get the last cat card
-  // TODO: Remove it from the DOM using remove()
-  // }
+  if (Length > 0) {
+    // TODO: Get the last cat card
+    // TODO: Remove it from the DOM using remove()
+    // console.log(allCats[Length - 1]);
+    allCats[Length - 1].remove();
+  }
 
   // TODO: Update statistics
   updateMoodStatistics();
@@ -150,41 +141,57 @@ function removeLastCat() {
 // TODO: Remove individual cat (called from onclick in HTML)
 function removeCat(button) {
   // TODO: Find the parent cat card using closest()
-  const catCard = null; // TODO: Use closest('.cat-card') to find parent
-
+  const catCard = button.closest('.cat-card'); // TODO: Use closest('.cat-card') to find parent
+  // console.log(catCard);
   // TODO: Remove the cat card from the DOM
-  // catCard.remove();
+  catCard.remove();
 
   // TODO: Update statistics
   updateMoodStatistics();
 }
 
 // TODO: Attribute and Style Manipulation
-function makeAllCatsHappy() {
+function makeAllCats(newMood) {
   // TODO: Get all cat cards using querySelectorAll()
-  const allCats = null;
-
+  const allCats = document.querySelectorAll('.cat-card');
+  // console.log(allCats);
   // TODO: Loop through each cat card
-  // Update face emoji, mood text, data attribute, and CSS classes
-
   // TODO: Use forEach() to iterate through NodeList
+  allCats.forEach((card) => {
 
+  // Update face emoji, mood text, data attribute, and CSS classes
+    card.querySelector(".cat-face").textContent = moodEmojis[newMood];
+    card.querySelector('.cat-mood').textContent = capitalizeFirstLetter(newMood);
+    card.setAttribute('data-mood', newMood);
+  });
   // TODO: Update statistics
   updateMoodStatistics();
 }
 
-function makeAllCatsGrumpy() {
-  // TODO: Similar to makeAllCatsHappy but make them grumpy
-  // Practice using querySelectorAll() and forEach()
+function makeAllCatsHappy() {
+  makeAllCats('happy');
+}
 
-  // TODO: Update statistics
-  updateMoodStatistics();
+function makeAllCatsGrumpy() {
+  makeAllCats("grumpy");
+}
+
+function makeAllCatsSleepy() {
+  makeAllCats("sleepy");
 }
 
 function randomizeCatMoods() {
   // TODO: Get all cat cards
+  const allCats = document.querySelectorAll(".cat-card");
   // TODO: Loop through and assign random moods
-  // TODO: Update each cat's display
+  allCats.forEach((card) => {
+    // TODO: Update each cat's display
+    const randomMood = getRandomItem(moods);
+
+    card.querySelector(".cat-face").textContent = moodEmojis[randomMood];
+    card.querySelector(".cat-mood").textContent = capitalizeFirstLetter(randomMood);
+    card.setAttribute("data-mood", randomMood);
+  });
   // TODO: Update statistics
 
   updateMoodStatistics();
@@ -193,14 +200,17 @@ function randomizeCatMoods() {
 // TODO: Practical DOM Applications
 function updateMoodStatistics() {
   // TODO: Count cats by mood using querySelectorAll()
-  const happyCats = null; // TODO: Count cats with data-mood="happy"
-  const grumpyCats = null; // TODO: Count cats with data-mood="grumpy"
-  const sleepyCats = null; // TODO: Count cats with data-mood="sleepy"
-
+  const happyCats = document.querySelectorAll('[data-mood="happy"]'); // TODO: Count cats with data-mood="happy"
+  const grumpyCats = document.querySelectorAll('[data-mood="grumpy"]'); // TODO: Count cats with data-mood="grumpy"
+  const sleepyCats = document.querySelectorAll('[data-mood="sleepy"]'); // TODO: Count cats with data-mood="sleepy"
+  
+  // console.log(sleepyCats);
+  // console.log(sleepyCountDisplay);
+  
   // TODO: Update the stat displays using textContent
-  // happyCountDisplay.textContent = happyCats.length;
-  // grumpyCountDisplay.textContent = grumpyCats.length;
-  // sleepyCountDisplay.textContent = sleepyCats.length;
+  happyCountDisplay.textContent = happyCats.length;
+  grumpyCountDisplay.textContent = grumpyCats.length;
+  sleepyCountDisplay.textContent = sleepyCats.length;
 }
 
 //Helper Functions - Do not edit
@@ -244,6 +254,8 @@ function setupEventListeners() {
     makeAllHappyBtn.addEventListener("click", makeAllCatsHappy);
   if (makeAllGrumpyBtn)
     makeAllGrumpyBtn.addEventListener("click", makeAllCatsGrumpy);
+  if (makeAllSleepyBtn)
+    makeAllSleepyBtn.addEventListener("click", makeAllCatsSleepy);
   if (randomMoodsBtn)
     randomMoodsBtn.addEventListener("click", randomizeCatMoods);
 
