@@ -1,0 +1,10 @@
+{
+  "color": "blue",
+  "year": 2010,
+  "canDrive": true,
+  "glovebox": ["insurance", "mints"],
+  "engine": {
+    "hp": 180,
+    "liters": 1.8
+  }
+}

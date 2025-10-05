@@ -1,0 +1,9 @@
+{
+  "key": "value",
+  "numbers": 200,
+  "boolean": true,
+  "nestedObjects": {
+    "key2": "value2"
+  },
+  "arrays": [1,2,3,4,5]
+}
