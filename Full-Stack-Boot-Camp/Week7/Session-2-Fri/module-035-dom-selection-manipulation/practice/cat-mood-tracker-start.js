@@ -70,7 +70,7 @@ function changeCatMood(button, newMood) {
 // TODO: DOM Structure Manipulation
 function addNewCat() {
   // TODO: Create a new cat card element using createElement()
-  const newCatCard = createElement('div'); // TODO: Create div element
+  const newCatCard = document.createElement("div"); // TODO: Create div element
 
   // TODO: Generate random cat data
   const moods = ["happy", "grumpy", "sleepy"];
@@ -101,6 +101,8 @@ function addNewCat() {
       `;
 
   // TODO: Set innerHTML and append to catGrid using appendChild()
+  newCatCard.innerHTML = cardHTML;
+  catGrid.appendChild(newCatCard);
 
   // TODO: Update statistics
   updateMoodStatistics();
