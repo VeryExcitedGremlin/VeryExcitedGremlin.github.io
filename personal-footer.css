@@ -10,4 +10,14 @@
 
 .bookend a {
     display: block;
+    text-decoration: none;
+    margin-top: 0.5em;
+}
+
+.bookend a:hover {
+    text-decoration: underline;
+}
+
+.bookend a:active {
+    text-decoration: underline;
 }
