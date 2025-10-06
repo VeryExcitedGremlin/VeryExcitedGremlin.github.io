@@ -1,0 +1,80 @@
+body {
+    background-color: rgb(243, 197, 255);
+}
+
+/* header h1 {
+    float: left;
+}
+
+#heading a {
+    width: fit-content;
+    display: inline-block;
+} */
+
+#heading h1 {
+    height: fit-content;
+}
+
+#heading {
+    position: sticky;
+    top: 0.5em;
+    z-index: 2;
+}
+
+#bootcamp {
+    margin-top: 4em;
+}
+
+section {
+    margin: 3em 0;
+}
+
+h2, h3 {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+/* h2 {
+    text-align: center;
+    margin: 1em 0;
+} */
+
+p {
+    color: black;
+}
+
+#guided-practice, .card-body, #projects, .cardContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    margin: 10px;
+    filter: drop-shadow(0em 0em 0.5em rgba(0, 0, 0, 0.205));
+    transition-property: transform, filter;
+    transition-duration: 0.5s;
+}
+.card:hover, .catd:active {
+    transform: translateY(-2em);
+    filter: drop-shadow(0em 2em 1em rgba(0, 0, 0, 0.205));
+}
+
+/* :root {
+    --bs-accordion-border-color: rgb(159, 95, 219);
+} */
+
+.accordion ul {
+    margin-left: 3em;
+    margin-right: 2em;
+}
+
+.accordion-item, #projects .row {
+    width: 90vw;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: rgb(159, 95, 219);
+    /* background-color: rgb(159, 95, 219); */
+}
+.accordion-button:focus {box-shadow: none;}

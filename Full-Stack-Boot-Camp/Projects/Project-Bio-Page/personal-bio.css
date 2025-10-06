@@ -1,4 +1,7 @@
-body {font-size: .8vw;}
+body {
+    font-size: .8vw;
+    background-color: rgb(243, 197, 255);
+}
 
 header {
     position: sticky;
@@ -21,10 +24,6 @@ header nav {
 
 header nav a {
     padding: 1em;
-}
-
-body {
-    background-color: rgb(240, 182, 255);
 }
 
 #about-head {
