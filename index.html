@@ -19,18 +19,18 @@
         <h1 class="col-xl-5">Ashton's Projects</h1>
         <div class="col-xl-7 justify-content-xl-end">
             <nav class="row justify-content-center">
-                <div class="navSection col-sm-5 col-md-4 col-lg-3 col-xl-5">
+                <div class="navSection col-6 col-sm-5 col-md-4 col-lg-3 col-xl-5">
                     <a class="" href="#bootcamp"><h5>Full Stack Boot Camp</h5></a>
                     <div class="row justify-content-center">
-                        <a class="col-xl-4" href="#projects">Projects</a>
-                        <a class="col-xl-6" href="#guided-practice">Guided Practice</a>
+                        <a class="navLeft col-xl-4" href="#projects">Projects</a>
+                        <a class="navRight col-xl-6" href="#guided-practice">Guided Practice</a>
                     </div>
                 </div>
-                <div class="navSection col-sm-5 col-md-4 col-lg-3 col-xl-7">
+                <div class="navSection col-6 col-sm-5 col-md-4 col-lg-3 col-xl-7">
                     <a class="" href="#otherLinks"><h5>Other Links</h5></a>
                     <div class="row justify-content-center">
-                        <a class="col-xl-6 col-xxl-5" href="#codecademy-projects">Codecademy Projects</a>
-                        <a class="col-xl-5 col-xxl-4" href="#repo">Code Repository</a>
+                        <a class="navLeft col-xl-6 col-xxl-5" href="#codecademy-projects">Codecademy Projects</a>
+                        <a class="navRight col-xl-5 col-xxl-4" href="#repo">Code Repository</a>
                     </div>
                 </div>
             </nav>
@@ -42,8 +42,8 @@
         <section id="projects">
             <h3>Projects</h3>
             <div class="row">
-                <div class="cardContainer col-lg-4 col-md-6">
-                    <div class="card" style="width: 18rem;">
+                <div class="cardContainer col-lg-6 col-xl-4">
+                    <div class="card">
                         <img src="Carousel/personalBio.JPG" class="card-img-top" alt="Bio Page Preview">
                         <div class="card-body">
                             <h4>Personal Bio Page</h4>
@@ -53,8 +53,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="cardContainer col-lg-4 col-md-6">
-                    <div class="card" style="width: 18rem;">
+                <div class="cardContainer col-lg-6 col-xl-4">
+                    <div class="card">
                         <img src="Carousel/styledLandingPage.JPG" class="card-img-top" alt="Styled Landing Page Preview">
                         <div class="card-body">
                             <h4>Styled Landing Page</h4>
@@ -64,8 +64,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="cardContainer col-lg-4 col-md-6">
-                    <div class="card" style="width: 18rem;">
+                <div class="cardContainer col-lg-6 col-xl-4">
+                    <div class="card">
                         <img src="Carousel/calculator.JPG" class="card-img-top" alt="Interactive Calculator Preview">
                         <div class="card-body">
                             <h4>Interactive Calculator</h4>
@@ -81,153 +81,155 @@
 
         <section id="guided-practice">
             <h3>Guided Practice</h3>
-            <div class="accordion" id="guidedPractice">
-                <div class="accordion-item">
-                    <h4 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <strong>Week 1 -HTML Basics</strong></button>
-                    </h4>
-                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#guidedPractice">
-                        <ul class="accordion-body">
+            <div class="aBox">
+                <div class="accordion" id="guidedPractice">
+                    <div class="accordion-item">
+                        <h4 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <strong>Week 1 -HTML Basics</strong></button>
+                        </h4>
+                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#guidedPractice">
+                            <ul class="accordion-body">
+                                <li>
+                                    <a href="Full-Stack-Boot-Camp/Week1/Session1/business-card.html">
+                                    Business Card</a> -Practice putting words on a webpage
+                                </li>
+                                <li>
+                                    <a href="Full-Stack-Boot-Camp/Week1/Session1/news-article.html">
+                                    News Article</a> -Practice making lists
+                                </li>
+                                <li>
+                                    <a href="Full-Stack-Boot-Camp/Week1/Session2/student-directory.html">
+                                    Student Directory</a> -Practice making a table
+                                </li>
+                                <li>
+                                    <a href="Full-Stack-Boot-Camp/Week1/Session2/tutorial-page.html">
+                                    HTML Tutorial Page</a> -Practice text formatting and links
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h4 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <strong>Week 2 -CSS Basics</strong></button>
+                        </h4>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#guidedPractice">
+                            <ul class="accordion-body">
+                                <li>
+                                    <a href="Full-Stack-Boot-Camp/Week2/Session3/Forms/quickbite-survey.html">
+                                    Quickbite Customer Survey</a> -Practice creating forms
+                                </li>
+                                <li>
+                                    <a href="Full-Stack-Boot-Camp/Week2/Session3/Css-start/css-land-start.html">
+                                    Css Land</a> -Practicing CSS Basics
+                                </li>
+                                <li>
+                                    <a href="Full-Stack-Boot-Camp/Week2/Session4/guided-practice-start/index.html">
+                                    Mario's Pizza</a> -Practicing box model, typography, colors, and dispaly position
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h4 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <strong>Week 3 -CSS Layouts</strong></button>
+                        </h4>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#guidedPractice">
+                            <ul class="accordion-body">
+                                <li>
+                                    <a href="Full-Stack-Boot-Camp/Week3/Session5/chrome-dev-tools/start/chrome-dev-tools-start.html">
+                                    CSS Detective Agency</a> -Practice with Chrome Dev Tools
+                                </li>
+                                <li>
+                                    <a href="Full-Stack-Boot-Camp/Week3/Session5/Flexbox/photo-gallery.html">
+                                    Flexbox Photo Gallery</a> -Practicing with flex box layout
+                                </li>
+                                <li>
+                                    <a href="Full-Stack-Boot-Camp/Week3/Session5/css-grid-layout/dashboard-layout.html">
+                                    Dashboard</a> -Practicing with grid layout
+                                </li>
+                                <li>
+                                    <a href="Full-Stack-Boot-Camp/Week3/Session6/adaptive-eats/index.html">
+                                    Adaptive Eats</a> -Practicing with adaptive/reactive pages
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h4 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                <strong>Week 4 -Animations and Frameworks</strong></button>
+                        </h4>
+                        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#guidedPractice">
+                            <ul class="accordion-body">
                             <li>
-                                <a href="Full-Stack-Boot-Camp/Week1/Session1/business-card.html">
-                                Business Card</a> -Practice putting words on a webpage
+                                <a href="Full-Stack-Boot-Camp/Week4/Session7/animation-practice.html">
+                                Loading Animation</a> -Practicing animating
                             </li>
                             <li>
-                                <a href="Full-Stack-Boot-Camp/Week1/Session1/news-article.html">
-                                News Article</a> -Practice making lists
+                                <a href="Full-Stack-Boot-Camp/Week4/Session8/module-019-bootstrap-fundamentals/practice/bootstrap-practice.html">
+                                Bio Page (Bootstrap version)</a> -Practicing with Bootstrap <strong>(Incomplete)</strong>
                             </li>
+                            <!-- <li>
+                                <a href="Full-Stack-Boot-Camp/Week4/Session8/module-020-tailwind-fundamentals/practice/tailwind-practice.html">
+                                Bio Page (Tailwind version)</a> -Practicing with Tailwind <strong>(Incomplete)</strong>
+                            </li> -->
+                        </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h4 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                <strong>Week 6 -Markdown and Javascript Basics</strong></button>
+                        </h4>
+                        <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#guidedPractice">
+                            <ul class="accordion-body">
                             <li>
-                                <a href="Full-Stack-Boot-Camp/Week1/Session2/student-directory.html">
-                                Student Directory</a> -Practice making a table
-                            </li>
-                            <li>
-                                <a href="Full-Stack-Boot-Camp/Week1/Session2/tutorial-page.html">
-                                HTML Tutorial Page</a> -Practice text formatting and links
+                                <a href="Full-Stack-Boot-Camp/Week6/Session12/notes/readme.html">
+                                Todo List</a> -Practicing with Markdown
                             </li>
                         </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="accordion-item">
-                    <h4 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        <strong>Week 2 -CSS Basics</strong></button>
-                    </h4>
-                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#guidedPractice">
-                        <ul class="accordion-body">
+                    <div class="accordion-item">
+                        <h4 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                <strong>Week 7 -DOM selection and manipulation</strong></button>
+                        </h4>
+                        <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#guidedPractice">
+                            <ul class="accordion-body">
                             <li>
-                                <a href="Full-Stack-Boot-Camp/Week2/Session3/Forms/quickbite-survey.html">
-                                Quickbite Customer Survey</a> -Practice creating forms
-                            </li>
-                            <li>
-                                <a href="Full-Stack-Boot-Camp/Week2/Session3/Css-start/css-land-start.html">
-                                Css Land</a> -Practicing CSS Basics
-                            </li>
-                            <li>
-                                <a href="Full-Stack-Boot-Camp/Week2/Session4/guided-practice-start/index.html">
-                                Mario's Pizza</a> -Practicing box model, typography, colors, and dispaly position
+                                <a href="Full-Stack-Boot-Camp/Week7/Session-2-Fri/module-035-dom-selection-manipulation/practice/cat-mood-tracker-start.html">
+                                    Cat Mood Tracker</a> -Practicing adding interactivity to web pages by linking JavaScript to HTML documents
                             </li>
                         </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="accordion-item">
-                    <h4 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <strong>Week 3 -CSS Layouts</strong></button>
-                    </h4>
-                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#guidedPractice">
-                        <ul class="accordion-body">
+                    <div class="accordion-item">
+                        <h4 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                <strong>Week 8 -Event handling, forms processing, and LocalStorage</strong></button>
+                        </h4>
+                        <div id="collapseEight" class="accordion-collapse collapse" data-bs-parent="#guidedPractice">
+                            <ul class="accordion-body">
                             <li>
-                                <a href="Full-Stack-Boot-Camp/Week3/Session5/chrome-dev-tools/start/chrome-dev-tools-start.html">
-                                CSS Detective Agency</a> -Practice with Chrome Dev Tools
+                                <a href="Full-Stack-Boot-Camp/Week8/Session-1-Tues/module-036-events-handling-bubbling/practice/events-demo-start.html">
+                                    Event Handling and Bubbling Demo</a> -Practicing Event Handling and Bubbling
                             </li>
                             <li>
-                                <a href="Full-Stack-Boot-Camp/Week3/Session5/Flexbox/photo-gallery.html">
-                                Flexbox Photo Gallery</a> -Practicing with flex box layout
+                                <a href="Full-Stack-Boot-Camp/Week8/Session-1-Tues/module-037-form-processing-local-storage/practice/forms/forms-demo-start.html">
+                                    Forms Processing Demo</a> <strong>(Incomplete)</strong>
+                                    <!-- -Practicing Forms Processing -->
                             </li>
                             <li>
-                                <a href="Full-Stack-Boot-Camp/Week3/Session5/css-grid-layout/dashboard-layout.html">
-                                Dashboard</a> -Practicing with grid layout
-                            </li>
-                            <li>
-                                <a href="Full-Stack-Boot-Camp/Week3/Session6/adaptive-eats/index.html">
-                                Adaptive Eats</a> -Practicing with adaptive/reactive pages
+                                <a href="Full-Stack-Boot-Camp/Week8/Session-1-Tues/module-037-form-processing-local-storage/practice/localstorage/localstorage-demo-start.html">
+                                    LocalStorage Demo</a> <strong>(Incomplete)</strong>
+                                    <!-- -Practicing LocalStorage -->
                             </li>
                         </ul>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h4 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            <strong>Week 4 -Animations and Frameworks</strong></button>
-                    </h4>
-                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#guidedPractice">
-                        <ul class="accordion-body">
-                        <li>
-                            <a href="Full-Stack-Boot-Camp/Week4/Session7/animation-practice.html">
-                            Loading Animation</a> -Practicing animating
-                        </li>
-                        <li>
-                            <a href="Full-Stack-Boot-Camp/Week4/Session8/module-019-bootstrap-fundamentals/practice/bootstrap-practice.html">
-                            Bio Page (Bootstrap version)</a> -Practicing with Bootstrap <strong>(Incomplete)</strong>
-                        </li>
-                        <!-- <li>
-                            <a href="Full-Stack-Boot-Camp/Week4/Session8/module-020-tailwind-fundamentals/practice/tailwind-practice.html">
-                            Bio Page (Tailwind version)</a> -Practicing with Tailwind <strong>(Incomplete)</strong>
-                        </li> -->
-                    </ul>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h4 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                            <strong>Week 6 -Markdown and Javascript Basics</strong></button>
-                    </h4>
-                    <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#guidedPractice">
-                        <ul class="accordion-body">
-                        <li>
-                            <a href="Full-Stack-Boot-Camp/Week6/Session12/notes/readme.html">
-                            Todo List</a> -Practicing with Markdown
-                        </li>
-                    </ul>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h4 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                            <strong>Week 7 -DOM selection and manipulation</strong></button>
-                    </h4>
-                    <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#guidedPractice">
-                        <ul class="accordion-body">
-                        <li>
-                            <a href="Full-Stack-Boot-Camp/Week7/Session-2-Fri/module-035-dom-selection-manipulation/practice/cat-mood-tracker-start.html">
-                                Cat Mood Tracker</a> -Practicing adding interactivity to web pages by linking JavaScript to HTML documents
-                        </li>
-                    </ul>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h4 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                            <strong>Week 8 -Event handling, forms processing, and LocalStorage</strong></button>
-                    </h4>
-                    <div id="collapseEight" class="accordion-collapse collapse" data-bs-parent="#guidedPractice">
-                        <ul class="accordion-body">
-                        <li>
-                            <a href="Full-Stack-Boot-Camp/Week8/Session-1-Tues/module-036-events-handling-bubbling/practice/events-demo-start.html">
-                                Event Handling and Bubbling Demo</a> -Practicing Event Handling and Bubbling
-                        </li>
-                        <li>
-                            <a href="Full-Stack-Boot-Camp/Week8/Session-1-Tues/module-037-form-processing-local-storage/practice/forms/forms-demo-start.html">
-                                Forms Processing Demo</a> <strong>(Incomplete)</strong>
-                                <!-- -Practicing Forms Processing -->
-                        </li>
-                        <li>
-                            <a href="Full-Stack-Boot-Camp/Week8/Session-1-Tues/module-037-form-processing-local-storage/practice/localstorage/localstorage-demo-start.html">
-                                LocalStorage Demo</a> <strong>(Incomplete)</strong>
-                                <!-- -Practicing LocalStorage -->
-                        </li>
-                    </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -248,19 +250,14 @@
                     </div>
                 </div>
             </div>
-            <!-- <ul>
-                <li>
-                    Learn Git and Github: <a href="excursion-main/excursion.html">
-                    Excursion</a>
-                </li>
-            </ul> -->
         </section>
 
         <section id="repo">
             <h3>Check out the code on GitHub
                 <a href="https://github.com/VeryExcitedGremlin/VeryExcitedGremlin.github.io">
                 here</a>!
-            </h3><br>
+            </h3>
+            <!-- <br> -->
         </section>
     </section>
 
