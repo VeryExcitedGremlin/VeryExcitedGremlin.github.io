@@ -17,13 +17,24 @@
 <body id="top">
     <header id="heading" class="bookend row align-items-center">
         <h1 class="col-xl-5">Ashton's Projects</h1>
-        <nav class="col-xl-7">
-            <div class="row justify-content-center justify-content-xl-end">
-                <a class="col-sm-4 col-lg-2" href="#projects">Projects</a>
-                <a class="col-sm-4 col-lg-2 col-xl-3" href="#guided-practice">Guided Practice</a>
-                <a class="col-sm-4 col-lg-2 col-xl-3" href="#repo">Code Repository</a>
-            </div>
-        </nav>
+        <div class="col-xl-7 justify-content-xl-end">
+            <nav class="row justify-content-center">
+                <div class="navSection col-sm-5 col-md-4 col-lg-3 col-xl-5">
+                    <a class="" href="#bootcamp"><h5>Full Stack Boot Camp</h5></a>
+                    <div class="row justify-content-center">
+                        <a class="col-xl-4" href="#projects">Projects</a>
+                        <a class="col-xl-6" href="#guided-practice">Guided Practice</a>
+                    </div>
+                </div>
+                <div class="navSection col-sm-5 col-md-4 col-lg-3 col-xl-7">
+                    <a class="" href="#otherLinks"><h5>Other Links</h5></a>
+                    <div class="row justify-content-center">
+                        <a class="col-xl-6 col-xxl-5" href="#codecademy-projects">Codecademy Projects</a>
+                        <a class="col-xl-5 col-xxl-4" href="#repo">Code Repository</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
     </header>
     <main>
     <div id="bootcamp">
@@ -36,7 +47,7 @@
                         <img src="Carousel/personalBio.JPG" class="card-img-top" alt="Bio Page Preview">
                         <div class="card-body">
                             <h4>Personal Bio Page</h4>
-                            <p>Week 2 culminating project</p>
+                            <p>Week 2 culminating project</p><br>
                             <a class="btn btn-primary" href="Full-Stack-Boot-Camp/Projects/Project-Bio-Page/personal-bio.html">
                                 Check it out!</a>
                         </div>
@@ -47,7 +58,7 @@
                         <img src="Carousel/styledLandingPage.JPG" class="card-img-top" alt="Styled Landing Page Preview">
                         <div class="card-body">
                             <h4>Styled Landing Page</h4>
-                            <p>Week 3 culminating project</p>
+                            <p>Week 3 culminating project</p><br>
                             <a class="btn btn-primary" href="Full-Stack-Boot-Camp/Projects/styled-landing-page-project/Project-Landing-Page.html">
                                 Check it out!</a>
                         </div>
@@ -222,33 +233,35 @@
             </div>
         </section>
     </div>
-
-    <section id="codecademy-projects">
-        <h2>Other Codecademy projects</h2>
-        <div class="cardContainer">
-            <div class="card" style="width: 18rem;">
-                <img src="Carousel/excursion.JPG" class="card-img-top" alt="Bio Page Preview">
-                <div class="card-body">
-                    <h4>Excursion</h4>
-                    <p>Learn Git and Github</p>
-                    <a class="btn btn-primary" href="Full-Stack-Boot-Camp/Projects/Project-Bio-Page/personal-bio.html">
-                        Check it out!</a>
+    <section id="otherLinks">
+        <h2>Other Projects</h2>
+        <section id="codecademy-projects">
+            <h3>Codecademy projects</h3>
+            <div class="cardContainer">
+                <div class="card" style="width: 18rem;">
+                    <img src="Carousel/excursion.JPG" class="card-img-top" alt="Bio Page Preview">
+                    <div class="card-body">
+                        <h4>Excursion</h4>
+                        <p>Learn Git and Github</p>
+                        <a class="btn btn-primary" href="Full-Stack-Boot-Camp/Projects/Project-Bio-Page/personal-bio.html">
+                            Check it out!</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- <ul>
-            <li>
-                Learn Git and Github: <a href="excursion-main/excursion.html">
-                Excursion</a>
-            </li>
-        </ul> -->
-    </section>
+            <!-- <ul>
+                <li>
+                    Learn Git and Github: <a href="excursion-main/excursion.html">
+                    Excursion</a>
+                </li>
+            </ul> -->
+        </section>
 
-    <section id="repo">
-        <h2>Check out the code on GitHub
-            <a href="https://github.com/VeryExcitedGremlin/VeryExcitedGremlin.github.io">
-            here</a>!
-        </h2><br>
+        <section id="repo">
+            <h3>Check out the code on GitHub
+                <a href="https://github.com/VeryExcitedGremlin/VeryExcitedGremlin.github.io">
+                here</a>!
+            </h3><br>
+        </section>
     </section>
 
     </main>
