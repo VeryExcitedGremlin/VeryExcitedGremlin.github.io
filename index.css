@@ -130,14 +130,14 @@ p {
     
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1400px) {
 
-/* .navLeftOne {
+.navLeftOne {
     text-align: end;
 }
 
 .navRightOne {
     text-align: start;
-} */
+}
     
 }
