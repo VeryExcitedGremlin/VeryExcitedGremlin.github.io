@@ -20,16 +20,19 @@ body {
     margin: 3em 0;
 } */
 
-h2, h3 {
+h3 {
     text-align: center;
     margin-bottom: 1em;
 }
 
-/* h2 {
-    border: 0.1em solid rgb(159, 95, 219);
-    padding: 0.3em;
-    border-radius: 0.5em;
-} */
+h2 {
+    text-align: center;
+    margin: 0.5em 0 1em;
+}
+
+.moreUnder {
+    margin-bottom: 2em;
+}
 
 p {
     color: black;
@@ -114,7 +117,7 @@ p {
     justify-content: center;
 }
 
-#otherLinks .cardContainer, #otherLinks h3 {
+#otherLinks .cardContainer, #repoHead {
     margin: 0;
 }
 
