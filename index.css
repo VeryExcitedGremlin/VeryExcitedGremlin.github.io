@@ -52,7 +52,7 @@ p {
 }
 
 .card {
-    min-width: 18rem;
+    min-width: 13rem;
     margin: 1em 0;
     border: 0.3em solid rgb(159, 95, 219);
     /* border: 0.5em solid aliceblue; */
@@ -64,6 +64,10 @@ p {
 .card:hover, .card:active {
     transform: translateY(-2em);
     filter: drop-shadow(0em 2em 1em rgba(0, 0, 0, 0.205));
+}
+
+.card-inner {
+    text-align: center;
 }
 
 /* .aBox {
@@ -78,18 +82,18 @@ p {
     border: solid .2em rgb(104, 15, 187);
     border-radius: 0.5em;
 }
-
-.accordion ul {
+/* 
+.accordion-body {
     margin-left: 3em;
     margin-right: 2em;
-}
+} */
 
 .accordion-button:not(.collapsed) {
     background-color: rgb(159, 95, 219);
 }
 .accordion-button:focus {box-shadow: none;}
 
-#bootcamp, .card-body, #otherLinks, .cardContainer, main {
+#bootcamp, .card-body, #otherLinks, .cardContainer, main, #guided-practice {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -121,26 +125,67 @@ p {
     margin: 0;
 }
 
+@media (min-width: 576px) {
+    .accordion-body {
+        margin-left: 1em;
+        /* margin-right: 1em; */
+    }
+
+    .accordion {
+    /* width: 874px; */
+    min-width: 375px;
+    }
+}
+
+@media (min-width: 768px) {
+    .accordion-body {
+        margin-left: 2em;
+        margin-right: 1em;
+    }
+
+    .accordion {
+    /* width: 874px; */
+    min-width: 528px;
+    }
+}
+
+@media (min-width: 992px) {
+    .accordion-body {
+        margin-left: 3em;
+        margin-right: 2em;
+    }
+
+    .accordion {
+    /* width: 874px; */
+    min-width: 707px;
+    }
+}
+
 @media (min-width: 1200px) {
 
-.navLeftTwo {
-    text-align: end;
-}
+    .navLeftTwo {
+        text-align: end;
+    }
 
-.navRightTwo {
-    text-align: start;
-}
+    .navRightTwo {
+        text-align: start;
+    }
+
+    .accordion {
+    width: 874px;
+    /* min-width: auto; */
+    }
     
 }
 
 @media (min-width: 1400px) {
 
-.navLeftOne {
-    text-align: end;
-}
+    .navLeftOne {
+        text-align: end;
+    }
 
-.navRightOne {
-    text-align: start;
-}
+    .navRightOne {
+        text-align: start;
+    }
     
 }
