@@ -16,14 +16,6 @@ body {
     height: fit-content;
 }
 
-/* .navLeft {
-    text-align: end;
-}
-
-.navRight {
-    text-align: start;
-} */
-
 /* section {
     margin: 3em 0;
 } */
@@ -124,4 +116,28 @@ p {
 
 #otherLinks .cardContainer, #otherLinks h3 {
     margin: 0;
+}
+
+@media (min-width: 1200px) {
+
+.navLeftTwo {
+    text-align: end;
+}
+
+.navRightTwo {
+    text-align: start;
+}
+    
+}
+
+@media (min-width: 768px) {
+
+/* .navLeftOne {
+    text-align: end;
+}
+
+.navRightOne {
+    text-align: start;
+} */
+    
 }
