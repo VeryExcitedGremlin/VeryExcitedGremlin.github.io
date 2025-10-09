@@ -16,10 +16,6 @@ body {
     height: fit-content;
 }
 
-/* section {
-    margin: 3em 0;
-} */
-
 h3 {
     text-align: center;
     margin-bottom: 1em;
@@ -55,7 +51,6 @@ p {
     min-width: 13rem;
     margin: 1em 0;
     border: 0.3em solid rgb(159, 95, 219);
-    /* border: 0.5em solid aliceblue; */
     border-radius: 2em;
     filter: drop-shadow(0em 0em 0.5em rgba(0, 0, 0, 0.205));
     transition-property: transform, filter;
@@ -70,23 +65,11 @@ p {
     text-align: center;
 }
 
-/* .aBox {
-    border: solid .2em rgb(104, 15, 187);
-    border-radius: 0.5em;
-    z-index: 2;
-} */
-
 .accordion {
     filter: drop-shadow(0em 0em 0.5em rgba(0, 0, 0, 0.205));
-    /* z-index: 1; */
     border: solid .2em rgb(104, 15, 187);
     border-radius: 0.5em;
 }
-/* 
-.accordion-body {
-    margin-left: 3em;
-    margin-right: 2em;
-} */
 
 .accordion-button:not(.collapsed) {
     background-color: rgb(159, 95, 219);
@@ -112,9 +95,7 @@ p {
 #guided-practice, #projects, #codecademy-projects, #repo {
     width: 80vw;
     background-color: rgb(255, 236, 214);
-    /* filter: drop-shadow(0em 0em 0.5em rgba(0, 0, 0, 0.205)); */
     border: 0.5em solid bisque;
-    /* padding: 0.3em; */
     border-radius: 1em;
     padding: 3em 2em;
     margin: 1em;
@@ -128,11 +109,9 @@ p {
 @media (min-width: 576px) {
     .accordion-body {
         margin-left: 1em;
-        /* margin-right: 1em; */
     }
 
     .accordion {
-    /* width: 874px; */
     min-width: 375px;
     }
 }
@@ -144,8 +123,11 @@ p {
     }
 
     .accordion {
-    /* width: 874px; */
     min-width: 528px;
+    }
+    
+    .navLeftOne {
+        text-align: end;
     }
 }
 
@@ -156,12 +138,23 @@ p {
     }
 
     .accordion {
-    /* width: 874px; */
     min-width: 707px;
+    }
+
+    .navRightOne {
+        text-align: end;
     }
 }
 
 @media (min-width: 1200px) {
+
+    .navLeftOne {
+        text-align: center;
+    }
+
+    .navRightOne {
+        text-align: start;
+    }
 
     .navLeftTwo {
         text-align: end;
@@ -173,19 +166,18 @@ p {
 
     .accordion {
     width: 874px;
-    /* min-width: auto; */
     }
     
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1500px) {
 
     .navLeftOne {
         text-align: end;
     }
 
     .navRightOne {
-        text-align: start;
+        text-align: center;
     }
-    
+
 }
