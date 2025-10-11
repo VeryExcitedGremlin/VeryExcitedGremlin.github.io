@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise Practice</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 Hollywood Script Loader</h1>
+            <p>Emergency Mission: Save the Blockbuster!</p>
+        </header>
+        
+        <div class="mission-briefing">
+            <h2>🚨 URGENT MISSION BRIEFING</h2>
+            <div class="briefing-content">
+                <p><strong>SITUATION:</strong> The studio executives are in panic! The lead actor's pizza-stained script has been lost just hours before the midnight deadline.</p>
+                
+                <p><strong>YOUR MISSION:</strong> You are the studio's top JavaScript developer. You must use your Promise skills to download the backup script from our Hollywood servers before midnight, or the entire $3.50 production will be ruined!</p>
+                
+                <p><strong>CHALLENGE:</strong> The servers are slow and the script will take time to load. You'll need to handle this asynchronous operation correctly, or the download will fail and dreams will be crushed.</p>
+                
+                <p><strong>TIME REMAINING:</strong> <span id="countdown">Unknown</span></p>
+                
+                <p><strong>OBJECTIVE:</strong> Click the red button below to begin the script download. Master the art of Promises to save the day!</p>
+            </div>
+        </div>
+        
+        <main>
+            <div class="section">
+                <h2>🎭 Production Control</h2>
+                <div class="button-group">
+                    <button id="load-script-btn" class="cta-button success">
+                        🎬 LIGHTS, CAMERA, ACTION!<br>
+                        <span>Load The Script</span>
+                    </button>
+                    <button id="fail-script-btn" class="cta-button danger">
+                        💥 SIMULATE FAILURE<br>
+                        <span>Practice Error Handling</span>
+                    </button>
+                </div>
+                <div class="status" id="loading-status">Ready to roll...</div>
+            </div>
+            
+            <div class="section">
+                <h2>📜 Script Content:</h2>
+                <div id="file-content" class="content-box">
+                    <p>🎞️ No script loaded yet... Click the button to start production!</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🎥 Director's Console:</h2>
+                <p>Check your browser's developer console (F12) to see behind-the-scenes action!</p>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        // Add a fake countdown timer for dramatic effect
+        function updateCountdown() {
+            const now = new Date();
+            const midnight = new Date();
+            midnight.setHours(24, 0, 0, 0);
+            
+            const timeLeft = midnight - now;
+            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            document.getElementById('countdown').textContent = 
+                `${hours}h ${minutes}m ${seconds}s until deadline!`;
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+    
+    <script src="promise-starter.js"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding JavaScript Promises</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="promise-visualization.css">
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-7xl mx-auto">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">Visualizing JavaScript Promises</h1>
+            <p class="text-lg md:text-xl text-gray-400">An interactive guide to synchronous vs. asynchronous code.</p>
+        </header>
+
+        <!-- Scenario 1: Synchronous Code -->
+        <div class="mb-16">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+                <div>
+                    <h2 class="text-3xl font-bold text-white">1. Synchronous Code</h2>
+                    <p class="text-gray-400">Code executes line-by-line, one after the other. Nothing happens until the previous line is finished.</p>
+                </div>
+                <button id="run-sync" class="mt-4 md:mt-0 bg-blue-600 text-white font-bold py-2 px-6 rounded-lg shadow-lg btn">Run Sync Code</button>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="code-block rounded-lg p-4">
+                    <pre><code id="code-sync" class="language-js text-sm">
+<div class="line" data-line="1">console.log("Start cooking...");</div>
+<div class="line" data-line="2">console.log("Chop vegetables.");</div>
+<div class="line" data-line="3">console.log("Add to pot.");</div>
+<div class="line" data-line="4">console.log("Cook for 10 minutes.");</div>
+<div class="line" data-line="5">console.log("Serve dinner.");</div>
+                    </code></pre>
+                </div>
+                <div class="console-output rounded-lg p-4" id="console-sync"></div>
+            </div>
+             <div class="explanation-box p-4 mt-4 rounded-md">
+                <h3 class="font-semibold text-lg text-white mb-2">What's Happening?</h3>
+                <p class="text-gray-300">Each line runs in perfect order. The program waits for `Chop vegetables` to finish before it will `Add to pot`. This is simple and predictable.</p>
+            </div>
+        </div>
+
+        <!-- Scenario 2: The Asynchronous Problem -->
+        <div class="mb-16">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+                <div>
+                    <h2 class="text-3xl font-bold text-white">2. The Asynchronous Problem</h2>
+                    <p class="text-gray-400">What happens when an operation takes time? JavaScript doesn't wait!</p>
+                </div>
+                <button id="run-async-problem" class="mt-4 md:mt-0 bg-amber-500 text-white font-bold py-2 px-6 rounded-lg shadow-lg btn">Run Async Code</button>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="code-block rounded-lg p-4">
+                    <pre><code id="code-async-problem" class="language-js text-sm">
+<div class="line" data-line="1">function orderPizza() {</div>
+<div class="line" data-line="2">  console.log("Ordering a pizza...");</div>
+<div class="line" data-line="3">  // This takes time! (Simulated with setTimeout)</div>
+<div class="line" data-line="4">  setTimeout(() => {</div>
+<div class="line" data-line="5">    return "🍕 Pizza is ready!";</div>
+<div class="line" data-line="6">  }, 2000); // 2 second delay</div>
+<div class="line" data-line="7">}</div>
+<div class="line" data-line="8"></div>
+<div class="line" data-line="9">console.log("Start of script.");</div>
+<div class="line" data-line="10">let myPizza = orderPizza();</div>
+<div class="line" data-line="11">console.log("Doing other things...");</div>
+<div class="line" data-line="12">console.log(`Eating pizza: ${myPizza}`);</div>
+<div class="line" data-line="13">console.log("End of script.");</div>
+                    </code></pre>
+                </div>
+                <div class="console-output rounded-lg p-4" id="console-async-problem"></div>
+            </div>
+            <div class="explanation-box p-4 mt-4 rounded-md">
+                <h3 class="font-semibold text-lg text-white mb-2">What's Happening?</h3>
+                <p class="text-gray-300">JavaScript calls `orderPizza`, but because `setTimeout` is asynchronous, it doesn't wait for the 2-second delay. It moves right on to the next lines, trying to log the value of `myPizza` which is `undefined` because the pizza hasn't "returned" yet. The function `orderPizza` finishes executing and returns nothing before the timeout completes.</p>
+            </div>
+        </div>
+
+        <!-- Scenario 3: The Promise Solution -->
+        <div class="mb-16">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+                <div>
+                    <h2 class="text-3xl font-bold text-white">3. The Promise Solution (.then)</h2>
+                    <p class="text-gray-400">A Promise is an object that represents a future value. We can "wait" for it.</p>
+                </div>
+                <button id="run-promise" class="mt-4 md:mt-0 bg-green-600 text-white font-bold py-2 px-6 rounded-lg shadow-lg btn">Run with Promise</button>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="code-block rounded-lg p-4">
+                    <pre><code id="code-promise" class="language-js text-sm">
+<div class="line" data-line="1">function orderPizzaWithPromise() {</div>
+<div class="line" data-line="2">  console.log("Ordering a pizza...");</div>
+<div class="line" data-line="3">  return new Promise((resolve, reject) => {</div>
+<div class="line" data-line="4">    setTimeout(() => {</div>
+<div class="line" data-line="5">      resolve("🍕 Pizza is ready!");</div>
+<div class="line" data-line="6">    }, 2000);</div>
+<div class="line" data-line="7">  });</div>
+<div class="line" data-line="8">}</div>
+<div class="line" data-line="9"></div>
+<div class="line" data-line="10">console.log("Start of script.");</div>
+<div class="line" data-line="11">orderPizzaWithPromise()</div>
+<div class="line" data-line="12">  .then(pizza => {</div>
+<div class="line" data-line="13">    console.log(`Eating pizza: ${pizza}`);</div>
+<div class="line" data-line="14">  });</div>
+<div class="line" data-line="15">console.log("Doing other things...");</div>
+<div class="line" data-line="16">console.log("End of script.");</div>
+                    </code></pre>
+                </div>
+                <div class="console-output rounded-lg p-4" id="console-promise"></div>
+            </div>
+            <div class="explanation-box p-4 mt-4 rounded-md">
+                <h3 class="font-semibold text-lg text-white mb-2">What's Happening?</h3>
+                <p class="text-gray-300">The function now returns a `Promise`. The code still continues to run the synchronous lines immediately. However, we've attached a `.then()` block to the promise. This tells JavaScript: "When this promise eventually finishes, take the result (the pizza) and run this special block of code." The result is now logged correctly, *after* it's ready.</p>
+            </div>
+        </div>
+        
+        <!-- Scenario 4: The Async/Await Solution -->
+        <div class="mb-16">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+                <div>
+                    <h2 class="text-3xl font-bold text-white">4. Modern Syntax (async/await)</h2>
+                    <p class="text-gray-400">A cleaner way to work with promises that looks more like synchronous code.</p>
+                </div>
+                <button id="run-async-await" class="mt-4 md:mt-0 bg-purple-600 text-white font-bold py-2 px-6 rounded-lg shadow-lg btn">Run with Async/Await</button>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="code-block rounded-lg p-4">
+                    <pre><code id="code-async-await" class="language-js text-sm">
+<div class="line" data-line="1">// (Uses the same orderPizzaWithPromise function)</div>
+<div class="line" data-line="2"></div>
+<div class="line" data-line="3">async function getDinner() {</div>
+<div class="line" data-line="4">  console.log("Inside async function.");</div>
+<div class="line" data-line="5">  const pizza = await orderPizzaWithPromise();</div>
+<div class="line" data-line="6">  console.log(`Eating pizza: ${pizza}`);</div>
+<div class="line" data-line="7">  console.log("Finished dinner.");</div>
+<div class="line" data-line="8">}</div>
+<div class="line" data-line="9"></div>
+<div class="line" data-line="10">console.log("Start of script.");</div>
+<div class="line" data-line="11">getDinner();</div>
+<div class="line" data-line="12">console.log("Doing other things...");</div>
+<div class="line" data-line="13">console.log("End of script.");</div>
+                    </code></pre>
+                </div>
+                <div class="console-output rounded-lg p-4" id="console-async-await"></div>
+            </div>
+            <div class="explanation-box p-4 mt-4 rounded-md">
+                <h3 class="font-semibold text-lg text-white mb-2">What's Happening?</h3>
+                <p class="text-gray-300">`async/await` is syntactic sugar over Promises. The `await` keyword tells the `getDinner` function to literally pause at that line until `orderPizzaWithPromise()` resolves. It makes the async code much easier to read, but underneath it's still the same promise-based behavior. Note that the rest of the script *outside* the `async` function still runs without waiting!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="promise-visualization.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+/* Promise Visualization Styles */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #111827;
+    color: #d1d5db;
+}
+
+.code-block {
+    font-family: 'Fira Code', monospace;
+    background-color: #1f2937;
+    border: 1px solid #374151;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.console-output {
+    font-family: 'Fira Code', monospace;
+    background-color: #1f2937;
+    border: 1px solid #374151;
+    min-height: 200px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.line {
+    transition: background-color 0.2s ease-in-out;
+    padding: 0 1rem;
+}
+
+.line.highlight {
+    background-color: #374151;
+}
+
+.console-line {
+    border-bottom: 1px solid #374151;
+    padding: 0.5rem;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+.console-line.promise {
+    color: #60a5fa; /* blue-400 */
+}
+
+.console-line.error {
+    color: #f87171; /* red-400 */
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(-10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.btn {
+    transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.explanation-box {
+    background-color: rgba(31, 41, 55, 0.7);
+    border-left: 4px solid #3b82f6;
+    backdrop-filter: blur(5px);
+}
+
+/* Additional Responsive Styles */
+@media (max-width: 768px) {
+    .code-block,
+    .console-output {
+        font-size: 12px;
+    }
+    
+    .line {
+        padding: 0 0.5rem;
+    }
+    
+    .console-line {
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+/* Code syntax highlighting improvements */
+.code-block pre code {
+    display: block;
+    overflow-x: auto;
+}
+
+.line:nth-child(even) {
+    background-color: rgba(55, 65, 81, 0.3);
+}
+
+.line.highlight:nth-child(even) {
+    background-color: #4b5563;
+}
+
+/* Console output improvements */
+.console-output:empty::after {
+    content: "Console output will appear here...";
+    color: #6b7280;
+    font-style: italic;
+    display: block;
+    padding: 1rem;
+    text-align: center;
+}
+
+.console-line:first-child {
+    border-top: 1px solid #374151;
+}
+
+/* Button state improvements */
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn.running {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+/* Animation for code highlighting */
+@keyframes highlight-pulse {
+    0% { background-color: #374151; }
+    50% { background-color: #4b5563; }
+    100% { background-color: #374151; }
+}
+
+.line.highlight.pulse {
+    animation: highlight-pulse 1s ease-in-out;
+}
+
+/* Improved explanation box styling */
+.explanation-box {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.explanation-box h3 {
+    color: #f9fafb;
+}
+
+.explanation-box p {
+    line-height: 1.6;
+}
+
+/* Console output type styling */
+.console-line.success {
+    color: #34d399; /* green-400 */
+}
+
+.console-line.warning {
+    color: #fbbf24; /* amber-400 */
+}
+
+.console-line.info {
+    color: #60a5fa; /* blue-400 */
+}
