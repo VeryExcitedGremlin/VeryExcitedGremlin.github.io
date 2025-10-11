@@ -282,21 +282,66 @@ function handleFormSubmit(event) {
 function showFormDataContents() {
     // TODO: Create FormData objects from forms
     const formData = new FormData(form);
-    
+    // console.log("'Show FormData Contents' Fired");
     // TODO: Access form data using FormData methods
     // Use formData.get(), formData.getAll(), formData.entries()
-    
     // TODO: Display all form data entries
+    // const ids = Array.from(form.querySelectorAll('*[id]'));
+    // console.log(ids);
+    const ids2 = Array.from(form.querySelectorAll("*[id]")).map((el) => el.id);
+    // console.log(ids2);
+    const ids3 = [];
+    for (let i=0; i < ids2.length; i+=2) {
+        ids3.push(ids2[i]);
+        if (i==8){ i=7;}}
+    // console.log(ids3);
+    
+    let message = 'Using formData.get():\n\n'
+    ids3.forEach((el) => {
+        if (el == 'password' && formData.get(el).length > 0) {
+          message += `${el}: **Hidden**\n`;
+        } else { message += `${el}: ${formData.get(el)}\n`}; });
+
+    message += '\nUsing formData.entries:\n\n';
+    for (let[key,val] of formData.entries()) {
+        if (key == 'password' && val) {
+            message += `${key}: **Hidden**\n`
+        } else { message += `${key}: ${val}\n` }
+    };
+
+    // const message = `
+    // ${formData.get()}
+    // ${formData.getAll()}
+    // ${formData.entries()}
+    // `
+
+    // const dataMethods = [get(), getAll(), entries()]
+    // dataMethods.forEach( (func) => {
+    //     message += formData.func + '\n'
+    // });
+    
+    formdataOutput.textContent = message;
+    return [formData, message];
 }
 
 function addExtraDataToForm() {
     // TODO: Append additional data to FormData objects
-    const formData = new FormData(form);
-    
+    let [formData, message] = showFormDataContents();
+    // console.log(message);
+    message += '\nformData with Extra Data:\n\n'
     // TODO: Add extra fields like timestamp, user agent, etc.
     // Use formData.append(key, value)
-    
+    formData.append('timestamp', new Date().toISOString());
+    formData.append('userAgent', navigator.userAgent);
+    formData.append('sessionID',
+        'session_' + Math.random().toString(36).substr(2,9)
+    );
+    const moreData = ['timestamp', 'userAgent', 'sessionID'];
     // TODO: Show updated FormData contents
+    moreData.forEach ( (el) => {
+        message += `${el}: ${formData.get(el)}\n`;
+    });
+    formdataOutput.textContent = message;
 }
 
 // TODO: Add event listeners
