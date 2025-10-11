@@ -1,0 +1,3 @@
+- [Postman](https://www.postman.com/downloads/)
+- [Free APIs List](https://github.com/public-apis/public-apis)
+- [Promisees](https://bevacqua.github.io/promisees/) - Promise flow visualizer
