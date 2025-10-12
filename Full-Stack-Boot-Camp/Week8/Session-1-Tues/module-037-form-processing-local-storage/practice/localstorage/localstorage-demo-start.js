@@ -24,9 +24,35 @@ const savePreferencesBtn = document.querySelector('#save-preferences-btn');
 // Store data using localStorage.setItem()
 function setItem() {
     // Get key and value from input fields
+    const key = keyInput.value;
+    const val = valueInput.value;
     // Use localStorage.setItem(key, value) to store
+    if (key && val) {
+        localStorage.setItem(key, val);
     // Update the display
+        displayStorageContents();
+        showMessage(`Stored: ${key} = ${val}`);
     // Clear input fields after storing
+        keyInput.value = '';
+        valueInput.value = '';
+    } else {showMessage('You must provide a key and a value');}
+}
+
+function showMessage(message) {
+  const messageDiv = document.createElement("div");
+  messageDiv.textContent = message;
+  messageDiv.style.cssText = `
+    position: fixed;
+    top: 23px;
+    right: 23px;
+    background: #007cba;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    z-index: 1000;
+  `;
+  document.body.appendChild(messageDiv);
+  setTimeout(() => {document.body.removeChild(messageDiv);}, 3000);
 }
 
 // TODO: Implement getItem function  
@@ -92,13 +118,13 @@ function applyTheme(theme) {
 }
 
 // TODO: Add event listeners
-// setBtn.addEventListener('click', setItem);
-// getBtn.addEventListener('click', getItem);
-// removeBtn.addEventListener('click', removeItem);
-// clearBtn.addEventListener('click', clearAll);
-// savePreferencesBtn.addEventListener('click', savePreferences);
+setBtn.addEventListener('click', setItem);
+getBtn.addEventListener('click', getItem);
+removeBtn.addEventListener('click', removeItem);
+clearBtn.addEventListener('click', clearAll);
+savePreferencesBtn.addEventListener('click', savePreferences);
 
 // TODO: Load preferences when page loads
-// loadPreferences();
+loadPreferences();
 
 console.log('LocalStorage demo ready - complete the TODO items!');
