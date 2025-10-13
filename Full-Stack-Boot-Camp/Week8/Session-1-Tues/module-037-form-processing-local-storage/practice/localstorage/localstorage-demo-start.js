@@ -59,45 +59,87 @@ function showMessage(message) {
 // Retrieve data using localStorage.getItem()
 function getItem() {
     // Get key from input field
+    const key = keyInput.value;
     // Use localStorage.getItem(key) to retrieve
+    const val = localStorage.getItem(key);
     // Display the result in output area
+    if (val) {
+        showMessage(`Retrieved: ${key} = ${val}`);
+        // showMessage(`retrieved: ${val}`);
     // Handle case when key doesn't exist (returns null)
+    } else { showMessage('You must provide an existing key'); }
 }
 
 // TODO: Implement removeItem function
 // Remove items with localStorage.removeItem()
 function removeItem() {
     // Get key from input field
+    const key = keyInput.value;
     // Use localStorage.removeItem(key) to remove
-    // Update the display
-    // Show confirmation message
+    if (key) {
+        const val = localStorage.getItem(key);
+        localStorage.removeItem(key);
+        // Update the display
+        displayStorageContents();
+        // Show confirmation message
+        showMessage(`Removed: ${key} = ${val}`);
+    } else { showMessage("You must provide an existing key"); }
 }
 
 // TODO: Implement clearAll function
 // Clear all storage with localStorage.clear()
 function clearAll() {
     // Use localStorage.clear() to remove everything
+    localStorage.clear();
     // Update the display
+    displayStorageContents();
     // Show confirmation message
+    showMessage('Storage cleared');
 }
 
 // TODO: Implement displayStorageContents function
 // Show all items currently in localStorage
 function displayStorageContents() {
-    // Loop through all localStorage keys
-    // Display each key-value pair in the output area
+// Loop through all localStorage keys
+    let message = '<strong>Storage contents:</strong>'
+    const keys = Object.keys(localStorage);
+    if (keys.length > 0) {
+        keys.forEach( (key) => {
+        // Display each key-value pair in the output area
+            const val = localStorage.getItem(key);
+            message += `<p>${key} = ${val}</p>`;
+        });
     // Handle empty storage case
+    } else { message = 'No items in storage'; }
+
+    output.innerHTML = message;
 }
 
 // TODO: Implement savePreferences function
 // Save form data to localStorage automatically
 function savePreferences() {
     // Get theme and username values
+    const theme = themeSelect.value;
+    const username = usernameInput.value.trim();
+    console.log(username);
     // Create a preferences object containing both values
-    // Convert object to JSON string using JSON.stringify()
-    // Store the JSON string in localStorage with key 'userPreferences'
-    // Apply theme immediately
-    // Show success message
+    if (username) {
+        const preferences = {
+        theme: theme,
+        username: username,
+        savedAt: new Date().toISOString(),
+        };
+        // Convert object to JSON string using JSON.stringify()
+        // preferences = JSON.stringify(preferences);
+        // Store the JSON string in localStorage with key 'userPreferences'
+        localStorage.setItem("userPreferences", JSON.stringify(preferences));
+        // Apply theme immediately
+        applyTheme(theme);
+        // Show success message
+        displayStorageContents();
+        message = 'Preferences saved!';
+    } else {message = 'Please enter a username'}
+    showMessage(message);
 }
 
 // TODO: Implement loadPreferences function
@@ -126,5 +168,6 @@ savePreferencesBtn.addEventListener('click', savePreferences);
 
 // TODO: Load preferences when page loads
 loadPreferences();
+displayStorageContents();
 
 console.log('LocalStorage demo ready - complete the TODO items!');
