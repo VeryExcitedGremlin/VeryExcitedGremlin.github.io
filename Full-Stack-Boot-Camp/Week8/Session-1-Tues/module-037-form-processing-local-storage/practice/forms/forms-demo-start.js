@@ -75,6 +75,7 @@ function showError(field, errorMessage) {
     const errorElement = document.querySelector(`#${field.id}-error`);
     if (errorMessage) {
         field.classList.add("error");
+        field.classList.remove("valid");
         errorElement.textContent = errorMessage;
     } else {
         field.classList.remove("error");
@@ -172,43 +173,56 @@ function validateForm() {
     
     const errors = {};
     let isValid = true;
+
+    inputElements.forEach( (field) => {
+        const errorMessage = validateSingleField(field);
+        // console.log(errorMessage);
+        showError(field, errorMessage);
+        const hasError = field.classList.contains('error');
+        if (hasError) {
+            errors[field.id] = errorMessage;
+            isValid = false;
+        }
+    });
     
-    // TODO: Call validateUsername() with usernameInput.value
-    const usernameError = validateUsername(usernameInput.value);
-    // TODO: If error returned, add to errors object and set isValid to false
-    if (usernameError) {
-        errors.username = usernameError;
-        isValid = false;
-    }
-    // TODO: Call validateEmail() with emailInput.value
-    const emailError = validateEmail(emailInput.value);
-    // TODO: If error returned, add to errors object and set isValid to false
-    if (emailError) {
-        errors.email = emailError;
-        isValid = false;
-    }
-    // TODO: Call validatePassword() with passwordInput.value
-    const passwordError = validatePassword(passwordInput.value);
-    // TODO: If error returned, add to errors object and set isValid to false
-    if (passwordError) {
-        errors.password = passwordError;
-        isValid = false;
-    }
-    // TODO: Call validateAge() with ageInput.value
-    const ageError = validateAge(ageInput.value);
-    // TODO: If error returned, add to errors object and set isValid to false
-    if (ageError) {
-        errors.age = ageError;
-        isValid = false;
-    }
-    // TODO: Call validateTerms() with termsCheckbox.checked
-    const termsError = validateTerms(termsCheckbox.value);
-    // TODO: If error returned, add to errors object and set isValid to false
-    if (termsError) {
-        errors.terms = termsError;
-        isValid = false;
-    }
+    // // TODO: Call validateUsername() with usernameInput.value
+    // const usernameError = usernameInput.classList.contains('error');
+    // // TODO: If error returned, add to errors object and set isValid to false
+    // if (usernameError) {
+    //     errors.username = document.getElementById('username-error');
+    //     isValid = false;
+    // }
+    // // TODO: Call validateEmail() with emailInput.value
+    // const emailError = validateEmail(emailInput.value);
+    // // TODO: If error returned, add to errors object and set isValid to false
+    // if (emailError) {
+    //     errors.email = emailError;
+    //     isValid = false;
+    // }
+    // // TODO: Call validatePassword() with passwordInput.value
+    // const passwordError = validatePassword(passwordInput.value);
+    // // TODO: If error returned, add to errors object and set isValid to false
+    // if (passwordError) {
+    //     errors.password = passwordError;
+    //     isValid = false;
+    // }
+    // // TODO: Call validateAge() with ageInput.value
+    // const ageError = validateAge(ageInput.value);
+    // // TODO: If error returned, add to errors object and set isValid to false
+    // if (ageError) {
+    //     errors.age = ageError;
+    //     isValid = false;
+    // }
+    // // TODO: Call validateTerms() with termsCheckbox.checked
+    // const termsError = validateTerms(termsCheckbox.value);
+    // console.log(termsError);
+    // // TODO: If error returned, add to errors object and set isValid to false
+    // if (termsError) {
+    //     errors.terms = termsError;
+    //     isValid = false;
+    // }
     // return { isValid, errors };
+    // console.log(errors);
     return [isValid, errors]
 }
 
@@ -219,9 +233,9 @@ function showValidationErrors(isValid, errors) {
     // console.log(errors);
     // let output = ''
     if (!isValid) {
-        Object.keys(errors).forEach((element) => {
+        Object.keys(errors).forEach((fieldID) => {
             // console.log(element);
-            showError(document.getElementById(element), errors[element])
+            showError(document.getElementById(fieldID), errors[fieldID])
         })
     }
     // Clear all error messages
@@ -232,8 +246,8 @@ function clearValidationErrors() {
     inputElements.forEach( (field) => {
     // TODO: Clear all error message displays
         const errorField = document.querySelector(`#${field.id}-error`);
-        console.log('errorField');
-        console.log(errorField);
+        // console.log('errorField');
+        // console.log(errorField);
         errorField.textContent = '';
     // Remove error classes from inputs
         field.textContent = '';
@@ -241,6 +255,7 @@ function clearValidationErrors() {
         field.classList.remove('valid');
     });
     formOutput.textContent = "\n\nSubmit the form to see the data here\n\n\n";
+    formdataOutput.textContent = '\n\n\nUse buttons above to see FormData in action\n\n\n\n';
 }
 
 // TODO: Handle form submission
