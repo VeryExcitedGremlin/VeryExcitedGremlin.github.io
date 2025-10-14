@@ -77,6 +77,10 @@ button:hover {
     min-height: 100px;
     font-family: monospace;
 }
+/* 
+#output p {
+    width: ;
+} */
 
 .preference-group {
     margin-bottom: 15px;

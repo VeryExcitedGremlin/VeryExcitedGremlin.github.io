@@ -19,6 +19,7 @@ const output = document.querySelector('#output');
 const themeSelect = document.querySelector('#theme-select');
 const usernameInput = document.querySelector('#username-input');
 const savePreferencesBtn = document.querySelector('#save-preferences-btn');
+const body = document.getElementById('top');
 
 // TODO: Implement setItem function
 // Store data using localStorage.setItem()
@@ -101,18 +102,27 @@ function clearAll() {
 // Show all items currently in localStorage
 function displayStorageContents() {
 // Loop through all localStorage keys
-    let message = '<strong>Storage contents:</strong>'
+    let display = '<p><h3>Storage contents:</h3></p>'
     const keys = Object.keys(localStorage);
     if (keys.length > 0) {
         keys.forEach( (key) => {
+            let val = localStorage.getItem(key);
+            if (key == 'userPreferences') {
+                val = val.split(',');
+                let val2 = []
+                val.forEach( (item) => val2.push(item.split(':')));
+                val2.forEach( (arr) => arr[0] = "<strong>"+arr[0]+"</strong>");
+                val = []
+                val2.forEach( (arr) => val.push(arr.join(':')));
+                val = val.join('\n');
+            }
         // Display each key-value pair in the output area
-            const val = localStorage.getItem(key);
-            message += `<p>${key} = ${val}</p>`;
+            display += `<p><strong>${key}</strong> = ${val}</p>`;
         });
     // Handle empty storage case
-    } else { message = 'No items in storage'; }
+    } else { display = 'No items in storage'; }
 
-    output.innerHTML = message;
+    output.innerHTML = display;
 }
 
 // TODO: Implement savePreferences function
@@ -145,17 +155,33 @@ function savePreferences() {
 // TODO: Implement loadPreferences function
 // Restore form data from localStorage on page load
 function loadPreferences() {
+    let message = ''
     // Get saved preferences JSON string from localStorage using key 'userPreferences'
-    // Parse the JSON string back to object using JSON.parse()
-    // Handle case when no preferences are saved (null check)
-    // Set form values to saved data from the preferences object
-    // Apply saved theme to page
+    const preferences = localStorage.getItem('userPreferences');
+    if (preferences) {
+        // Parse the JSON string back to object using JSON.parse()
+        const preferencesObject = JSON.parse(preferences);
+        // Set form values to saved data from the preferences object
+        themeSelect.value = preferencesObject.theme;
+        usernameInput.value = preferencesObject.username;
+        // Apply saved theme to page
+        applyTheme(preferencesObject.theme);
+        message = `Preferences applied for username: ${preferencesObject.username}`;
+        // Handle case when no preferences are saved (null check)
+    } else { message = 'No preferences saved' }
+    showMessage(message);
 }
 
 // TODO: Implement applyTheme function
 // Build persistent user preferences features
 function applyTheme(theme) {
     // Add or remove 'dark-theme' class from body
+    // console.log(`theme: ${theme}`);
+    if (theme == 'dark') {
+        body.classList.add('dark-theme')
+    } else if (theme == 'light') {
+        body.classList.remove('dark-theme');
+    }
     // Update page appearance based on theme choice
 }
 
