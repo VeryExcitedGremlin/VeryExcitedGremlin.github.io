@@ -76,7 +76,7 @@ p {
 }
 .accordion-button:focus {box-shadow: none;}
 
-#bootcamp, .card-body, #otherLinks, .cardContainer, main, #guided-practice {
+#bootcamp, .card-body, #otherLinks, .cardContainer, main, #guided-practice, #repo {
     display: flex;
     flex-direction: column;
     align-items: center;
