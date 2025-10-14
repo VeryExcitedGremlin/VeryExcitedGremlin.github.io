@@ -1,5 +1,6 @@
 body {
     background-color: rgb(243, 197, 255);
+    background: linear-gradient(135deg, #E079C0 0%, #B2E079 100%);
 }
 
 #heading h1 {
@@ -84,8 +85,11 @@ p {
 
 #bootcamp, #otherLinks {
     width: 90vw;
-    background-color: rgb(228, 122, 255);
-    border: solid 0.5em rgb(221, 87, 255);
+    /* background-color: rgb(228, 122, 255);
+    border: solid 0.5em rgb(221, 87, 255); */
+    background-color: rgb(255, 250, 243);
+    /* border: solid 0.5em rgb(159, 95, 219); */
+    /* background-color: #f3ffe4; */
     border-radius: 2em;
     padding: 2em;
     margin: 3em 0;
@@ -96,6 +100,8 @@ p {
     width: 80vw;
     background-color: rgb(255, 236, 214);
     border: 0.5em solid bisque;
+    /* background-color: #B2E079;
+    border: 0.5em solid #56614A; */
     border-radius: 1em;
     padding: 3em 2em;
     margin: 1em;

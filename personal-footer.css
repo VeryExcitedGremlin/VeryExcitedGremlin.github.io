@@ -1,7 +1,8 @@
 
 .bookend {
-    background-color: rgb(159, 95, 219);
-    border: solid .2em rgb(104, 15, 187);
+    background-color: #9F5FDB;
+    /* border: solid .2em rgb(104, 15, 187); */
+    border: solid .2em #614A5A;
     filter: drop-shadow(0em 0em 0.5em rgba(0, 0, 0, 0.205));
     box-sizing: border-box;
     text-align: center;
