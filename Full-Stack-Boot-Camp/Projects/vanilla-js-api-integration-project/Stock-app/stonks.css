@@ -46,7 +46,8 @@ button {
 }
 
 #watchlist-placeholder {
-    color: grey
+    color: grey;
+    text-align: center;
 }
 
 .card-body {
