@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrAsh Stonks -- Stock Lookup App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/personal-footer.css" />
+    <link rel="stylesheet" href="stonks.css" />
+    <script defer src="stonks.js"></script>
+    <script src="https://kit.fontawesome.com/3b97a22061.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body id="top">
+    <header class="bookend" id="heading">
+
+        <div class="row justify-content-between align-items-center heading-inner">
+            <div id="logo" class="col-sm-4 heading-inner">
+                <div class="row justify-content-center justify-content-sm-around">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h1 class="col-auto">TrAsh Stonks</h1>
+                </div>
+            </div>
+
+            <div class="col-sm-auto heading-inner">
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <div class="row justify-content-center">
+                            <div class="col-auto col-sm-12">Portfolio Value:</div>
+                            <div class="col-auto col-sm-12">$0.00</div>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="row justify-content-center">
+                            <div class="col-auto col-sm-12">Stocks Watched:</div>
+                            <div class="col-auto col-sm-12">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-end">
+                    <nav class="col-auto">
+                        <ul class="row">
+                            <li class="col-auto"><a href="#watchlist">Your Watchlist</a></li>
+                            <li class="col-auto"><a href="#portfolio">Portfolio Summary</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+            </div>
+        </div>
+
+    </header>
+    <main>
+        <section id="lookup" class="outer-section row justify-content-center">
+            <form id="stock-lookup" class="row justify-content-around">
+                <input class="col-12 col-sm-8 col-md-9 col-lg-10" type="text" id="lookup-input" placeholder="Enter a stock symbol or company name (e.g. AAPL, Apple)">
+                <button class="col-auto" type="submit">Search Stocks</button>
+            </form>
+        </section>
+
+        <section id="watchlist" class="row justify-content-center">
+            <h2 class="row"><i class="fa-solid fa-thumbtack"></i>Your Watchlist</h2>
+            <div class="outer-section row">
+            </div>
+        </section>
+
+        <section id="portfolio" class="row">
+            <h2 class="row"><i class="fa-solid fa-folder-open"></i>Portfolio Summary</h2>
+            <div class="row outer-section justify-content-center">
+
+                <!-- <div class='row'> -->
+                    <div class="col-12 col-md-6 col-xl-3">
+                        <div class="inner-section card">
+                            <div class="card-body">
+                                <h6 class="card-title">Total Portfolio Value</h6>
+                                <p class="card-text">$0.00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-xl-3">
+                        <div class="inner-section card">
+                            <div class="card-body">
+                                <h6 class="card-title">Number of Positions</h3>
+                                <p class="card-text">0</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-xl-3">
+                        <div class="inner-section card">
+                            <div class="card-body">
+                                <h6 class="card-title">Top Performing Stock</h6>
+                                <p class="card-text">-</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-xl-3">
+                        <div class="inner-section card">
+                            <div class="card-body">
+                                <h6 class="card-title">Today's Change</h6>
+                                <p class="card-text">+$0.00</p>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bookend">
+      <div>Posted by Ashton Oder 2025</div>
+      <br />
+      <nav>
+        <a href="#top">Back to Top</a>
+        <a href="/">Return to projects homepage</a>
+      </nav>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
