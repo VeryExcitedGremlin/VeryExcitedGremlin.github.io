@@ -8,12 +8,8 @@ body {
     z-index: 100;
 }
 
-header nav {
-    background-color: #614A5A;
-    /* border: solid 3px #614A5A; */
-    position: relative;
-    top: 1.0em;
-    left: 0.3em;
+i {
+    width: auto;
 }
 
 ul {
@@ -23,6 +19,15 @@ ul {
 
 li {
     list-style: none;
+}
+
+header nav {
+    background-color: #614A5A;
+    /* border: solid 3px #614A5A; */
+    border-radius: 4px 0 0 0;
+    position: relative;
+    top: 1.0em;
+    left: 0.3em;
 }
 
 #heading a {
