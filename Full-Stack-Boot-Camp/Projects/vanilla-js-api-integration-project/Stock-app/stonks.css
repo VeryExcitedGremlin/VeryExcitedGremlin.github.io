@@ -8,20 +8,10 @@ body {
     z-index: 100;
 }
 
-i {
-    width: auto;
-}
-
 ul {
     margin: 0;
     padding: 0;
-}
-
-li {
-    list-style: none;
-}
-
-header nav {
+    /* justify-content: end; */
     background-color: #614A5A;
     /* border: solid 3px #614A5A; */
     border-radius: 4px 0 0 0;
@@ -29,6 +19,13 @@ header nav {
     top: 1.0em;
     left: 0.3em;
 }
+
+li {
+    list-style: none;
+}
+
+/* header nav {
+} */
 
 #heading a {
     color: rgb(255, 250, 243);
@@ -53,6 +50,11 @@ button {
 #watchlist-placeholder {
     color: grey;
     text-align: center;
+}
+
+.card {
+    height: 90%;
+    min-width: 33px;
 }
 
 .card-body {
