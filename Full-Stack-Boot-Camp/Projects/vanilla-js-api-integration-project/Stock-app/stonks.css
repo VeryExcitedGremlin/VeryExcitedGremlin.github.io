@@ -12,8 +12,8 @@ ul {
     margin: 0;
     padding: 0;
     /* justify-content: end; */
-    background-color: #614A5A;
-    /* border: solid 3px #614A5A; */
+    background-color: #554961;
+    /* border: solid 3px #554961; */
     border-radius: 4px 0 0 0;
     position: relative;
     top: 1.0em;
@@ -41,15 +41,39 @@ section {
     width: 90vw;
 }
 
+#lookup {
+    padding: 3em 1em 0;
+}
+
+#lookup-input {
+    border: solid 3px #554961;
+    border-radius: 8px;
+}
+
 button {
     background-color: #9F5FDB;
-    border: solid 3px #614A5A;
+    border: solid 3px #554961;
+    border-radius: 8px;
+}
+
+#quick-lookup {
+    margin: 1em 0;
+    height: 50px;
+    align-items: center;
+}
+
+.quick {
+    padding: 3px 7px;
+    margin: 5px;
+    background-color: #B2E079;
+    border: solid 2px #56614A;
     border-radius: 8px;
 }
 
 #watchlist-placeholder {
     color: grey;
     text-align: center;
+    height: 15em;
 }
 
 .card {
