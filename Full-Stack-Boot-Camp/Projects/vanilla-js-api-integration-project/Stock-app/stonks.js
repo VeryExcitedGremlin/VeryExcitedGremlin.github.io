@@ -1,10 +1,39 @@
 const lookupForm = document.getElementById("stock-lookup");
 const lookupInput = document.getElementById("lookup-input");
-const lookupQuick = document.getElementById('quick-lookup');
+const lookupQuickSection = document.getElementById("quick-lookup-section");
 
 const portfolioCards = document.getElementById("portfolio-cards");
 
-const quickLookup = ['APPL', 'GOOGL', 'MSFT', 'TSLA', 'AMZN'];
+function getData(event) {
+  event.preventDefault();
+}
+
+function quickLookup(event) {
+  const target = event.target
+  if (target.classList.contains('quick')){
+    const text = target.textContent;
+    lookupInput.value = text;
+  }
+  console.log(target);
+}
+
+async function callData(access_key, symbol) {
+  const url = `http://api.marketstack.com/v2/eod?${access_key}=c37cf927e188929771585709f822c131&symbols=${symbol}`;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+
+    const result = await response.json();
+    console.log(result);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+//Build page
+const quickLookupList = ["APPL", "GOOGL", "MSFT", "TSLA", "AMZN"];
 const cardObjects = [
   {
     id: "totalValue",
@@ -29,14 +58,15 @@ const cardObjects = [
 ];
 
 function buildQuickLookup() {
-    let inner = '<span class="col-auto">Quick Search:</span><div class="col-auto">'
-    quickLookup.forEach( (quickLink) => {
-        inner += `
+  let inner =
+    '<span class="col-auto">Quick Search:</span><div class="col-auto">';
+  quickLookupList.forEach((quickLink) => {
+    inner += `
             <span class='quick col-auto'>${quickLink}</span>
-        `
-    });
-    inner += '</div>'
-    lookupQuick.innerHTML = inner;
+        `;
+  });
+  inner += "</div>";
+  lookupQuickSection.innerHTML = inner;
 }
 
 function buildCards() {
@@ -57,31 +87,9 @@ function buildCards() {
   portfolioCards.innerHTML = cards;
 }
 
-function getData(event) {
-    event.preventDefault();
-}
-
-async function callData(access_key, symbol) {
-  const url = `http://api.marketstack.com/v2/eod?${access_key}=c37cf927e188929771585709f822c131&symbols=${symbol}`;
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`Response status: ${response.status}`);
-    }
-
-    const result = await response.json();
-    console.log(result);
-  } catch (error) {
-    console.error(error.message);
-  }
-}
-
 buildQuickLookup();
 buildCards();
 
-
-
-
 //listeners
-lookupForm.querySelector('button').addEventListener('submit', getData);
-// lookupQuick.addEventListener('click', );
+lookupForm.querySelector("button").addEventListener("submit", getData);
+lookupQuickSection.addEventListener("click", quickLookup);
