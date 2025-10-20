@@ -7,6 +7,9 @@ const portfolioCards = document.getElementById("portfolio-cards");
 
 function getData(event) {
   event.preventDefault();
+  const symbol = lookupInput.value;
+  const apiKey = apiKeyInput.value;
+  console.log(apiKey);
 }
 
 function quickLookup(event) {
@@ -92,5 +95,5 @@ buildQuickLookup();
 buildCards();
 
 //listeners
-lookupForm.querySelector("button").addEventListener("submit", getData);
+lookupForm.addEventListener("submit", getData);
 lookupQuickSection.addEventListener("click", quickLookup);
