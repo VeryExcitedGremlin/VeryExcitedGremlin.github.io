@@ -23,10 +23,11 @@
             <div id="logo" class="col-sm-5 heading-inner">
                 <div class="row justify-content-center justify-content-sm-around">
                     <h1 class="col-auto"><i class="fa-solid fa-chart-line"></i>TrAsh Stonks</h1>
+                    <input class="col-6 mb-2" type="text" id="api-key" placeholder="Enter your API key" />
                 </div>
             </div>
 
-            <div class="col-sm-7 col-md-auto heading-inner">
+            <div class="col-sm-7 col-md-auto align-items-center heading-inner h-100">
                 <div class="row justify-content-center">
                     <div class="col-auto">
                         <div class="row justify-content-center">
@@ -35,33 +36,36 @@
                         </div>
                     </div>
                     <div class="col-auto">
-                        <div class="row justify-content-center">
+                        <div class="row justify-content-center mb-4">
                             <div class="col-auto col-md-12">Stocks Watched:</div>
                             <div class="col-auto col-md-12">0</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="row justify-content-end">
-                    <nav class="col-auto">
+                <div id="nav-container" class="row justify-content-end">
+                    <!-- <nav class="col col-sm-6 col-md-5 col-lg-4 col-xl-3"> -->
+                        <nav class="col">
                         <ul class="row justify-content-end">
                             <li class="col-auto"><a href="#watchlist">Your Watchlist</a></li>
                             <li class="col-auto"><a href="#portfolio">Portfolio Summary</a></li>
                         </ul>
                     </nav>
                 </div>
-                
+             
             </div>
-        </div>
+        </div>   
 
     </header>
     <main>
-        <section id="lookup" class="outer-section row justify-content-center">
-            <form id="stock-lookup" class="row justify-content-around">
-                <input class="col-12 col-sm-8 col-md-9 col-lg-10 mb-2 mb-sm-3" type="text" id="lookup-input" placeholder="Enter a stock symbol or company name (e.g. AAPL, Apple)">
-                <button class="col-auto mb-3" type="submit">Search Stocks</button>
-            </form>
-            <div id="quick-lookup-section" class="row justify-content-center">
+        <section id="lookup-section">
+            <div id="lookup" class="outer-section row justify-content-center">
+                <form id="stock-lookup" class="row justify-content-around">
+                    <input class="col-12 col-sm-8 col-md-9 col-lg-10 mb-2 mb-sm-3" type="text" id="lookup-input" placeholder="Enter a stock symbol or company name (e.g. AAPL, Apple)">
+                    <button class="col-auto mb-3" type="submit">Search Stocks</button>
+                </form>
+                <div id="quick-lookup-section" class="row justify-content-center">
+                </div>
             </div>
         </section>
 

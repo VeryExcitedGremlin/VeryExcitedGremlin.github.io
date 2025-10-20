@@ -6,7 +6,17 @@ body {
     position: sticky;
     top: 10px;
     z-index: 100;
+    /* height: fit-content; */
 }
+
+/* .heading-inner {
+    height: inherit;
+} */
+
+/* #nav-container {
+    height: 100%;
+    position: relative;
+} */
 
 ul {
     margin: 0;
@@ -15,9 +25,11 @@ ul {
     background-color: #554961;
     /* border: solid 3px #554961; */
     border-radius: 4px 0 0 0;
-    position: relative;
-    top: 1.0em;
-    left: 0.3em;
+    position: absolute;
+    /* top: 1.0em; */
+    bottom: 0;
+    /* left: 0.3em; */
+    right: 0.5em;
 }
 
 li {
@@ -42,10 +54,10 @@ section {
 }
 
 #lookup {
-    padding: 3em 1em 0;
+    padding: 2.5em 1em 0;
 }
 
-#lookup-input {
+input {
     border: solid 3px #554961;
     border-radius: 8px;
     /* margin: 0 0 2em 0; */
