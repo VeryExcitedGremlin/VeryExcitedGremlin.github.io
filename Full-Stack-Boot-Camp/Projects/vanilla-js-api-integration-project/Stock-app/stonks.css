@@ -39,6 +39,10 @@ li {
 /* header nav {
 } */
 
+#heading-tickers {
+    margin-bottom: 2em;
+}
+
 #heading a {
     color: rgb(255, 250, 243);
 }
@@ -131,4 +135,12 @@ button {
     padding: 3em 2em;
     margin: 1em;
     /* justify-content: center; */
+}
+
+
+
+@media (max-width: 268px) {
+    #heading-tickers {
+        margin-bottom: 3.5em;
+    }
 }

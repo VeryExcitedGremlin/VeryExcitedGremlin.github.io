@@ -1,6 +1,7 @@
 const lookupForm = document.getElementById("stock-lookup");
 const lookupInput = document.getElementById("lookup-input");
 const lookupQuickSection = document.getElementById("quick-lookup-section");
+const apiKeyInput = document.getElementById('api-key');
 
 const portfolioCards = document.getElementById("portfolio-cards");
 
