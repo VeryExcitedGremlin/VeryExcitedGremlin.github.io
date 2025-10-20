@@ -5,24 +5,34 @@ const apiKeyInput = document.getElementById('api-key');
 
 const portfolioCards = document.getElementById("portfolio-cards");
 
-function getData(event) {
-  event.preventDefault();
-  const symbol = lookupInput.value;
-  const apiKey = apiKeyInput.value;
-  console.log(apiKey);
-}
-
 function quickLookup(event) {
   const target = event.target
   if (target.classList.contains('quick')){
     const text = target.textContent;
     lookupInput.value = text;
   }
-  console.log(target);
+  // console.log(target);
 }
 
-async function callData(access_key, symbol) {
-  const url = `http://api.marketstack.com/v2/eod?${access_key}=c37cf927e188929771585709f822c131&symbols=${symbol}`;
+function getData(event) {
+  event.preventDefault();
+  // const apiKey = apiKeyInput.value;
+  // console.log(apiKey);
+  const stockObject = callAPI();
+  if (stockObject) {
+    console.log('stockObject');
+    console.log(stockObject);
+  }
+}
+
+async function callAPI() {
+  const access_key = apiKeyInput.value;
+  const symbol = lookupInput.value;
+  // const today = getToday();
+  // const url = `http://api.marketstack.com/v2/eod?${access_key}&symbols=${symbol}&date_from=${today}`;
+  
+  const url = `http://api.marketstack.com/v2/eod?${access_key}&symbols=${symbol}`;
+  
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -30,7 +40,9 @@ async function callData(access_key, symbol) {
     }
 
     const result = await response.json();
+    console.log('result');
     console.log(result);
+    return result
   } catch (error) {
     console.error(error.message);
   }
@@ -41,7 +53,7 @@ function getToday() {
   const year = date.getFullYear();
   let month = date.getMonth() + 1;
   month = month.toString();
-  let day = date.getDate();
+  let day = date.getDate() - 1;
   day = day.toString();
   if (month.length < 2) { month = `0${month}`}
   if (day.length < 2) {
@@ -49,7 +61,8 @@ function getToday() {
   }
 
   const today = `${year}-${month}-${day}`
-  console.log(today);
+  // console.log(today);
+  return today
 }
 
 //Build page
