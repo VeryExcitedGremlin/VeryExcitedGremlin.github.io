@@ -59,13 +59,13 @@ const cardObjects = [
 
 function buildQuickLookup() {
   let inner =
-    '<span class="col-auto">Quick Search:</span><div class="col-auto">';
+    '<span class="col-auto mb-2 mb-sm-0">Quick Search:</span><div class="col-auto"><div class="row justify-content-center">';
   quickLookupList.forEach((quickLink) => {
     inner += `
-            <span class='quick col-auto'>${quickLink}</span>
+            <div class='quick col-auto m-1'>${quickLink}</div>
         `;
   });
-  inner += "</div>";
+  inner += "</div></div>";
   lookupQuickSection.innerHTML = inner;
 }
 
