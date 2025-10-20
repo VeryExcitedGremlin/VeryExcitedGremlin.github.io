@@ -108,13 +108,14 @@ function displayStorageContents() {
         keys.forEach( (key) => {
             let val = localStorage.getItem(key);
             if (key == 'userPreferences') {
-                val = val.split(',');
-                let val2 = []
-                val.forEach( (item) => val2.push(item.split(':')));
-                val2.forEach( (arr) => arr[0] = "<strong>"+arr[0]+"</strong>");
-                val = []
-                val2.forEach( (arr) => val.push(arr.join(':')));
-                val = val.join('\n');
+                const valObject = JSON.parse(val);
+                const objectKeys = Object.keys(valObject);
+                let inner = ''
+                objectKeys.forEach( (objectKey) => {
+                    inner += `<p>   -   <strong>${objectKey}</strong> = ${valObject[objectKey]}</p>`
+                });
+                val = inner;
+                console.log(valObject);
             }
         // Display each key-value pair in the output area
             display += `<p><strong>${key}</strong> = ${val}</p>`;
