@@ -22,13 +22,14 @@ async function callAPI(event) {
   const symbol = lookupInput.value;
   const today = getToday();
   if (!Object.keys(localStorage).includes(symbol) || JSON.parse(localStorage.getItem(symbol)).date !== today) {
-    const url = `http://api.marketstack.com/v2/eod?access_key=${access_key}&symbols=${symbol}&date_from=${today}`;
+    const url = `https://api.marketstack.com/v2/eod?access_key=${access_key}&symbols=${symbol}&date_from=${today}`;
     // return url
     try {
       const response = await fetch(url);
 
       if (response.ok) {
         const result = await response.json();
+        // console.log(result)
         const stockObject = result.data[0];
         localStorage.setItem(
           symbol,
