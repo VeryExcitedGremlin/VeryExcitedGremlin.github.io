@@ -11,41 +11,44 @@ function quickLookup(event) {
     const text = target.textContent;
     lookupInput.value = text;
   }
-  // console.log(target);
+  callAPI()
 }
 
-function getData(event) {
-  event.preventDefault();
-  // const apiKey = apiKeyInput.value;
-  // console.log(apiKey);
-  const stockObject = callAPI();
-  if (stockObject) {
-    console.log('stockObject');
-    console.log(stockObject);
-  }
-}
-
-async function callAPI() {
+async function callAPI(event) {
+  if (event) {
+    event.preventDefault();
+  };
   const access_key = apiKeyInput.value;
   const symbol = lookupInput.value;
-  // const today = getToday();
-  // const url = `http://api.marketstack.com/v2/eod?${access_key}&symbols=${symbol}&date_from=${today}`;
-  
-  const url = `http://api.marketstack.com/v2/eod?${access_key}&symbols=${symbol}`;
-  
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`Response status: ${response.status}`);
-    }
+  const today = getToday();
+  if (!Object.keys(localStorage).includes(symbol) || JSON.parse(localStorage.getItem(symbol)).date !== today) {
+    const url = `http://api.marketstack.com/v2/eod?access_key=${access_key}&symbols=${symbol}&date_from=${today}`;
+    // return url
+    try {
+      const response = await fetch(url);
 
-    const result = await response.json();
-    console.log('result');
-    console.log(result);
-    return result
-  } catch (error) {
-    console.error(error.message);
-  }
+      if (response.ok) {
+        const result = await response.json();
+        const stockObject = result.data[0];
+        localStorage.setItem(
+          symbol,
+          JSON.stringify({
+            close: stockObject.close,
+            high: stockObject.high,
+            low: stockObject.low,
+            name: stockObject.name,
+            open: stockObject.open,
+            date: today,
+          })
+        );
+      }
+
+      throw new Error(`Response status: ${response.status}`);
+    } catch (error) {
+      console.error(error.message);
+    }
+  } else { console.log(`already have ${symbol} for today`) }
+  // return {close: result.close, high: result.high, low: result.low, name: result.name, open: result.open}
 }
 
 function getToday() {
@@ -53,7 +56,7 @@ function getToday() {
   const year = date.getFullYear();
   let month = date.getMonth() + 1;
   month = month.toString();
-  let day = date.getDate() - 1;
+  let day = date.getDate() - 3;
   day = day.toString();
   if (month.length < 2) { month = `0${month}`}
   if (day.length < 2) {
@@ -66,7 +69,7 @@ function getToday() {
 }
 
 //Build page
-const quickLookupList = ["APPL", "GOOGL", "MSFT", "TSLA", "AMZN"];
+const quickLookupList = ["AAPL", "GOOGL", "MSFT", "TSLA", "AMZN"];
 const cardObjects = [
   {
     id: "totalValue",
@@ -124,5 +127,5 @@ buildQuickLookup();
 buildCards();
 
 //listeners
-lookupForm.addEventListener("submit", getData);
+lookupForm.addEventListener("submit", callAPI);
 lookupQuickSection.addEventListener("click", quickLookup);
