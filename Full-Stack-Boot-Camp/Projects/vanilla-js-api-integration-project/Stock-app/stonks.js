@@ -36,6 +36,22 @@ async function callData(access_key, symbol) {
   }
 }
 
+function getToday() {
+  const date = new Date();
+  const year = date.getFullYear();
+  let month = date.getMonth() + 1;
+  month = month.toString();
+  let day = date.getDate();
+  day = day.toString();
+  if (month.length < 2) { month = `0${month}`}
+  if (day.length < 2) {
+    day = `0${day}`;
+  }
+
+  const today = `${year}-${month}-${day}`
+  console.log(today);
+}
+
 //Build page
 const quickLookupList = ["APPL", "GOOGL", "MSFT", "TSLA", "AMZN"];
 const cardObjects = [
