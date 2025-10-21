@@ -65,10 +65,91 @@
         <section id="lookup-section">
             <div id="lookup" class="outer-section row justify-content-center">
                 <form id="stock-lookup" class="row justify-content-around">
-                    <input class="col-12 col-sm-8 col-md-9 col-lg-10 mb-2 mb-sm-3" type="text" id="lookup-input" placeholder="Enter a stock symbol or company name (e.g. AAPL, Apple)">
+                    <input type="text" id="lookup-input" placeholder="Enter a stock symbol or company name (e.g. AAPL, Apple)" class="col-12 col-sm-8 col-md-9 col-lg-10 mb-2 mb-sm-3">
                     <button class="col-auto mb-3" type="submit">Search Stocks</button>
                 </form>
                 <div id="quick-lookup-section" class="row justify-content-center">
+                </div>
+            </div>
+        </section>
+
+        <section id="show-stock" class="outer-section p-0">
+            <div id="stock-banner" class="row justify-content-around align-items-center">
+                <div class="col">
+                    <div class="row">
+                        <h2>Placeholder</h2>
+                        <div class="dis-val col-auto ms-3 mt-1">PHDR</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <button><i class="fa-solid fa-thumbtack"></i>Add to Watchlist</button>
+                </div>
+            </div>
+
+            <div id="stock-info" class="row align-items-center justify-content-around">
+                <div class="col-auto">
+                    <!-- <div class="row"> -->
+                    <h1>Close</h1>
+                    <span>change</span>
+                    <!-- </div> -->
+                </div>
+                
+                <div class="col-auto col-md-8 col-lg-6">
+                    <div class="row justify-content-between">
+                        <div class="col-6">
+                            <div class="row justify-content-sm-between stock-data m-1 p-1">
+                                <span class="col-12 col-sm-auto">Open:</span>
+                                <span class="col-12 col-sm-auto">$0.00</span>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="row justify-content-sm-between stock-data m-1 p-1">
+                                <span class="col-12 col-sm-auto">High:</span>
+                                <span class="col-12 col-sm-auto">$0.00</span>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="row justify-content-sm-between stock-data m-1 p-1">
+                                <span class="col-12 col-sm-auto">Low:</span>
+                                <span class="col-12 col-sm-auto">$0.00</span>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="row justify-content-sm-between stock-data m-1 p-1">
+                                <span class="col-12 col-sm-auto">Volume:</span>
+                                <span class="col-12 col-sm-auto">0</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="portfolio-management" class="row">
+                
+                <form id="update-shares"  class="row justify-content-around">
+                    <h3>Portfolio Management</h3>
+                    <!-- <label for="shares-input">Number of Shares Owned</label> -->
+                    <input type="text" id="shares-input" placeholder="Number of Shares Owned" class="col-12 col-sm-8 col-md-9 col-lg-10 mb-2 mb-sm-3">
+                    <button class="col-auto mb-3" type="submit">Update Shares</button>
+                </form>
+
+                <div class="row justify-content-around">
+                    <div class="col-12 col-sm-5">
+                        <div class="row justify-content-between dis-val m-1">
+                            <span class="col-12 col-md-auto">Current Holdings:</span>
+                            <span class="col-12 col-md-auto">0 Shares</span>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-5">
+                        <div class="row justify-content-between dis-val m-1">
+                            <span class="col-12 col-md-auto">Position Value:</span>
+                            <span class="col-12 col-md-auto">$0.00</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

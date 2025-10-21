@@ -2,6 +2,7 @@ const lookupForm = document.getElementById("stock-lookup");
 const lookupInput = document.getElementById("lookup-input");
 const lookupQuickSection = document.getElementById("quick-lookup-section");
 const apiKeyInput = document.getElementById('api-key');
+const showStock = document.getElementById('show-stock');
 
 const portfolioCards = document.getElementById("portfolio-cards");
 
@@ -34,11 +35,12 @@ async function callAPI(event) {
         localStorage.setItem(
           symbol,
           JSON.stringify({
-            close: stockObject.close,
+            open: stockObject.open,
             high: stockObject.high,
             low: stockObject.low,
+            close: stockObject.close,
             name: stockObject.name,
-            open: stockObject.open,
+            volume: stockObject.volume,
             date: today,
           })
         );
@@ -49,7 +51,19 @@ async function callAPI(event) {
       console.error(error.message);
     }
   } else { console.log(`already have ${symbol} for today`) }
-  // return {close: result.close, high: result.high, low: result.low, name: result.name, open: result.open}
+  
+  if (localStorage.getItem(symbol)) {
+    displayStock(symbol);
+  }
+}
+
+function displayStock(symbol) {
+  let stockCard = createElement("div");
+  const data = localStorage.getItem(symbol);
+  const userData = localStorage.getItem(`${symbol}-user`)
+  const inner = `
+
+  `
 }
 
 function getToday() {

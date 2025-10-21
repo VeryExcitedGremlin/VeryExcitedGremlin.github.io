@@ -129,6 +129,8 @@ button {
 
 .inner-section {
     /* width: 80vw; */
+    /* background-color: #E079C0;
+    border: 0.5em solid #614A5A; */
     background-color: rgb(255, 236, 214);
     border: 0.5em solid bisque;
     border-radius: 1em;
@@ -137,6 +139,41 @@ button {
     /* justify-content: center; */
 }
 
+/*Display stock*/
+#stock-banner {
+    padding: 2em;
+    border-radius: 2em 2em 0 0;
+    background-color: rgb(255, 236, 214);
+    border: 0.5em solid bisque;
+}
+
+#stock-info {
+    padding: 2em;
+    background-color: rgb(255, 250, 243);
+    text-align: center;
+}
+
+.stock-data {
+    background-color: #E079C0;
+    border: 2px solid #614A5A;
+    /* background-color: #B2E079;
+    border: 2px solid #56614A; */
+    border-radius: 8px;
+}
+
+#portfolio-management {
+    padding: 2em;
+    border-radius: 0 0 2em 2em;
+    background-color: rgb(255, 236, 214);
+    border: 0.5em solid bisque;
+}
+
+.dis-val {
+    background-color: #B2E079;
+    border: 2px solid #56614A;
+    border-radius: 8px;
+    text-align: center;
+}
 
 
 @media (max-width: 268px) {
