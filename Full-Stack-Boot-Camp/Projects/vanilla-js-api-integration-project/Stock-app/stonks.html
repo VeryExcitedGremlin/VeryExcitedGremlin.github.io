@@ -76,9 +76,11 @@
         <section id="show-stock" class="outer-section p-0">
             <div id="stock-banner" class="row justify-content-around align-items-center">
                 <div class="col">
-                    <div class="row">
-                        <h2>Placeholder</h2>
-                        <div class="dis-val col-auto ms-3 mt-1">PHDR</div>
+                    <div class="row justify-content-center justify-content-sm-start">
+                        <h2 class="col-sm-auto">Placeholder</h2>
+                        <div class="row justify-content-center justify-content-sm-start">
+                            <div class="dis-val col-auto ms-sm-3 mb-2">PHDR</div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-auto">
@@ -87,10 +89,10 @@
             </div>
 
             <div id="stock-info" class="row align-items-center justify-content-around">
-                <div class="col-auto">
+                <div class="col-auto mb-3">
                     <!-- <div class="row"> -->
                     <h1>Close</h1>
-                    <span>change</span>
+                    <span id="change" class="">change</span>
                     <!-- </div> -->
                 </div>
                 
@@ -128,26 +130,28 @@
                 </div>
             </div>
 
-            <div id="portfolio-management" class="row">
+            <div id="portfolio-management" class="row justify-content-center justify-content-sm-start">
                 
-                <form id="update-shares"  class="row justify-content-around">
-                    <h3>Portfolio Management</h3>
-                    <!-- <label for="shares-input">Number of Shares Owned</label> -->
+                <h3 class="col-auto">Portfolio Management</h3>
+                <!-- <form id="update-shares"  class="row justify-content-around">
+                    <label for="shares-input">Number of Shares Owned</label>
                     <input type="text" id="shares-input" placeholder="Number of Shares Owned" class="col-12 col-sm-8 col-md-9 col-lg-10 mb-2 mb-sm-3">
                     <button class="col-auto mb-3" type="submit">Update Shares</button>
-                </form>
+                </form> -->
 
                 <div class="row justify-content-around">
-                    <div class="col-12 col-sm-5">
-                        <div class="row justify-content-between dis-val m-1">
-                            <span class="col-12 col-md-auto">Current Holdings:</span>
-                            <span class="col-12 col-md-auto">0 Shares</span>
+                    <div class="col-11 col-sm-5 dis-val">
+                        <span class="col-12 col-md-auto">Current Holdings:</span>
+                        <div class="row justify-content-center">
+                            <span class="col-2 col-lg-2 dis-val-inner">-</span>
+                            <span class="col-3 col-lg-3 dis-val-inner">0</span>
+                            <span class="col-2 col-lg-2 dis-val-inner">+</span>
                         </div>
                     </div>
-                    <div class="col-12 col-sm-5">
-                        <div class="row justify-content-between dis-val m-1">
-                            <span class="col-12 col-md-auto">Position Value:</span>
-                            <span class="col-12 col-md-auto">$0.00</span>
+                    <div class="col-11 col-sm-5">
+                        <div class="row justify-content-center dis-val">
+                            <span class="col-12">Position Value:</span>
+                            <span class="col-5 col-lg-3 dis-val-inner">$0.00</span>
                         </div>
                     </div>
                 </div>
@@ -155,7 +159,10 @@
         </section>
 
         <section id="watchlist" class="justify-content-center">
-            <h2><i class="fa-solid fa-thumbtack"></i>Your Watchlist</h2>
+            <div class="row justify-content-between">
+                <h2 class="col-auto"><i class="fa-solid fa-thumbtack"></i>Your Watchlist</h2>
+                <button class="col-auto"><i class="fa-solid fa-download"></i>Refresh Stocks</button>
+            </div>
             <div class="outer-section row justify-content-center" id="watchlist-placeholder">
                 <h3 class="col-12"><i class="fa-solid fa-chart-line"></i></h3>
                 <h4 class="col-12">Your watchlist is empty</h4>
