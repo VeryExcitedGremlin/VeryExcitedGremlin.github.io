@@ -1,61 +1,94 @@
+
+const apiKeyInput = document.getElementById("api-key");
+const enterKey = document.getElementById("enter-key");
+
 const lookupForm = document.getElementById("stock-lookup");
 const lookupInput = document.getElementById("lookup-input");
 const lookupQuickSection = document.getElementById("quick-lookup-section");
-const apiKeyInput = document.getElementById('api-key');
-const showStock = document.getElementById('show-stock');
+const showStock = document.getElementById("show-stock");
+const lookupWarning = document.getElementById("lookup-warning");
 
 const portfolioCards = document.getElementById("portfolio-cards");
 
 async function callAPI(event) {
+  // apiKeyInput.classList.remove("border-danger-subtle");
+  lookupInput.classList.remove("border-danger-subtle");
   if (event) {
     event.preventDefault();
-  };
+  }
   const access_key = apiKeyInput.value;
+  // const access_key = JSON.parse(localStorage.getItem('API'));
   const symbol = lookupInput.value;
   const today = getToday();
-  if (!Object.keys(localStorage).includes(symbol) || JSON.parse(localStorage.getItem(symbol)).date !== today) {
-    const url = `https://api.marketstack.com/v2/eod?access_key=${access_key}&symbols=${symbol}&date_from=${today}`;
-    // return url
-    try {
-      const response = await fetch(url);
+  if (
+    !Object.keys(localStorage).includes(symbol) ||
+    JSON.parse(localStorage.getItem(symbol)).date !== today
+  ) {
+    if (access_key && symbol) {
+      const url = `https://api.marketstack.com/v2/eod?access_key=${access_key}&symbols=${symbol}&date_from=${today}`;
+      // return url
+      try {
+        const response = await fetch(url);
 
-      if (response.ok) {
-        const result = await response.json();
-        // console.log(result)
-        const stockObject = result.data[0];
-        localStorage.setItem(
-          symbol,
-          JSON.stringify({
-            open: stockObject.open,
-            high: stockObject.high,
-            low: stockObject.low,
-            close: stockObject.close,
-            name: stockObject.name,
-            volume: stockObject.volume,
-            date: today,
-          })
-        );
+        if (response.ok) {
+          const result = await response.json();
+          // console.log(result)
+          const stockObject = result.data[0];
+          localStorage.setItem(
+            symbol,
+            JSON.stringify({
+              open: stockObject.open,
+              high: stockObject.high,
+              low: stockObject.low,
+              close: stockObject.close,
+              name: stockObject.name,
+              volume: stockObject.volume,
+              date: today,
+            })
+          );
+        }
+
+        throw new Error(`Response status: ${response.status}`);
+      } catch (error) {
+        console.error(error.message);
       }
-
-      throw new Error(`Response status: ${response.status}`);
-    } catch (error) {
-      console.error(error.message);
+    } else {
+      // console.log('something missing');
+      if (!access_key && !symbol) {
+        apiKeyInput.classList.add("border-danger-subtle");
+        lookupInput.classList.add("border-danger-subtle");
+        lookupWarning.textContent = "Missing both stock symbol and API key";
+      } else if (!access_key) {
+        apiKeyInput.classList.add("border-danger-subtle");
+        lookupWarning.textContent = "Missing API key";
+      } else if (!symbol) {
+        lookupInput.classList.add("border-danger-subtle");
+        lookupWarning.textContent = "Missing stock symbol";
+      }
     }
-  } else { console.log(`already have ${symbol} for today`) }
-  
+  } else {
+    console.log(`already have ${symbol} for today`);
+  }
+
   if (localStorage.getItem(symbol)) {
     displayStock(symbol);
   }
 }
 
 function displayStock(symbol) {
-  showStock.classList.add('outer-section');
+  showStock.classList.add("outer-section");
 
   // let stockCard = createElement("div");
 
   const data = JSON.parse(localStorage.getItem(symbol));
 
-  let userData
+  if (data.date != getToday()) {
+    apiKeyInput.classList.add("border-danger-subtle");
+    lookupInput.classList.add("border-danger-subtle");
+    lookupWarning.textContent = "Check stock symbol and API key";
+  }
+
+  let userData;
   if (Object.keys(localStorage).includes(`${symbol}-user`)) {
     userData = JSON.parse(localStorage.getItem(`${symbol}-user`));
   }
@@ -64,8 +97,8 @@ function displayStock(symbol) {
     <div id="stock-banner" class="row justify-content-around align-items-center">
         <div class="col">
             <div class="row justify-content-center justify-content-sm-start">
-                <h2 class="col-auto">${data.name}</h2>
-                    <div id='stock-symbol' class="dis-val col-auto mb-2">${symbol}</div>
+                <h2 class="col-auto mt-2">${data.name}</h2>
+                <div id='stock-symbol' class="dis-val col-auto mb-2">${symbol}</div>
             </div>
         </div>
         <div class="col-12 col-sm-auto">
@@ -75,21 +108,26 @@ function displayStock(symbol) {
     <div id="stock-info" class="row align-items-center justify-content-around">
         
         <div class="col-auto mb-3">
-            <h1 id='close'>${data.close}</h1>
-            <span id="change" class="">${data.close - data.open}</span>
+          <h2>Close ${data.date}</h2>
+          <h3 id='close'>$${data.close}</h3>
+          <span id="change" class="">${data.close - data.open}</span>
         </div>
         
         <div class="col-auto col-md-8 col-lg-6">
             <div class="row justify-content-between">
   `;
 
-  const info = ['open', 'high', 'low', 'volume'];
-  info.forEach( (item) => {
+  const info = ["open", "high", "low", "volume"];
+  info.forEach((item) => {
     inner += `
               <div class="col-6">
                   <div class="row justify-content-sm-between stock-data m-1 p-1">
-                      <strong class="col-12 col-sm-auto">${capitalizeFirstLetter(item)}:</strong>
-                      <span class="col-12 col-sm-auto">${item == 'volume' ? data[item] : ('$'+data[item])}</span>
+                      <strong class="col-12 col-sm-auto">${capitalizeFirstLetter(
+                        item
+                      )}:</strong>
+                      <span class="col-12 col-sm-auto p-0">${
+                        item == "volume" ? data[item] : "$" + data[item]
+                      }</span>
                   </div>
               </div>
     `;
@@ -130,26 +168,34 @@ function displayStock(symbol) {
   `;
 
   showStock.innerHTML = inner;
-  document.getElementById('adjust-holdings').addEventListener('click', adjustHoldings);
+  document
+    .getElementById("adjust-holdings")
+    .addEventListener("click", adjustHoldings);
 }
 
 function adjustHoldings(event) {
   const content = event.target.textContent;
-  const symbol = document.getElementById('stock-symbol').textContent
-  const stock = JSON.parse(localStorage.getItem(symbol))
-  let userData = {}
+  const symbol = document.getElementById("stock-symbol").textContent;
+  const stock = JSON.parse(localStorage.getItem(symbol));
+  let userData = {};
   if (Object.keys(localStorage).includes(`${symbol}-user`)) {
-    userData = JSON.parse(localStorage.getItem(`${symbol}-user`))
+    userData = JSON.parse(localStorage.getItem(`${symbol}-user`));
   }
-  if (!userData.holdings) { userData.holdings = 0 }
-  if (!userData.value) { userData.value = 0 }
+  if (!userData.holdings) {
+    userData.holdings = 0;
+  }
+  if (!userData.value) {
+    userData.value = 0;
+  }
 
-  if (content == '+') {
+  if (content == "+") {
     userData.holdings += 1;
-  } else if (content == '-') { userData.holdings == 0 ? userData.holdings = 0 : userData.holdings -= 1 }
+  } else if (content == "-") {
+    userData.holdings == 0 ? (userData.holdings = 0) : (userData.holdings -= 1);
+  }
 
-  userData.value = userData.holdings * stock.close
-  document.getElementById('holdings-value').textContent = `$${userData.value}`
+  userData.value = userData.holdings * stock.close;
+  document.getElementById("holdings-value").textContent = `$${userData.value}`;
   document.getElementById("holdings-display").textContent = userData.holdings;
 
   localStorage.setItem(`${symbol}-user`, JSON.stringify(userData));
@@ -157,6 +203,18 @@ function adjustHoldings(event) {
 }
 
 // Helpers
+
+// function keySubmit(event) {
+//   event.preventDefault();
+//   localStorage.setItem(
+//     "API",
+//     JSON.stringify(document.getElementById("api-key").value)
+//   );
+  
+//   enterKey.innerHTML = `<span class='col-6 mb-2'>${JSON.parse(
+//     localStorage.getItem("API")
+//   )}</span>`;
+// }
 
 function quickLookup(event) {
   const target = event.target;
@@ -174,14 +232,16 @@ function getToday() {
   month = month.toString();
   let day = date.getDate() - 3;
   day = day.toString();
-  if (month.length < 2) { month = `0${month}`}
+  if (month.length < 2) {
+    month = `0${month}`;
+  }
   if (day.length < 2) {
     day = `0${day}`;
   }
 
-  const today = `${year}-${month}-${day}`
+  const today = `${year}-${month}-${day}`;
   // console.log(today);
-  return today
+  return today;
 }
 
 function capitalizeFirstLetter(str) {
@@ -189,9 +249,11 @@ function capitalizeFirstLetter(str) {
   const rest = str.substring(1);
   const firstCap = first.toUpperCase();
 
-  return firstCap + rest
+  return firstCap + rest;
 }
+
 //Build page
+
 const quickLookupList = ["AAPL", "GOOGL", "MSFT", "TSLA", "AMZN"];
 const cardObjects = [
   {
@@ -246,6 +308,19 @@ function buildCards() {
   portfolioCards.innerHTML = cards;
 }
 
+// function showKeySubmit() {
+//   if (Object.keys(localStorage).includes('API')) {
+//     enterKey.innerHTML = `<span class='col-6 mb-2'>${JSON.parse(localStorage.getItem('API'))}</span>`
+//   } else {
+//     enterKey.innerHTML = `
+//       <input class="col-6 mb-2" type="text" id="api-key" placeholder="Enter API key" />
+//       <button id='api-submit' class="col-4 col-md-3 mb-2">Submit</button>
+//     `
+//     document.getElementById('api-submit').addEventListener('click', keySubmit);
+//   }
+// }
+
+// showKeySubmit();
 buildQuickLookup();
 buildCards();
 

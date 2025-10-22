@@ -24,7 +24,9 @@
             <div id="logo" class="col-sm-5 heading-inner">
                 <div class="row justify-content-center justify-content-sm-around">
                     <h1 class="col-auto"><i class="fa-solid fa-chart-line"></i>TrAsh Stonks</h1>
-                    <input class="col-6 mb-2" type="text" id="api-key" placeholder="Enter your API key" />
+                </div>
+                <div id="enter-key" class="row justify-content-around">
+                <input class="col-6 mb-2" type="text" id="api-key" placeholder="Enter API key" />
                 </div>
             </div>
 
@@ -65,6 +67,7 @@
             <div id="lookup" class="outer-section row justify-content-center">
                 <form id="stock-lookup" class="row justify-content-around">
                     <input type="text" id="lookup-input" placeholder="Enter a stock symbol or company name (e.g. AAPL, Apple)" class="col-12 col-sm-8 col-md-9 col-lg-10 mb-2 mb-sm-3">
+                    <span id="lookup-warning" class="text-danger-emphasis col-12 mb-1"></span>
                     <button class="col-auto mb-3" type="submit">Search Stocks</button>
                 </form>
                 <div id="quick-lookup-section" class="row justify-content-center">
@@ -73,86 +76,6 @@
         </section>
 
         <section id="show-stock" class="p-0">
-
-            <!-- <div id="stock-banner" class="row justify-content-around align-items-center">
-                <div class="col">
-                    <div class="row justify-content-center justify-content-sm-start">
-                        <h2 class="col-auto">Placeholder</h2>
-                            <div class="dis-val col-auto ms-3 mb-2">PHDR</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-auto">
-                    <button><i class="fa-solid fa-thumbtack"></i>Add to Watchlist</button>
-                </div>
-            </div> -->
-<!-- 
-            <div id="stock-info" class="row align-items-center justify-content-around">
-
-                <div class="col-auto mb-3">
-                    <h1>Close</h1>
-                    <span id="change" class="">change</span>
-                </div>
-                
-                <div class="col-auto col-md-8 col-lg-6">
-                    <div class="row justify-content-between"> -->
-<!-- 
-                        <div class="col-6">
-                            <div class="row justify-content-sm-between stock-data m-1 p-1">
-                                <strong class="col-12 col-sm-auto">Open:</strong>
-                                <span class="col-12 col-sm-auto">$0.00</span>
-                            </div>
-                        </div>
-
-                        <div class="col-6">
-                            <div class="row justify-content-sm-between stock-data m-1 p-1">
-                                <strong class="col-12 col-sm-auto">High:</strong>
-                                <span class="col-12 col-sm-auto">$0.00</span>
-                            </div>
-                        </div>
-
-                        <div class="col-6">
-                            <div class="row justify-content-sm-between stock-data m-1 p-1">
-                                <strong class="col-12 col-sm-auto">Low:</strong>
-                                <span class="col-12 col-sm-auto">$0.00</span>
-                            </div>
-                        </div>
-
-                        <div class="col-6">
-                            <div class="row justify-content-sm-between stock-data m-1 p-1">
-                                <strong class="col-12 col-sm-auto">Volume:</strong>
-                                <span class="col-12 col-sm-auto">0</span>
-                            </div>
-                        </div> -->
-<!-- 
-                    </div>
-                </div>
-            </div> -->
-<!-- 
-            <div id="portfolio-management" class="row justify-content-center justify-content-sm-start">
-                <h3 class="col-auto">Portfolio Management</h3>
-
-                <div class="row justify-content-around">
-
-                    <div class="col-11 col-sm-5 dis-val">
-                        <strong class="col-12 col-md-auto">Current Holdings:</strong>
-                        <div class="row justify-content-around">
-                            <span id="less" class="adjust col-2 col-lg-2 ms-3">-</span>
-                            <span class="col-3 col-lg-3 dis-val-inner">0</span>
-                            <span id="more" class="adjust col-2 col-lg-2 me-3">+</span>
-                        </div>
-                    </div> -->
-<!-- 
-                    <div class="col-11 col-sm-5">
-                        <div class="row justify-content-center dis-val">
-                            <strong class="col-12">Position Value:</strong>
-                            <span class="col-5 col-lg-3 dis-val-inner">$0.00</span>
-                        </div>
-                    </div> -->
-<!-- 
-                </div>
-
-            </div> -->
-
         </section>
 
         <section id="watchlist" class="justify-content-center">
@@ -191,3 +114,4 @@
     ></script>
   </body>
 </html>
+
