@@ -1,4 +1,3 @@
-
 const apiKeyInput = document.getElementById("api-key");
 const enterKey = document.getElementById("enter-key");
 
@@ -34,6 +33,10 @@ async function callAPI(event) {
           const result = await response.json();
           // console.log(result)
           const stockObject = result.data[0];
+          console.log(stockObject);
+          const change = (stockObject.close - stockObject.open).toFixed(2);
+          const percent = (change / stockObject.open).toFixed(2);
+
           localStorage.setItem(
             symbol,
             JSON.stringify({
@@ -44,6 +47,8 @@ async function callAPI(event) {
               name: stockObject.name,
               volume: stockObject.volume,
               date: today,
+              change: change,
+              percent: percent,
             })
           );
         }
@@ -75,7 +80,8 @@ async function callAPI(event) {
   } else {
     apiKeyInput.classList.add("border-danger-subtle");
     lookupInput.classList.add("border-danger-subtle");
-    lookupWarning.textContent = "Check stock symbol and API key";
+    lookupWarning.textContent = "Check stock symbol and API key; no saved data";
+    showStock.innerHTML = "";
   }
 }
 
@@ -85,11 +91,13 @@ function displayStock(symbol) {
   // let stockCard = createElement("div");
 
   const data = JSON.parse(localStorage.getItem(symbol));
-
+  let old = false;
   if (data.date != getToday()) {
     apiKeyInput.classList.add("border-danger-subtle");
     lookupInput.classList.add("border-danger-subtle");
-    lookupWarning.textContent = "Check stock symbol and API key";
+    lookupWarning.textContent =
+      "Check stock symbol and API key; showing saved data";
+    old = true;
   }
 
   let userData;
@@ -98,11 +106,16 @@ function displayStock(symbol) {
   }
 
   let inner = `
-    <div id="stock-banner" class="row justify-content-around align-items-center">
-        <div class="col">
+    <div id="stock-banner" class="row justify-content-center justify-content-sm-between align-items-center">
+        <div class="col-auto">
             <div class="row justify-content-center justify-content-sm-start">
                 <h2 class="col-auto mt-2">${data.name}</h2>
-                <div id='stock-symbol' class="dis-val col-auto mb-2">${symbol}</div>
+                <div id='stock-symbol' class="dis-val col-auto mb-2 mt-lg-2">${symbol}</div>
+            </div>
+            <div class="row justify-content-center justify-content-sm-start">
+                <h3 class='${old ? "text-danger-emphasis" : ""} col-auto'>
+                  ${data.date}
+                </h3>
             </div>
         </div>
         <div class="col-12 col-sm-auto">
@@ -112,9 +125,11 @@ function displayStock(symbol) {
     <div id="stock-info" class="row align-items-center justify-content-around">
         
         <div class="col-auto mb-3">
-          <h2>Close ${data.date}</h2>
-          <h3 id='close'>$${data.close}</h3>
-          <span id="change" class="">${data.close - data.open}</span>
+          <h1>Close</h1>
+          <h4 id='close'>$${data.close}</h4>
+          <span id="change" class="${
+            data.change < 0 ? "text-danger-emphasis" : "text-success-emphasis"
+          }">$${data.change}(${data.percent}%)</span>
         </div>
         
         <div class="col-auto col-md-8 col-lg-6">
@@ -198,7 +213,7 @@ function adjustHoldings(event) {
     userData.holdings == 0 ? (userData.holdings = 0) : (userData.holdings -= 1);
   }
 
-  userData.value = userData.holdings * stock.close;
+  userData.value = (userData.holdings * stock.close).toFixed(2);
   document.getElementById("holdings-value").textContent = `$${userData.value}`;
   document.getElementById("holdings-display").textContent = userData.holdings;
 
@@ -214,7 +229,7 @@ function adjustHoldings(event) {
 //     "API",
 //     JSON.stringify(document.getElementById("api-key").value)
 //   );
-  
+
 //   enterKey.innerHTML = `<span class='col-6 mb-2'>${JSON.parse(
 //     localStorage.getItem("API")
 //   )}</span>`;
