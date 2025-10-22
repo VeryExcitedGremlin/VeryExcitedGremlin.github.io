@@ -72,6 +72,10 @@ async function callAPI(event) {
 
   if (localStorage.getItem(symbol)) {
     displayStock(symbol);
+  } else {
+    apiKeyInput.classList.add("border-danger-subtle");
+    lookupInput.classList.add("border-danger-subtle");
+    lookupWarning.textContent = "Check stock symbol and API key";
   }
 }
 
