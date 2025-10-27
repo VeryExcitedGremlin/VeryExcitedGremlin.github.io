@@ -1,0 +1,2 @@
+- how to add react-bootstrap
+- how to setup tailwind
