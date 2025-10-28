@@ -17,6 +17,7 @@ async function callAPI(event) {
   // apiKeyInput.classList.remove("border-danger-subtle");
   // }
   lookupInput.classList.remove("border-danger-subtle");
+  lookupWarning.textContent = "";
   if (event) {
     event.preventDefault();
   }
@@ -82,31 +83,51 @@ async function callAPI(event) {
       throw new Error(`Response status: ${response.status}`);
     } catch (error) {
       console.error(error.message);
-    }
+
+      enterKey.innerHTML = `
+          <input class="col-6 mb-2 border-danger-subtle" type="text" id="api-key" placeholder="Enter API key" />
+          <button id='api-submit' class="col-4 col-md-3 mb-2" onclick="keySubmit(event)">Submit</button>
+        `;
+      document.getElementById("api-key").value = access_key;
+      // apiKeyInput.classList.add("border-danger-subtle");
+      lookupInput.classList.add("border-danger-subtle");
+      lookupWarning.textContent = "Check stock symbol, API key, or internet connection";
+      showStock.innerHTML = "";
+      }
     // } else {
     //   // console.log('something missing');
 
     // }
   } else {
     console.log(`already have ${symbol} for today`);
-
-    if (localStorage.getItem(symbol)) {
-      displayStock(symbol);
-    } else {
-      enterKey.innerHTML = `
-        <input class="col-6 mb-2 border-danger-subtle" type="text" id="api-key" placeholder="Enter API key" />
-        <button id='api-submit' class="col-4 col-md-3 mb-2" onclick="keySubmit(event)">Submit</button>
-      `;
-      document.getElementById("api-key").value = access_key;
-      // apiKeyInput.classList.add("border-danger-subtle");
-      lookupInput.classList.add("border-danger-subtle");
-      lookupWarning.textContent = "Check stock symbol and API key; no saved data";
-      showStock.innerHTML = "";
-    }
+    // if (localStorage.getItem(symbol)) {
+    //   displayStock(symbol);
+    // } else {
+    //   enterKey.innerHTML = `
+    //     <input class="col-6 mb-2 border-danger-subtle" type="text" id="api-key" placeholder="Enter API key" />
+    //     <button id='api-submit' class="col-4 col-md-3 mb-2" onclick="keySubmit(event)">Submit</button>
+    //   `;
+    //   document.getElementById("api-key").value = access_key;
+    //   // apiKeyInput.classList.add("border-danger-subtle");
+    //   lookupInput.classList.add("border-danger-subtle");
+    //   lookupWarning.textContent = "Check stock symbol and API key; no saved data";
+    //   showStock.innerHTML = "";
+    // }
   }
   if (localStorage.getItem(symbol)) {
     displayStock(symbol);
-  }
+  } 
+  // else {
+  //   enterKey.innerHTML = `
+  //       <input class="col-6 mb-2 border-danger-subtle" type="text" id="api-key" placeholder="Enter API key" />
+  //       <button id='api-submit' class="col-4 col-md-3 mb-2" onclick="keySubmit(event)">Submit</button>
+  //     `;
+  //   document.getElementById("api-key").value = access_key;
+  //   // apiKeyInput.classList.add("border-danger-subtle");
+  //   lookupInput.classList.add("border-danger-subtle");
+  //   lookupWarning.textContent = "Check stock symbol and API key; no saved data";
+  //   showStock.innerHTML = "";
+  // }
 }
 
 function displayStock(symbol) {
