@@ -21,44 +21,30 @@ async function callAPI(event) {
   if (event) {
     event.preventDefault();
   }
-  // const access_key = apiKeyInput.value;
   const access_key = JSON.parse(localStorage.getItem('API'));
   const symbol = lookupInput.value;
-  // console.log(!symbol.length);
   const today = getToday();
 
   if (!access_key && !symbol.length) {
-    // enterKey.innerHTML = `
-    //   <input class="col-6 mb-2 border-danger-subtle" type="text" id="api-key" placeholder="Enter API key" />
-    //   <button id='api-submit' class="col-4 col-md-3 mb-2" onclick="keySubmit(event)">Submit</button>
-    // `;
     apiKeyInput.classList.add("border-danger-subtle");
     lookupInput.classList.add("border-danger-subtle");
     lookupWarning.textContent = "Check stock symbol and API key";
   } else if (!access_key) {
-    // enterKey.innerHTML = `
-    //   <input class="col-6 mb-2 border-danger-subtle" type="text" id="api-key" placeholder="Enter API key" />
-    //   <button id='api-submit' class="col-4 col-md-3 mb-2" onclick="keySubmit(event)">Submit</button>
-    // `;
     apiKeyInput.classList.add("border-danger-subtle");
     lookupWarning.textContent = "Check API key";
   } else if (!symbol.length) {
     lookupInput.classList.add("border-danger-subtle");
     lookupWarning.textContent = "Check stock symbol";
-    // console.log('hit !symbol.length')
   } else if (
     !Object.keys(localStorage).includes(symbol) ||
     JSON.parse(localStorage.getItem(symbol)).date !== today
   ) {
-    // if (access_key && symbol) {
     const url = `https://api.marketstack.com/v2/eod?access_key=${access_key}&symbols=${symbol}&date_from=${today}`;
-    // return url
     try {
       const response = await fetch(url);
 
       if (response.ok) {
         const result = await response.json();
-        // console.log(result)
         const stockObject = result.data[0];
         console.log(stockObject);
         const change = (stockObject.close - stockObject.open).toFixed(2);
@@ -89,51 +75,20 @@ async function callAPI(event) {
           <button id='api-submit' class="col-4 col-md-3 mb-2" onclick="keySubmit(event)">Submit</button>
         `;
       document.getElementById("api-key").value = access_key;
-      // apiKeyInput.classList.add("border-danger-subtle");
       lookupInput.classList.add("border-danger-subtle");
       lookupWarning.textContent = "Check stock symbol, API key, or internet connection";
       showStock.innerHTML = "";
       }
-    // } else {
-    //   // console.log('something missing');
-
-    // }
   } else {
     console.log(`already have ${symbol} for today`);
-    // if (localStorage.getItem(symbol)) {
-    //   displayStock(symbol);
-    // } else {
-    //   enterKey.innerHTML = `
-    //     <input class="col-6 mb-2 border-danger-subtle" type="text" id="api-key" placeholder="Enter API key" />
-    //     <button id='api-submit' class="col-4 col-md-3 mb-2" onclick="keySubmit(event)">Submit</button>
-    //   `;
-    //   document.getElementById("api-key").value = access_key;
-    //   // apiKeyInput.classList.add("border-danger-subtle");
-    //   lookupInput.classList.add("border-danger-subtle");
-    //   lookupWarning.textContent = "Check stock symbol and API key; no saved data";
-    //   showStock.innerHTML = "";
-    // }
   }
   if (localStorage.getItem(symbol)) {
     displayStock(symbol);
   } 
-  // else {
-  //   enterKey.innerHTML = `
-  //       <input class="col-6 mb-2 border-danger-subtle" type="text" id="api-key" placeholder="Enter API key" />
-  //       <button id='api-submit' class="col-4 col-md-3 mb-2" onclick="keySubmit(event)">Submit</button>
-  //     `;
-  //   document.getElementById("api-key").value = access_key;
-  //   // apiKeyInput.classList.add("border-danger-subtle");
-  //   lookupInput.classList.add("border-danger-subtle");
-  //   lookupWarning.textContent = "Check stock symbol and API key; no saved data";
-  //   showStock.innerHTML = "";
-  // }
 }
 
 function displayStock(symbol) {
   showStock.classList.add("outer-section");
-
-  // let stockCard = createElement("div");
 
   const data = JSON.parse(localStorage.getItem(symbol));
   let old = false;
@@ -409,5 +364,4 @@ buildQuickLookup();
 buildCards();
 
 //listeners
-// lookupForm.addEventListener("submit", callAPI);
 lookupQuickSection.addEventListener("click", quickLookup);
