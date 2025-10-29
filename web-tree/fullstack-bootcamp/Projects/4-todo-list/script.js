@@ -25,34 +25,36 @@ function addTodo(event) {
     localStorage.setItem(`todo-${id}`, JSON.stringify(todoObject));
     todoInput.value = "";
     // displayTodos();
-    TodosCount = TodosCount++;
+    // console.log(TodosCount);
+    TodosCount = TodosCount + 1;
+    // console.log(TodosCount);
     todoCounter.textContent = `${TodosCount} items remaining`;
     // createTodosList();
     if (!filterComplete.classList.contains("active")) {
-      const listItem = `
-                <li 
-                    id='${todoObject.id}' 
-                    class='todo-item'
-                >
-                    <input 
-                        name='${todoObject.id}' 
-                        type='checkbox' 
-                        class='todo-checkbox'
-                    >
-                    <span class='todo-text'>${todoObject.text}</span>
-                    <div class='todo-actions'>
-                        <button class='edit-btn'>Edit</button>
-                        <button class='delete-btn'>Delete</button>
-                    </div>
-                </li>
-            `;
+      let listItem = document.createElement("li");
+      listItem.addEventListener("click", todosClickSwitch);
+      listItem.id = todoObject.id;
+      listItem.classList.add("todo-item");
+      listItem.innerHTML = `
+        <input 
+            name='${todoObject.id}' 
+            type='checkbox' 
+            class='todo-checkbox'
+        >
+        <span class='todo-text'>${todoObject.text}</span>
+        <div class='todo-actions'>
+            <button class='edit-btn'>Edit</button>
+            <button class='delete-btn'>Delete</button>
+        </div>
+      `;
+      listItem.querySelector("span").addEventListener("dblclick", editTodo);
       todoList.appendChild(listItem);
     }
   }
 }
 
 function createTodosList() {
-  const keys = Object.keys(localStorage).filter( (key) => key.includes('todo-') );
+  const keys = Object.keys(localStorage).filter((key) => key.includes("todo-"));
   let todos = [];
   //   TodosCount = 0;
   if (filterActive.classList.contains("active")) {
@@ -73,17 +75,17 @@ function filterSwitch(event) {
   // console.log(event);
   //   if (event) {
   if (event.target == filterComplete) {
-      // todos = completeFilter(keys);
+    // todos = completeFilter(keys);
     filterComplete.classList.add("active");
     filterActive.classList.remove("active");
     filterAll.classList.remove("active");
   } else if (event.target == filterActive) {
-      // todos = activeFilter(keys);
+    // todos = activeFilter(keys);
     filterActive.classList.add("active");
     filterComplete.classList.remove("active");
     filterAll.classList.remove("active");
   } else {
-      // todos = allFilter(keys);
+    // todos = allFilter(keys);
     filterAll.classList.add("active");
     filterActive.classList.remove("active");
     filterComplete.classList.remove("active");
@@ -189,12 +191,13 @@ function todosClickSwitch(event) {
 
 function handleCheck(event) {
   const todo = event.currentTarget;
+  const key = `todo-${todo.id}`;
   if (event.target.checked) {
     todo.classList.add("completed");
     //   console.log(todo.id);
-    let todoObject = JSON.parse(localStorage.getItem(`todo-${todo.id}`));
+    let todoObject = JSON.parse(localStorage.getItem(key));
     todoObject.completed = true;
-    localStorage.setItem(`todo-${todo.id}`, JSON.stringify(todoObject));
+    localStorage.setItem(key, JSON.stringify(todoObject));
     if (filterActive.classList.contains("active")) {
       todo.remove();
     }
@@ -202,9 +205,9 @@ function handleCheck(event) {
     todoCounter.textContent = `${TodosCount} items remaining`;
   } else {
     todo.classList.remove("completed");
-    let todoObject = JSON.parse(localStorage.getItem(`todo-${todo.id}`));
+    let todoObject = JSON.parse(localStorage.getItem(key));
     todoObject.completed = false;
-    localStorage.setItem(`todo-${todo.id}`, JSON.stringify(todoObject));
+    localStorage.setItem(key, JSON.stringify(todoObject));
     if (filterComplete.classList.contains("active")) {
       todo.remove();
     }
@@ -215,18 +218,19 @@ function handleCheck(event) {
 
 function editTodo(event) {
   // console.log(event.target);
-  let todo
-  if (event.currentTarget.classList.contains('todo-text')) {
-    todo = event.currentTarget.parentElement
-  } else { 
-    todo = event.currentTarget; 
+  let todo;
+  if (event.currentTarget.classList.contains("todo-text")) {
+    todo = event.currentTarget.parentElement;
+  } else {
+    todo = event.currentTarget;
   }
   let textBox = todo.querySelector("span");
   let text = textBox.textContent;
   let newTodo = document.createElement("input");
 
   newTodo.classList.add("todo-edit-input");
-  newTodo.setAttribute('name', todo.id);
+  // console.log(todo.id);
+  newTodo.setAttribute("name", todo.id);
   // console.log(todo);
   newTodo.value = text;
   newTodo.addEventListener("blur", completeEdit);
@@ -242,7 +246,7 @@ function editTodo(event) {
 
 function checkKey(event) {
   // console.log(event.code);
-  if (event.code == 'Enter') {
+  if (event.code == "Enter") {
     completeEdit(event);
   }
 }
@@ -251,10 +255,11 @@ function completeEdit(event) {
   const text = event.target.value;
   // console.log(event.target.parentElement);
   let parent = event.target.parentElement;
-  let todo = JSON.parse(localStorage.getItem(parent.id));
+  const key = `todo-${parent.id}`;
+  let todo = JSON.parse(localStorage.getItem(key));
   // console.log(todo);
   todo.text = text;
-  localStorage.setItem(parent.id, JSON.stringify(todo));
+  localStorage.setItem(key, JSON.stringify(todo));
   // console.log(text);
   createTodosList();
 }
@@ -270,15 +275,15 @@ function deleteTodo(event) {
 }
 
 function clearComplete(event) {
-    let todos = Object.keys(localStorage).filter( (key) => key.includes('todo-') );
-    todos.forEach( (key) => {
-      console.log(localStorage.getItem(key).includes('true'))
-        if (localStorage.getItem(key).includes('true')) {
-            localStorage.removeItem(key);
-        }
-        console.log();
-    });
-    createTodosList();
+  let todos = Object.keys(localStorage).filter((key) => key.includes("todo-"));
+  todos.forEach((key) => {
+    // console.log(localStorage.getItem(key).includes('true'))
+    if (localStorage.getItem(key).includes("true")) {
+      localStorage.removeItem(key);
+    }
+    console.log();
+  });
+  createTodosList();
 }
 
 // Listeners
@@ -296,7 +301,7 @@ function addEventListeners() {
   const allTodos = todoList.querySelectorAll("li");
   allTodos.forEach((todo) => todo.addEventListener("click", todosClickSwitch));
   const allSpans = todoList.querySelectorAll("span");
-  allSpans.forEach((span) => span.addEventListener('dblclick', editTodo));
+  allSpans.forEach((span) => span.addEventListener("dblclick", editTodo));
 }
 
 createTodosList();
