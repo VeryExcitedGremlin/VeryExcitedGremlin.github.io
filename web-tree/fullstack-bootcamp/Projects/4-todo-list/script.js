@@ -22,15 +22,37 @@ function addTodo(event) {
       text: text,
       completed: false,
     };
-    localStorage.setItem(id, JSON.stringify(todoObject));
+    localStorage.setItem(`todo-${id}`, JSON.stringify(todoObject));
     todoInput.value = "";
     // displayTodos();
-    createTodosList();
+    TodosCount = TodosCount++;
+    todoCounter.textContent = `${TodosCount} items remaining`;
+    // createTodosList();
+    if (!filterComplete.classList.contains("active")) {
+      const listItem = `
+                <li 
+                    id='${todoObject.id}' 
+                    class='todo-item'
+                >
+                    <input 
+                        name='${todoObject.id}' 
+                        type='checkbox' 
+                        class='todo-checkbox'
+                    >
+                    <span class='todo-text'>${todoObject.text}</span>
+                    <div class='todo-actions'>
+                        <button class='edit-btn'>Edit</button>
+                        <button class='delete-btn'>Delete</button>
+                    </div>
+                </li>
+            `;
+      todoList.appendChild(listItem);
+    }
   }
 }
 
 function createTodosList() {
-  const keys = Object.keys(localStorage);
+  const keys = Object.keys(localStorage).filter( (key) => key.includes('todo-') );
   let todos = [];
   //   TodosCount = 0;
   if (filterActive.classList.contains("active")) {
@@ -44,18 +66,27 @@ function createTodosList() {
 }
 
 function filterSwitch(event) {
-  const keys = Object.keys(localStorage);
-  let todos = [];
+  // const keys = Object.keys(localStorage);
+  // let todos = [];
   //   let todoCount = 0;
   //   TodosCount = 0;
   // console.log(event);
   //   if (event) {
   if (event.target == filterComplete) {
-    todos = completeFilter(keys);
+      // todos = completeFilter(keys);
+    filterComplete.classList.add("active");
+    filterActive.classList.remove("active");
+    filterAll.classList.remove("active");
   } else if (event.target == filterActive) {
-    todos = activeFilter(keys);
+      // todos = activeFilter(keys);
+    filterActive.classList.add("active");
+    filterComplete.classList.remove("active");
+    filterAll.classList.remove("active");
   } else {
-    todos = allFilter(keys);
+      // todos = allFilter(keys);
+    filterAll.classList.add("active");
+    filterActive.classList.remove("active");
+    filterComplete.classList.remove("active");
     //   todoCounter.textContent = `${TodosCount} items remaining`;
   }
   //   } else {
@@ -63,14 +94,11 @@ function filterSwitch(event) {
   //     // todoCounter.textContent = `${TodosCount} items remaining`;
   //   }
   // console.log(todos);
-  displayTodos(todos);
+  createTodosList();
 }
 
 function completeFilter(keys) {
   let todos = [];
-  filterComplete.classList.add("active");
-  filterActive.classList.remove("active");
-  filterAll.classList.remove("active");
   keys.forEach((key) => {
     const todoObject = JSON.parse(localStorage.getItem(key));
     // console.log(todoObject.completed == true);
@@ -85,9 +113,6 @@ function completeFilter(keys) {
 
 function activeFilter(keys) {
   let todos = [];
-  filterActive.classList.add("active");
-  filterComplete.classList.remove("active");
-  filterAll.classList.remove("active");
   keys.forEach((key) => {
     const todoObject = JSON.parse(localStorage.getItem(key));
     if (todoObject.completed == false) {
@@ -102,9 +127,6 @@ function activeFilter(keys) {
 function allFilter(keys) {
   let todos = [];
   TodosCount = 0;
-  filterAll.classList.add("active");
-  filterActive.classList.remove("active");
-  filterComplete.classList.remove("active");
   keys.forEach((key) => {
     const todoObject = JSON.parse(localStorage.getItem(key));
     todos.push(todoObject);
@@ -170,9 +192,9 @@ function handleCheck(event) {
   if (event.target.checked) {
     todo.classList.add("completed");
     //   console.log(todo.id);
-    let todoObject = JSON.parse(localStorage.getItem(todo.id));
+    let todoObject = JSON.parse(localStorage.getItem(`todo-${todo.id}`));
     todoObject.completed = true;
-    localStorage.setItem(todo.id, JSON.stringify(todoObject));
+    localStorage.setItem(`todo-${todo.id}`, JSON.stringify(todoObject));
     if (filterActive.classList.contains("active")) {
       todo.remove();
     }
@@ -180,9 +202,9 @@ function handleCheck(event) {
     todoCounter.textContent = `${TodosCount} items remaining`;
   } else {
     todo.classList.remove("completed");
-    let todoObject = JSON.parse(localStorage.getItem(todo.id));
+    let todoObject = JSON.parse(localStorage.getItem(`todo-${todo.id}`));
     todoObject.completed = false;
-    localStorage.setItem(todo.id, JSON.stringify(todoObject));
+    localStorage.setItem(`todo-${todo.id}`, JSON.stringify(todoObject));
     if (filterComplete.classList.contains("active")) {
       todo.remove();
     }
@@ -243,15 +265,16 @@ function deleteTodo(event) {
     TodosCount--;
     todoCounter.textContent = `${TodosCount} items remaining`;
   }
-  localStorage.removeItem(todo.id);
+  localStorage.removeItem(`todo-${todo.id}`);
   todo.remove();
 }
 
 function clearComplete(event) {
-    let todos = Object.keys(localStorage);
-    todos.forEach( (id) => {
-        if (localStorage.getItem(id).includes('true')) {
-            localStorage.removeItem(id);
+    let todos = Object.keys(localStorage).filter( (key) => key.includes('todo-') );
+    todos.forEach( (key) => {
+      console.log(localStorage.getItem(key).includes('true'))
+        if (localStorage.getItem(key).includes('true')) {
+            localStorage.removeItem(key);
         }
         console.log();
     });

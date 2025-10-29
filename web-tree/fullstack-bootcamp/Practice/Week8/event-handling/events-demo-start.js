@@ -136,4 +136,4 @@ function removeHandler(event) {
 // This shows how removeEventListener() works with named functions
 // Anonymous functions cannot be removed because you can't reference them
 
-log("Event handling demo ready - complete the TODO items!");
+// log("Event handling demo ready - complete the TODO items!");
