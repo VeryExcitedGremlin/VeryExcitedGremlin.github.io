@@ -80,24 +80,24 @@ function loadBlockbusterScript(forceFail) {
     // TODO 1 START - Complete the Promise creation
     // Your task: Create a new Promise that simulates downloading a script from Hollywood servers
     // create a new promise and assign it to a variable using the new Promise syntax
-    
+    const script = new Promise( (resolve, reject) => {
         // inside of the promise callback function
         // setTimeout to simulate loading the data with 3 second duration
-        
+        setTimeout( () => {
             // within the timeout callback
-            
+            console.log('Downloading script from Hollywood servers!');
             // if forceFail is true 
-            
+            if (forceFail) {
                 //reject with message
-                
-            
+                reject('Script failed to load.');
+            } else {
                 // else resolve with the script data
-                
-            
-        
-    
+                resolve(scriptData)
+            }
+        }, 3000);
+    });
     // return the variable
-    
+    return script;
 
     // TODO 1 END - Promise creation complete
 }
@@ -128,58 +128,80 @@ function handleScriptLoad(shouldFail = false) {
     statusDiv.classList.add('loading');
     
     // Clear previous content
-    contentDiv.classList.remove('script-loaded');
+    contentDiv.classList.remove('script-loaded', 'script-error');
     
     // TODO 2 START - Demonstrate incorrect Promise usage
     // Your task: Show what happens when you try to use a Promise directly (without .then())
     // This demonstrates the WRONG way - storing a Promise directly in a variable
     // Call the Promise function and store the result directly (this won't give us the data)
-    
+  
     // Log what we actually get - it will be a Promise object, not the script data
-    
+
     // TODO 2 END - Notice how this logs a Promise object, not the actual script data
 
     // TODO 3 START - Demonstrate correct Promise usage
     // Your task: Use .then() and .catch() to properly handle the Promise
     // This demonstrates the RIGHT way - using .then() to handle resolved Promises and .catch() for errors
     // Call the function that returns a Promise
-    
+    loadBlockbusterScript(shouldFail)
         // Chain a .then() to handle successful resolution
-        
+        .then( (value) => {
             // Log success message to console
-            
+            console.log('Script downloaded successfully.')
             // Log the actual data we received from the Promise
-            
+            console.log(value);
             
             // Update the status text to show success
-            
+            statusDiv.textContent = 'Script downloaded successfully.';
             // Remove the loading animation class
-            
+            statusDiv.classList.remove('loading');
             // Add success styling class
-            
+            statusDiv.classList.add('success');
             
             // Add success styling to content container
-            
+            contentDiv.classList.add("script-loaded");
             // Display the script content inside <pre> tags for formatting
-            
+            contentDiv.innerHTML = `<pre>${value}</pre>`
             
             // Re-enable the load button so user can try again
+            loadButton.disabled = false;
             
             // Re-enable the fail button
+            failButton.disabled = false;
             
             // Reset the load button text back to original
-            
+            loadButton.innerHTML = `
+                        🎬 LIGHTS, CAMERA, ACTION!<br>
+                        <span>Load The Script</span>`;
             // Reset the fail button text back to original
+            failButton.innerHTML = `💥 SIMULATE FAILURE<br>
+                        <span>Practice Error Handling</span>`;
             
-        
+        })
         // Chain a .catch() to handle Promise rejection/errors
-        
-            // Log the error to console for debugging
-            
-            
-            // Call helper function to update UI with error state
-            
-        
+        .catch( (error) => {
+          // Log the error to console for debugging
+          console.log("Download failed!");
+          console.log(error);
+
+          // Call helper function to update UI with error state
+          updateWithError(error);
+        contentDiv.classList.add("script-error");
+
+          // Re-enable the load button so user can try again
+          loadButton.disabled = false;
+
+          // Re-enable the fail button
+          failButton.disabled = false;
+
+          // Reset the load button text back to original
+          loadButton.innerHTML = `
+                        🎬 LIGHTS, CAMERA, ACTION!<br>
+                        <span>Load The Script</span>`;
+          // Reset the fail button text back to original
+          failButton.innerHTML = `💥 SIMULATE FAILURE<br>
+                        <span>Practice Error Handling</span>`;
+        });
      // TODO 3 END - Notice how .then() gets the actual data, and .catch() handles any errors
 
     
@@ -207,10 +229,11 @@ function updateWithError(error) {
     statusDiv.classList.add('error');
 
     // Show error message
+    // console.log(error)
     contentDiv.innerHTML = `
                 <div style="color: #ef4444; text-align: center; padding: 2rem;">
                     <h3>PRODUCTION HALTED</h3>
-                    <p>${error.message}</p>
+                    <p>${error}</p>
                     <p><em>The show must NOT go on... yet.</em></p>
                 </div>
             `;
