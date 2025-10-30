@@ -12,6 +12,7 @@
     />
     <link rel="stylesheet" href="resources/personal-footer/personal-footer.css">
     <link rel="stylesheet" href="resources/index/index.css" />
+    <script defer src="resources/index/index.js"></script>
   </head>
 
 <body id="top">
@@ -37,236 +38,26 @@
         </div>
     </header>
     <main>
+
     <div id="bootcamp">
         <h2>Full Stack Boot Camp</h2>
+
         <section id="projects">
             <h3>Projects</h3>
-            <div class="row justify-content-center gx-xl-5">
-
-                <div class="cardContainer col-md-6 col-xl-4">
-                    <div class="card">
-                        <img src="resources/index/index-images/personalBio.JPG" class="card-img-top" alt="Bio Page Preview - An orange oval with Ashton's about info on display">
-                        <div class="card-body">
-                            <h4 class="card-inner">Personal Bio Page</h4>
-                            <p class="card-inner">Week 2 project</p><br>
-                            <a class="btn btn-primary" href="web-tree/fullstack-bootcamp/Projects/0-Bio-page/personal-bio.html">
-                                Check it out!</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cardContainer col-md-6 col-xl-4">
-                    <div class="card">
-                        <img src="resources/index/index-images/styledLandingPage.JPG" class="card-img-top" alt="Styled Landing Page Preview - Core Features cards on display">
-                        <div class="card-body">
-                            <h4 class="card-inner">Styled Landing Page</h4>
-                            <p class="card-inner">Week 3 project</p><br>
-                            <a class="btn btn-primary" href="web-tree/fullstack-bootcamp/Projects/1-styled-landing-page/Project-Landing-Page.html">
-                                Check it out!</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cardContainer col-md-6 col-xl-4">
-                    <div class="card">
-                        <img src="resources/index/index-images/calculator.JPG" class="card-img-top" alt="Interactive Calculator Preview - a purple calculator with yellow buttons in a neutral void">
-                        <div class="card-body">
-                            <h4 class="card-inner">Interactive Calculator</h4>
-                            <p class="card-inner">Week 6 project<br>
-                            <strong class="card-inner">(First JavaScript Project!)</strong></p>
-                            <a class="btn btn-primary" href="web-tree/fullstack-bootcamp/Projects/2-Calculator/index.html">
-                                Check it out!</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cardContainer col-md-6">
-                    <div class="card">
-                        <img src="resources/index/index-images/TodoList.JPG" class="card-img-top" alt="Todo List App Preview (currently placeholder)">
-                        <div class="card-body">
-                            <h4 class="card-inner">Todo List App</h4>
-                            <p class="card-inner">Week 8 project</p><br>
-                            <a class="btn btn-primary" href="web-tree/fullstack-bootcamp/Projects/4-todo-list/index.html">
-                                Check it out!</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cardContainer col-xl-6">
-                    <div class="card">
-                        <img src="https://placehold.co/1900x900" class="card-img-top" alt="Todo List App Preview (currently placeholder)">
-                        <div class="card-body">
-                            <h4 class="card-inner">Stock Lookup App</h4>
-                            <p class="card-inner">Week 10 project
-                            <br>
-                            <strong class="card-inner">(Incomplete)</strong></p>
-                        
-                            <a class="btn btn-primary" href="web-tree/fullstack-bootcamp/Projects/5-stock-lookup/stonks.html">
-                                Check it out!</a>
-                        </div>
-                    </div>
-                </div>
-
-
+            <div id="project-card-area" class="row justify-content-center gx-xl-5">
+                <!-- created in index.js -->
             </div>
         </section>
 
         <section id="guided-practice">
             <h3 class="moreUnder">Guided Practice</h3>
-            <!-- <div class="aBox"> -->
             <div class="accordion" id="guidedPractice">
-                <div class="accordion-item">
-                    <h4 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <strong>Week 1 -HTML Basics</strong></button>
-                    </h4>
-                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#guidedPractice">
-                        <ul class="accordion-body">
-                            <li>
-                                <a href="web-tree/fullstack-bootcamp/Practice/Week1/Session1/business-card.html">
-                                Business Card</a> -Practice putting words on a webpage
-                            </li>
-                            <li>
-                                <a href="web-tree/fullstack-bootcamp/Practice/Week1/Session1/news-article.html">
-                                News Article</a> -Practice making lists
-                            </li>
-                            <li>
-                                <a href="web-tree/fullstack-bootcamp/Practice/Week1/Session2/student-directory.html">
-                                Student Directory</a> -Practice making a table
-                            </li>
-                            <li>
-                                <a href="web-tree/fullstack-bootcamp/Practice/Week1/Session2/tutorial-page.html">
-                                HTML Tutorial Page</a> -Practice text formatting and links
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h4 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        <strong>Week 2 -CSS Basics</strong></button>
-                    </h4>
-                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#guidedPractice">
-                        <ul class="accordion-body">
-                            <li>
-                                <a href="web-tree/fullstack-bootcamp/Practice/Week2/quickbite-survey/quickbite-survey.html">
-                                Quickbite Customer Survey</a> -Practice creating forms
-                            </li>
-                            <li>
-                                <a href="web-tree/fullstack-bootcamp/Practice/Week2/Css-land/css-land-start.html">
-                                Css Land</a> -Practicing CSS Basics
-                            </li>
-                            <li>
-                                <a href="web-tree/fullstack-bootcamp/Practice/Week2/marios-pizza/index.html">
-                                Mario's Pizza</a> -Practicing box model, typography, colors, and dispaly position
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h4 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <strong>Week 3 -CSS Layouts</strong></button>
-                    </h4>
-                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#guidedPractice">
-                        <ul class="accordion-body">
-                            <li>
-                                <a href="web-tree/fullstack-bootcamp/Practice/Week3/Css-detective/chrome-dev-tools-start.html">
-                                CSS Detective Agency</a> -Practice with Chrome Dev Tools
-                            </li>
-                            <li>
-                                <a href="web-tree/fullstack-bootcamp/Practice/Week3/flexbox-photo-gallery/photo-gallery.html">
-                                Flexbox Photo Gallery</a> -Practicing with flex box layout
-                            </li>
-                            <li>
-                                <a href="web-tree/fullstack-bootcamp/Practice/Week3/dashboard/dashboard-layout.html">
-                                Dashboard</a> -Practicing with grid layout
-                            </li>
-                            <li>
-                                <a href="web-tree/fullstack-bootcamp/Practice/Week3/adaptive-eats/index.html">
-                                Adaptive Eats</a> -Practicing with adaptive/reactive pages
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h4 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            <strong>Week 4 -Animations and Frameworks</strong></button>
-                    </h4>
-                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#guidedPractice">
-                        <ul class="accordion-body">
-                        <li>
-                            <a href="web-tree/fullstack-bootcamp/Practice/Week4/loading-animation/animation-practice.html">
-                            Loading Animation</a> -Practicing animating
-                        </li>
-                        <li>
-                            <a href="web-tree/fullstack-bootcamp/Practice/Week4/bootstrap/bootstrap-practice.html">
-                            Bio Page (Bootstrap version)</a> -Practicing with Bootstrap <strong>(Incomplete)</strong>
-                        </li>
-                        <!-- <li>
-                            <a href="web-tree/fullstack-bootcamp/Practice/Week4/tailwind/tailwind-practice.html">
-                            Bio Page (Tailwind version)</a> -Practicing with Tailwind <strong>(Incomplete)</strong>
-                        </li> -->
-                    </ul>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h4 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                            <strong>Week 6 -Markdown and Javascript Basics</strong></button>
-                    </h4>
-                    <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#guidedPractice">
-                        <ul class="accordion-body">
-                        <li>
-                            <a href="web-tree/fullstack-bootcamp/Practice/Week6/todo-list/readme.html">
-                            Todo List</a> -Practicing with Markdown
-                        </li>
-                    </ul>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h4 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                            <strong>Week 7 -DOM selection and manipulation</strong></button>
-                    </h4>
-                    <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#guidedPractice">
-                        <ul class="accordion-body">
-                        <li>
-                            <a href="web-tree/fullstack-bootcamp/Practice/Week7/cat-mood-tracker/cat-mood-tracker-start.html">
-                                Cat Mood Tracker</a> -Practicing adding interactivity to web pages by linking JavaScript to HTML documents
-                        </li>
-                    </ul>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h4 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                            <strong>Week 8 -Event handling, forms processing, and LocalStorage</strong></button>
-                    </h4>
-                    <div id="collapseEight" class="accordion-collapse collapse" data-bs-parent="#guidedPractice">
-                        <ul class="accordion-body">
-                        <li>
-                            <a href="web-tree/fullstack-bootcamp/Practice/Week8/event-handling/events-demo-start.html">
-                                Event Handling and Bubbling Demo</a> -Practicing Event Handling and Bubbling
-                        </li>
-                        <li>
-                            <a href="web-tree/fullstack-bootcamp/Practice/Week8/forms-processing/forms-demo-start.html">
-                                Forms Processing Demo</a>
-                                <!-- -Practicing Forms Processing -->
-                        </li>
-                        <li>
-                            <a href="web-tree/fullstack-bootcamp/Practice/Week8/localStorage/localstorage-demo-start.html">
-                                LocalStorage Demo</a> <!-- <strong>(Incomplete)</strong> -->
-                                <!-- -Practicing LocalStorage -->
-                        </li>
-                    </ul>
-                    </div>
-                </div>
+                <!-- created in index.js -->
             </div>
-            <!-- </div> -->
         </section>
+
     </div>
+
     <section id="otherLinks">
         <h2>Other Projects</h2>
         <section id="codecademy-projects">
