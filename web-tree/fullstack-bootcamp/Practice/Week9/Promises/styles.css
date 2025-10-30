@@ -1,0 +1,280 @@
+/* Contemporary minimalist design */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #0a0a0a;
+    color: #e5e5e5;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #262626;
+    padding-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.25rem;
+    font-weight: 300;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+header p {
+    color: #a3a3a3;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+/* Mission briefing */
+.mission-briefing {
+    background-color: #111111;
+    border: 1px solid #262626;
+    border-radius: 8px;
+    margin-bottom: 3rem;
+    overflow: hidden;
+}
+
+.mission-briefing h2 {
+    background-color: #dc2626;
+    color: #ffffff;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    margin: 0;
+}
+
+.briefing-content {
+    padding: 1.5rem;
+}
+
+.briefing-content p {
+    margin-bottom: 1rem;
+    color: #d4d4d4;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.briefing-content p:last-child {
+    margin-bottom: 0;
+}
+
+.briefing-content strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+#countdown {
+    color: #dc2626;
+    font-weight: 600;
+}
+
+/* Main sections */
+main {
+    display: grid;
+    gap: 2rem;
+}
+
+.section {
+    background-color: #111111;
+    border: 1px solid #262626;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: border-color 0.2s ease;
+}
+
+.section:hover {
+    border-color: #404040;
+}
+
+.section h2 {
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Button Group */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+/* CTA Buttons */
+.cta-button {
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 1.25rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    width: 100%;
+    max-width: 280px;
+    position: relative;
+}
+
+.cta-button.success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.cta-button.danger {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+}
+
+.cta-button.success:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+}
+
+.cta-button.danger:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
+}
+
+.cta-button:active {
+    transform: translateY(0);
+}
+
+.cta-button span {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 400;
+    opacity: 0.9;
+    margin-top: 0.25rem;
+}
+
+/* Status indicator */
+.status {
+    text-align: center;
+    color: #a3a3a3;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.status.loading {
+    color: #fbbf24;
+}
+
+.status.success {
+    color: #10b981;
+}
+
+.status.error {
+    color: #ef4444;
+}
+
+/* Content box */
+.content-box {
+    background-color: #0a0a0a;
+    border: 1px solid #262626;
+    border-radius: 6px;
+    padding: 1.5rem;
+    font-family: 'SF Mono', Monaco, 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    min-height: 120px;
+    transition: all 0.2s ease;
+}
+
+.content-box.script-loaded {
+    border-color: #10b981;
+    background-color: #001a0a;
+}
+
+.content-box.script-error {
+    border-color: #ef4444;
+    background-color: rgba(48, 9, 9, 0.3);
+}
+
+.content-box pre {
+    color: #e5e5e5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.content-box p {
+    color: #737373;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.loading {
+    animation: pulse 1.5s infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem 1rem;
+    }
+    
+    header h1 {
+        font-size: 1.875rem;
+    }
+    
+    .mission-briefing h2 {
+        font-size: 1rem;
+        padding: 0.875rem 1rem;
+    }
+    
+    .briefing-content {
+        padding: 1rem;
+    }
+    
+    .section {
+        padding: 1rem;
+    }
+    
+    .button-group {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .cta-button {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.625rem;
+    }
+    
+    .briefing-content p {
+        font-size: 0.875rem;
+    }
+}

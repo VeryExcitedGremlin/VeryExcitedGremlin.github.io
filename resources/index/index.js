@@ -114,7 +114,7 @@ const accordionSections = [
   },
   {
     id: "collapseTwo",
-    heading: "Week 2 -CSS Basics",
+    heading: "Week 2 - CSS Basics",
     show: false,
     li: [
       {
@@ -137,7 +137,7 @@ const accordionSections = [
   },
   {
     id: "collapseThree",
-    heading: "Week 3 -CSS Layouts",
+    heading: "Week 3 - Chrome Dev Tools and Adaptive Pages",
     show: false,
     li: [
       {
@@ -164,7 +164,7 @@ const accordionSections = [
   },
   {
     id: "collapseFour",
-    heading: "Week 4 -Animations and Frameworks",
+    heading: "Week 4 - Animations and Frameworks",
     show: false,
     li: [
       {
@@ -186,7 +186,7 @@ const accordionSections = [
   },
   {
     id: "collapseSix",
-    heading: "Week 6 -Markdown and Javascript Basics",
+    heading: "Week 6 - Markdown and Javascript Basics",
     show: false,
     li: [
       {
@@ -198,7 +198,7 @@ const accordionSections = [
   },
   {
     id: "collapseSeven",
-    heading: "Week 7 -DOM selection and manipulation",
+    heading: "Week 7 - DOM Selection and Manipulation",
     show: false,
     li: [
       {
@@ -211,7 +211,7 @@ const accordionSections = [
   },
   {
     id: "collapseEight",
-    heading: "Week 8 -Event handling, forms processing, and LocalStorage",
+    heading: "Week 8 - Event Handling, Forms Processing, and LocalStorage",
     show: false,
     li: [
       {
@@ -227,6 +227,19 @@ const accordionSections = [
       {
         href: "web-tree/fullstack-bootcamp/Practice/Week8/localStorage/localstorage-demo-start.html",
         title: "LocalStorage Demo",
+        description: "",
+      },
+    ],
+  },
+  {
+    id: "collapseNine",
+    expanded: "false",
+    heading: "Week 9 - Promises and APIs",
+    show: false,
+    li: [
+      {
+        href: "web-tree/fullstack-bootcamp/Practice/Week9/Promises/html_starter.html",
+        title: "Promises Demo",
         description: "",
       },
     ],
