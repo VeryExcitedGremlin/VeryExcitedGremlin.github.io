@@ -12,6 +12,7 @@
     />
     <link rel="stylesheet" href="/resources/personal-footer/personal-footer.css" />
     <link rel="stylesheet" href="stonks.css" />
+    <link rel="stylesheet" href="/resources/loading/animation-practice.css" />
     <script defer src="stonks.js"></script>
     <script src="https://kit.fontawesome.com/3b97a22061.js" crossorigin="anonymous"></script>
   </head>
@@ -69,7 +70,7 @@
                 <form id="stock-lookup" class="row justify-content-around">
                     <input type="text" id="lookup-input" placeholder="Enter a stock symbol or company name (e.g. AAPL, Apple)" class="col-12 col-sm-8 col-md-9 col-lg-10 mb-2 mb-sm-3">
                     <span id="lookup-warning" class="text-danger-emphasis col-12 mb-3 text-center"></span>
-                    <button class="col-auto" type="submit" onclick="callAPI(event)">Search Stocks</button>
+                    <button class="col-auto" type="submit" onclick="getStock(event)">Search Stocks</button>
                 </form>
                 <div id="quick-lookup-section" class="row justify-content-center">
                 </div>

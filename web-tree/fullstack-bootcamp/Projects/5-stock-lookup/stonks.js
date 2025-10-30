@@ -11,7 +11,7 @@ const lookupWarning = document.getElementById("lookup-warning");
 
 const portfolioCards = document.getElementById("portfolio-cards");
 
-async function callAPI(event) {
+async function getStock(event) {
   // const apiKeyInput = document.getElementById("api-key");
   // if (apiKeyInput) {
   // apiKeyInput.classList.remove("border-danger-subtle");
@@ -39,37 +39,8 @@ async function callAPI(event) {
     !Object.keys(localStorage).includes(symbol) ||
     JSON.parse(localStorage.getItem(symbol)).date !== today
   ) {
-    const url = `https://api.marketstack.com/v2/eod?access_key=${access_key}&symbols=${symbol}&date_from=${today}`;
-    try {
-      const response = await fetch(url);
-
-      if (response.ok) {
-        const result = await response.json();
-        const stockObject = result.data[0];
-        console.log(stockObject);
-        const change = (stockObject.close - stockObject.open).toFixed(2);
-        const percent = (change / stockObject.open).toFixed(2);
-
-        localStorage.setItem(
-          symbol,
-          JSON.stringify({
-            open: stockObject.open.toFixed(2),
-            high: stockObject.high.toFixed(2),
-            low: stockObject.low.toFixed(2),
-            close: stockObject.close.toFixed(2),
-            name: stockObject.name,
-            volume: stockObject.volume,
-            date: today,
-            change: change,
-            percent: percent,
-          })
-        );
-      }
-
-      throw new Error(`Response status: ${response.status}`);
-    } catch (error) {
-      console.error(error.message);
-      }
+    // loadingStock();
+    await callAPI(access_key, symbol, today);
   } else {
     console.log(`already have ${symbol} for today`);
   }
@@ -87,8 +58,66 @@ async function callAPI(event) {
   }
 }
 
+async function callAPI(access_key, symbol, today) {
+  const url = `https://api.marketstack.com/v2/eod?access_key=${access_key}&symbols=${symbol}&date_from=${today}`;
+  try {
+    const response = await fetch(url);
+
+    if (response.ok) {
+      const result = await response.json();
+      const stockObject = result.data[0];
+      // console.log(stockObject);
+      const change = (stockObject.close - stockObject.open).toFixed(2);
+      const percent = (change / stockObject.open).toFixed(2);
+
+      localStorage.setItem(
+        symbol,
+        JSON.stringify({
+          open: stockObject.open.toFixed(2),
+          high: stockObject.high.toFixed(2),
+          low: stockObject.low.toFixed(2),
+          close: stockObject.close.toFixed(2),
+          name: stockObject.name,
+          volume: stockObject.volume,
+          date: today,
+          change: change,
+          percent: percent,
+        })
+      );
+    }
+
+    throw new Error(`Response status: ${response.status}`);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+// function loadingStock() {
+//   showStock.classList.add("outer-section");
+//   const inner = `
+//   <div class='inner-section'>
+//     <div class="content">
+//       <svg viewbox="0 0 100 100">
+//         <g class="bubbles">
+//           <circle class="pulse0" cx="50" cy="8" r="7.5"></circle>
+//           <circle class="pulse1" cx="80" cy="20" r="7.5"></circle>
+//           <circle class="pulse2" cx="92" cy="50" r="7.5"></circle>
+//           <circle class="pulse3" cx="80" cy="80" r="7.5"></circle>
+//           <circle class="pulse4" cx="50" cy="92" r="7.5"></circle>
+//           <circle class="pulse5" cx="20" cy="80" r="7.5"></circle>
+//           <circle class="pulse6" cx="8" cy="50" r="7.5"></circle>
+//           <circle class="pulse7" cx="20" cy="20" r="7.5"></circle>
+//         </g>
+//       </svg>
+//     </div>
+//   </div>
+//   `;
+//   console.log(inner)
+//   showStock.value = inner;
+// }
+
 function displayStock(symbol) {
-  showStock.classList.add("outer-section");
+  // showStock.classList.add("outer-section");
 
   const data = JSON.parse(localStorage.getItem(symbol));
   let old = false;
@@ -260,7 +289,7 @@ function quickLookup(event) {
     const text = target.textContent;
     lookupInput.value = text;
   }
-  callAPI();
+  getStock();
 }
 
 function getToday() {
