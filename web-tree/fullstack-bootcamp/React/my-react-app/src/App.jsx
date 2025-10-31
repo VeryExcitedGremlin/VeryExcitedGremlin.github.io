@@ -1,25 +1,34 @@
-import { useState } from 'react'
 import HelloWorldInline from "./HelloWorld/HelloWorld";
-import {HelloWorld} from './HelloWorld/HelloWorld';
+import { HelloWorld } from "./HelloWorld/HelloWorld";
+import { StaticCounter,InteractiveCounter,ToggleSwitch } from "./Counter/counter";
 
 function App() {
-  // const [count, setCount] = useState(0)
-
   return (
     <>
       <h1>Module 47 - Intro to React</h1>
+      <h2>Inline Styles</h2>
       <div>
         <HelloWorldInline />
         <HelloWorldInline name="Alice" />
         <HelloWorldInline name="Bob" />
         <HelloWorldInline name="Jane" />
       </div>
+      <h2>CSS Stylesheet</h2>
       <div>
         <HelloWorld />
         <HelloWorld name="Alice" />
         <HelloWorld name="Bob" />
         <HelloWorld name="Jane" />
       </div>
+
+      <h1>Module 49 - State Management</h1>
+      <h2>Use State</h2>
+      <h3>Static Counter - This Does Nothing</h3>
+      <StaticCounter />
+      <h3>Interactive Counter - This Counts</h3>
+      <InteractiveCounter />
+      <h3>Switch</h3>
+      <ToggleSwitch />
     </>
   );
 }
