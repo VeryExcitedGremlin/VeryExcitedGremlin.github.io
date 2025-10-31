@@ -7,6 +7,7 @@ function App() {
 
   return (
     <>
+      <h1>Module 47 - Intro to React</h1>
       <div>
         <HelloWorldInline />
         <HelloWorldInline name="Alice" />
