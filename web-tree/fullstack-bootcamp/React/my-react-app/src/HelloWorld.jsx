@@ -1,3 +1,9 @@
+import './HelloWorld.css';
+
+export const HelloWorld = ({name}) => {
+    return <h1 className='hello-world'>Hello {name ? name : 'World'}!</h1>;
+}
+
 // Inline Style
 function HelloWorldInline({name}) {
     const inlineStyle = {
@@ -7,10 +13,6 @@ function HelloWorldInline({name}) {
         margin: '20px 0'
     };
     return <h1 style={inlineStyle}>Hello {name ? name : 'World'}!</h1>;
-}
-
-export const HelloWorld = ({name}) => {
-    return <h1>Hello {name ? name : 'World'}!</h1>;
 }
 
 
