@@ -1,7 +1,7 @@
 import './HelloWorld.css';
 
 export const HelloWorld = ({name}) => {
-    return <h1 className='hello-world'>Hello {name ? name : 'World'}!</h1>;
+    return <h2 className='hello-world'>Hello {name ? name : 'World'}!</h2>;
 }
 
 // Inline Style
@@ -12,7 +12,7 @@ function HelloWorldInline({name}) {
         textAlign: 'center',
         margin: '20px 0'
     };
-    return <h1 style={inlineStyle}>Hello {name ? name : 'World'}!</h1>;
+    return <h2 style={inlineStyle}>Hello {name ? name : 'World'}!</h2>;
 }
 
 
