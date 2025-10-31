@@ -3,7 +3,7 @@ import HelloWorldInline from "./HelloWorld/HelloWorld";
 import {HelloWorld} from './HelloWorld/HelloWorld';
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
     <>
