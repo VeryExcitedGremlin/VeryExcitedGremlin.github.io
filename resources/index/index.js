@@ -1,6 +1,14 @@
 const projectCardArea = document.getElementById("project-card-area");
 
 const projectCards = [
+  // {
+  //   classes: ("cardContainer", "col-md-6", "col-xl-4"),
+  //   src: "resources/index/index-images{...}",
+  //   alt: "",
+  //   h4Inner: "",
+  //   pInner: "Week {x} project<br>{<br> : <strong class="card-inner">(Incomplete)</strong>}",
+  //   href: "web-tree/fullstack-bootcamp/Projects{...}",
+  // },
   {
     classes: ("cardContainer", "col-md-6", "col-xl-4"),
     src: "resources/index/index-images/personalBio.JPG",
@@ -73,15 +81,15 @@ const practiceAccordion = document.getElementById("guidedPractice");
 
 const accordionSections = [
   //   {
-  //     id: "",
+  //     id: "collapse{num}",
   //     expanded: "false",
-  //     heading: "",
+  //     heading: "Week {num} - {title}",
   //     show: false,
   //     li: [
   //       {
-  //         href: "",
+  //         href: "web-tree/fullstack-bootcamp/Practice/Week",
   //         title: "",
-  //         description: "",
+  //         description: " - Practice ",
   //       },
   //     ],
   //   },
@@ -93,22 +101,22 @@ const accordionSections = [
       {
         href: "web-tree/fullstack-bootcamp/Practice/Week1/Session1/business-card.html",
         title: "Business Card",
-        description: "-Practice putting words on a webpage",
+        description: " - Practice putting words on a webpage",
       },
       {
         href: "web-tree/fullstack-bootcamp/Practice/Week1/Session1/news-article.html",
         title: "News Article",
-        description: "-Practice making lists",
+        description: " - Practice making lists",
       },
       {
         href: "web-tree/fullstack-bootcamp/Practice/Week1/Session2/student-directory.html",
         title: "Student Directory",
-        description: "-Practice making a table",
+        description: " - Practice making a table",
       },
       {
         href: "web-tree/fullstack-bootcamp/Practice/Week1/Session2/tutorial-page.html",
         title: "HTML Tutorial Page",
-        description: "-Practice text formatting and links",
+        description: " - Practice text formatting and links",
       },
     ],
   },
@@ -120,18 +128,18 @@ const accordionSections = [
       {
         href: "web-tree/fullstack-bootcamp/Practice/Week2/quickbite-survey/quickbite-survey.html",
         title: "Quickbite Customer Survey",
-        description: "-Practice creating forms",
+        description: " - Practice creating forms",
       },
       {
         href: "web-tree/fullstack-bootcamp/Practice/Week2/Css-land/css-land-start.html",
         title: "Css Land",
-        description: "-Practicing CSS Basics",
+        description: " - Practicing CSS Basics",
       },
       {
         href: "web-tree/fullstack-bootcamp/Practice/Week2/marios-pizza/index.html",
         title: "Mario's Pizza",
         description:
-          "-Practicing box model, typography, colors, and dispaly position",
+          " - Practicing box model, typography, colors, and dispaly position",
       },
     ],
   },
@@ -143,22 +151,22 @@ const accordionSections = [
       {
         href: "web-tree/fullstack-bootcamp/Practice/Week3/Css-detective/chrome-dev-tools-start.html",
         title: "CSS Detective Agency",
-        description: "-Practice with Chrome Dev Tools",
+        description: " - Practice with Chrome Dev Tools",
       },
       {
         href: "web-tree/fullstack-bootcamp/Practice/Week3/flexbox-photo-gallery/photo-gallery.html",
         title: "Flexbox Photo Gallery",
-        description: "-Practicing with flex box layout",
+        description: " - Practicing with flex box layout",
       },
       {
         href: "web-tree/fullstack-bootcamp/Practice/Week3/dashboard/dashboard-layout.html",
         title: "Dashboard",
-        description: "-Practicing with grid layout",
+        description: " - Practicing with grid layout",
       },
       {
         href: "web-tree/fullstack-bootcamp/Practice/Week3/adaptive-eats/index.html",
         title: "Adaptive Eats",
-        description: "-Practicing with adaptive/reactive pages",
+        description: " - Practicing with adaptive/reactive pages",
       },
     ],
   },
@@ -170,12 +178,13 @@ const accordionSections = [
       {
         href: "web-tree/fullstack-bootcamp/Practice/Week4/loading-animation/animation-practice.html",
         title: "Loading Animation",
-        description: "-Practicing animating",
+        description: " - Practicing animating",
       },
       {
         href: "web-tree/fullstack-bootcamp/Practice/Week4/bootstrap/bootstrap-practice.html",
         title: "Bio Page (Bootstrap version)",
-        description: "-Practicing with Bootstrap <strong>(Incomplete)</strong>",
+        description:
+          " - Practicing with Bootstrap <strong>(Incomplete)</strong>",
       },
       //   {
       //     href: "web-tree/fullstack-bootcamp/Practice/Week4/tailwind/tailwind-practice.html",
@@ -191,8 +200,14 @@ const accordionSections = [
     li: [
       {
         href: "web-tree/fullstack-bootcamp/Practice/Week6/todo-list/readme.html",
-        title: "Todo List",
-        description: "-Practicing with Markdown",
+        title: "Todo List (static)",
+        description: " - Practicing with Markdown",
+      },
+      {
+        href: "web-tree/fullstack-bootcamp/Practice/Week6/todo-list/readme.html",
+        title: "Interactive Calculator",
+        description:
+          " - <strong>Major Project #1!</strong> First Javascript Integration (just the math)",
       },
     ],
   },
@@ -205,7 +220,7 @@ const accordionSections = [
         href: "web-tree/fullstack-bootcamp/Practice/Week7/cat-mood-tracker/cat-mood-tracker-start.html",
         title: "Cat Mood Tracker",
         description:
-          "-Practicing adding interactivity to web pages by linking JavaScript to HTML documents",
+          " - Practicing adding interactivity to web pages (moving objects on screen)",
       },
     ],
   },
@@ -241,6 +256,12 @@ const accordionSections = [
         href: "web-tree/fullstack-bootcamp/Practice/Week9/Promises/html_starter.html",
         title: "Promises Demo",
         description: "",
+      },
+      {
+        href: "web-tree/fullstack-bootcamp/Projects/5-stock-lookup/stonks.html",
+        title: "Stock Lookup App",
+        description:
+          " - <strong>Major Project #2!</strong> Practicing API calls",
       },
     ],
   },
