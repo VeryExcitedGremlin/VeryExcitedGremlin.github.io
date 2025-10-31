@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import HelloWorldInline from "./HelloWorld";
-import {HelloWorld} from './HelloWorld';
+import HelloWorldInline from "./HelloWorld/HelloWorld";
+import {HelloWorld} from './HelloWorld/HelloWorld';
 
 function App() {
   const [count, setCount] = useState(0)
