@@ -21,7 +21,7 @@ async function getStock(event) {
   if (event) {
     event.preventDefault();
   }
-  const access_key = JSON.parse(localStorage.getItem('API'));
+  const access_key = JSON.parse(localStorage.getItem("API"));
   const symbol = lookupInput.value;
   const today = getToday();
 
@@ -47,14 +47,15 @@ async function getStock(event) {
   if (localStorage.getItem(symbol)) {
     displayStock(symbol);
   } else {
-      enterKey.innerHTML = `
+    enterKey.innerHTML = `
           <input class="col-6 mb-2 border-danger-subtle" type="text" id="api-key" placeholder="Enter API key" />
           <button id='api-submit' class="col-4 col-md-3 mb-2" onclick="keySubmit(event)">Submit</button>
         `;
-      document.getElementById("api-key").value = access_key;
-      lookupInput.classList.add("border-danger-subtle");
-      lookupWarning.textContent = "Check stock symbol, API key, or internet connection";
-      showStock.innerHTML = "";
+    document.getElementById("api-key").value = access_key;
+    lookupInput.classList.add("border-danger-subtle");
+    lookupWarning.textContent =
+      "Check stock symbol, API key, or internet connection";
+    showStock.innerHTML = "";
   }
 }
 
@@ -178,7 +179,7 @@ function displayStock(symbol) {
                       <strong class="col-12 col-sm-auto">${capitalizeFirstLetter(
                         item
                       )}:</strong>
-                      <span class="col-12 col-sm-auto p-0">${
+                      <span class="col-12 col-sm-auto p-0 pe-sm-3 ps-sm-3">${
                         item == "volume" ? data[item] : "$" + data[item]
                       }</span>
                   </div>
@@ -249,7 +250,7 @@ function adjustHoldings(event) {
     userData.holdings += 1;
   } else if (content == "-") {
     userData.holdings == 0 ? (userData.holdings = 0) : (userData.holdings -= 1);
-  } 
+  }
   // else if (!Number.isNaN(parseFloat(content))) {
   //   // console.log('inside')
   //   const updateHoldings = document.createElement('input');
@@ -257,7 +258,7 @@ function adjustHoldings(event) {
   //   updateHoldings.setAttribute("placeholder", content);
   //   holdingsDisplay.value = updateHoldings;
   // }
-    userData.value = (userData.holdings * stock.close).toFixed(2);
+  userData.value = (userData.holdings * stock.close).toFixed(2);
   document.getElementById("holdings-value").textContent = `$${userData.value}`;
   holdingsDisplay.textContent = userData.holdings;
 
@@ -268,10 +269,12 @@ function adjustHoldings(event) {
 // Helpers
 
 function calculatePosition() {
-  const keys = Object.keys(localStorage).filter( (key) => key.includes('-user') )
-  const showVal = document.querySelectorAll('.total-value');
-  let total = 0
-  keys.forEach( (key) => total += parseFloat(JSON.parse(localStorage.getItem(key)).value) )
+  const keys = Object.keys(localStorage).filter((key) => key.includes("-user"));
+  const showVal = document.querySelectorAll(".total-value");
+  let total = 0;
+  keys.forEach(
+    (key) => (total += parseFloat(JSON.parse(localStorage.getItem(key)).value))
+  );
   console.log(total);
 }
 
@@ -296,12 +299,31 @@ function getToday() {
   const date = new Date();
   const year = date.getFullYear();
   let month = date.getMonth() + 1;
-  month = month.toString();
   let day = date.getDate() - 3;
-  day = day.toString();
+
+  if (day <= 0) {
+    if (month != 1) {
+      month -= 1;
+    } else {
+      month = 12;
+      year -= 1;
+    }
+    if ([1, 3, 5, 7, 8, 10, 12].includes(month)) {
+      day = (31 + day);
+    } else if ([4, 6, 9, 11].includes(month)) {
+      day = (30 + day);
+    } else if (year % 4 == 0) {
+      day = (29 + day);
+    } else {
+      day = (28 + day);
+    }
+  }
+
+  month = month.toString();
   if (month.length < 2) {
     month = `0${month}`;
   }
+  day = day.toString();
   if (day.length < 2) {
     day = `0${day}`;
   }
@@ -325,7 +347,7 @@ const quickLookupList = ["AAPL", "GOOGL", "MSFT", "TSLA", "AMZN"];
 const cardObjects = [
   {
     id: "totalValue",
-    class: 'total-value',
+    class: "total-value",
     title: "Total Portfolio Value",
     text: "$0.00",
   },
@@ -377,14 +399,14 @@ function buildCards() {
 }
 
 function showKeySubmit() {
-  const key = JSON.parse(localStorage.getItem('API'));
+  const key = JSON.parse(localStorage.getItem("API"));
   if (key) {
-    enterKey.innerHTML = `<span class='col-auto mb-2'>${key}</span>`
+    enterKey.innerHTML = `<span class='col-auto mb-2'>${key}</span>`;
   } else {
     enterKey.innerHTML = `
       <input class="col-6 mb-2" type="text" id="api-key" placeholder="Enter API key" />
       <button id='api-submit' class="col-4 col-md-3 mb-2" onclick="keySubmit(event)">Submit</button>
-    `
+    `;
   }
 }
 

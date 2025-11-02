@@ -27,13 +27,14 @@ ul {
     border-radius: 4px 0 0 0;
     position: absolute;
     /* top: 1.0em; */
-    bottom: 0;
+    bottom: -0.1em;
     /* left: 0.3em; */
-    right: 0.5em;
+    right: 0.6em;
 }
 
 li {
     list-style: none;
+    padding-bottom: 0.5em;
 }
 
 /* header nav {
