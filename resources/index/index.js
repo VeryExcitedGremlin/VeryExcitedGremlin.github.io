@@ -10,7 +10,7 @@ const projectCards = [
   //   href: "web-tree/fullstack-bootcamp/Projects{...}",
   // },
   {
-    classes: ("cardContainer", "col-md-6", "col-xl-4"),
+    classes: ["cardContainer", "col-md-6", "col-xl-4"],
     src: "resources/index/index-images/personalBio.JPG",
     alt: "Bio Page Preview - An orange oval with Ashton's about info on display",
     h4Inner: "Personal Bio Page",
@@ -18,7 +18,7 @@ const projectCards = [
     href: "web-tree/fullstack-bootcamp/Projects/0-Bio-page/personal-bio.html",
   },
   {
-    classes: ("cardContainer", "col-md-6", "col-xl-4"),
+    classes: ["cardContainer", "col-md-6", "col-xl-4"],
     src: "resources/index/index-images/styledLandingPage.JPG",
     alt: "Styled Landing Page Preview - Core Features cards on display",
     h4Inner: "Styled Landing Page",
@@ -26,7 +26,7 @@ const projectCards = [
     href: "web-tree/fullstack-bootcamp/Projects/1-styled-landing-page/Project-Landing-Page.html",
   },
   {
-    classes: ("cardContainer", "col-md-6", "col-xl-4"),
+    classes: ["cardContainer", "col-md-6", "col-xl-4"],
     src: "resources/index/index-images/calculator.JPG",
     alt: "Interactive Calculator Preview - a purple calculator with yellow buttons in a neutral void",
     h4Inner: "Interactive Calculator",
@@ -35,7 +35,7 @@ const projectCards = [
     href: "web-tree/fullstack-bootcamp/Projects/2-Calculator/index.html",
   },
   {
-    classes: ("cardContainer", "col-md-6"),
+    classes: ["cardContainer", "col-md-6"],
     src: "resources/index/index-images/TodoList.JPG",
     alt: "Todo List App Preview with placeholder todos",
     h4Inner: "Todo List App",
@@ -43,7 +43,7 @@ const projectCards = [
     href: "web-tree/fullstack-bootcamp/Projects/4-todo-list/index.html",
   },
   {
-    classes: ("cardContainer", "col-xl-6"),
+    classes: ["cardContainer", "col-xl-6"],
     src: "https://placehold.co/1900x900",
     alt: "Stock Lookup App Preview (currently placeholder)",
     h4Inner: "Stock Lookup App",
@@ -56,9 +56,11 @@ const projectCards = [
 function createProjectCards() {
   projectCards.forEach((card) => {
     const cardContainer = document.createElement("div");
-    //   .classList.add(` ${card.containerCols}`);
-    // card.classes.forEach((item) => cardContainer.classList.add(item));
-    cardContainer.classList.add(card.classes)
+    cardContainer.classList.add('px-2');
+    cardContainer.classList.add("px-lg-3");
+    cardContainer.classList.add("px-xxl-4");
+    card.classes.forEach((item) => cardContainer.classList.add(item));
+    // cardContainer.classList.add(card.classes)
     const content = `
             <div class="card">
                 <img src='${card.src}' class="card-img-top" alt="${card.alt}">
