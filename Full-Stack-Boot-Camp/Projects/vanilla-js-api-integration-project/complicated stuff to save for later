@@ -1,0 +1,137 @@
+function adjustHoldings(event) {
+  const holdingsDisplay = document.getElementById("holdings-display");
+  const content = event.target.textContent;
+  // console.log(Number.isNaN(parseFloat(content)))
+  const symbol = document.getElementById("stock-symbol").textContent;
+  const stock = JSON.parse(localStorage.getItem(symbol));
+  let userData = {};
+  if (Object.keys(localStorage).includes(`${symbol}-user`)) {
+    userData = JSON.parse(localStorage.getItem(`${symbol}-user`));
+  }
+  if (!userData.holdings) {
+    userData.holdings = 0;
+  }
+  if (!userData.value) {
+    userData.value = 0;
+  }
+  if (!userData.totalValue) {
+    userData.totalValue = 0;
+  }
+
+  let operation = '';
+  let del = false;
+  let checkTop = ''
+  if (content == "+") {
+    userData.holdings += 1;
+    // calculatePosition('add', stock.close);
+    operation = "add";
+  } else if (content == "-") {
+    userData.holdings == 0 ? (userData.holdings = 0) : (userData.holdings -= 1);
+    // calculatePosition("sub", stock.close);
+    operation = "sub";
+  }
+  // else if (!Number.isNaN(parseFloat(content))) {
+  //   // console.log('inside')
+  //   const updateHoldings = document.createElement('input');
+  //   updateHoldings.setAttribute('type', 'number');
+  //   updateHoldings.setAttribute("placeholder", content);
+  //   holdingsDisplay.value = updateHoldings;
+  // }
+  // console.log(symbol);
+  const holdingsValue = document.getElementById("holdings-value");
+  if (userData.holdings == 0) {
+    localStorage.removeItem(`${symbol}-user`);
+    holdingsValue.textContent = `$0.00`;
+    holdingsDisplay.textContent = 0;
+    del = true;
+    checkTop = symbol;
+  } else {
+    userData.totalValue = (userData.holdings * stock.close).toFixed(2);
+    userData.value = stock.close;
+    holdingsValue.textContent = `$${userData.totalValue}`;
+    holdingsDisplay.textContent = userData.holdings;
+
+    localStorage.setItem(`${symbol}-user`, JSON.stringify(userData));
+  }
+  calculatePosition(operation, stock.close, del, checkTop);
+}
+
+// Helpers
+
+function calculatePosition(operation, amount, del, checkTop) {
+  let userPosition = JSON.parse(localStorage.getItem('userPosition'));
+  if (!userPosition) {
+    const userKeys = Object.keys(localStorage).filter((key) => key.includes("-user"));
+    let numPositions = 0;
+    // const numPositions = userKeys.length
+    let totalValue = 0;
+    let topStock = {
+      name: "",
+      value: 0,
+    };
+    userKeys.forEach((userKey) => {
+      const userObject = JSON.parse(localStorage.getItem(userKey));
+      const symbol = userKey.slice(0, -5);
+      const userTotal = parseFloat(userObject.totalValue);
+      const userValue = parseFloat(userObject.value);
+      // console.log(value)
+      if (userTotal > 0) {
+        totalValue += userTotal;
+        numPositions++;
+        topStock = checkTopStock(topStock, userValue, symbol);
+      }
+    });
+  // console.log(topStock);
+  // console.log(showVal);
+
+    userPosition = {
+      portfolioValue: totalValue,
+      numPositions: numPositions,
+      topStock: topStock,
+    };
+  } else if (operation == 'add') {
+    userPosition.portfolioValue = parseFloat(userPosition.portfolioValue) + amount;
+  } else if (operation == 'sub') {
+    userPosition.portfolioValue = parseFloat(userPosition.portfolioValue) - amount;
+    if (del) {
+      userPosition.numPositions -= 1
+      if (userPosition.topStock.name == checkTop) {
+        let topStock = {
+          name: "",
+          value: 0,
+        };
+        const userKeys = Object.keys(localStorage).filter((key) => key.includes("-user"));
+        userKeys.forEach((userKey) => {
+          const userObject = JSON.parse(localStorage.getItem(userKey));
+          topStock = checkTopStock(
+            topStock,
+            userObject.value,
+            userKey.slice(0, -5)
+          );
+        });
+        userPosition.topStock = topStock;
+      }
+    }
+  }
+
+  localStorage.setItem('userPosition', JSON.stringify(userPosition));
+  updateCards();
+}
+
+function checkTopStock(topStock, userValue, symbol) {
+  if (!topStock.name || topStock.value < userValue) {
+    topStock = { name: symbol, value: userValue };
+  }
+  return topStock;
+}
+
+function updateCards() {
+  const userObject = JSON.parse(localStorage.getItem('userPosition'))
+  if (userObject) {
+    const { portfolioValue, numPositions, topStock } = userObject;
+    const showVal = document.querySelectorAll(".total-value");
+    showVal.forEach((node) => (node.textContent = `$${portfolioValue}`));
+    document.querySelector(".num-positions").textContent = numPositions;
+    document.querySelector('.top-stock').innerHTML = `<strong>${topStock.name}</strong> - $${topStock.value}`
+  }
+}
