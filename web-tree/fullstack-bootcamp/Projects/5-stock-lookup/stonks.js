@@ -141,20 +141,19 @@ function displayStock(symbol) {
   }
 
   let inner = `
-    <div id="stock-banner" class="row justify-content-center justify-content-sm-between align-items-center">
+    <div id="stock-banner" class="row justify-content-center justify-content-sm-around align-items-center">
         <div class="col-auto">
-            <div class="row justify-content-center justify-content-sm-start">
+            <div class="row justify-content-center">
                 <h2 class="col-auto mt-2">${data.name}</h2>
-                <div id='stock-symbol' class="dis-val col-auto mb-2 mt-lg-2">${symbol}</div>
             </div>
-            <div class="row justify-content-center justify-content-sm-start">
-                <h3 class='${old ? "text-danger-emphasis" : ""} col-auto'>
-                  ${data.date}
+            <div class="row justify-content-center align-items-center">
+                <h3 class='col-auto'>
+                <div id='stock-symbol' class="dis-val col-auto mb-2 mt-lg-2">${symbol}</div>
+                  <span class='${old ? "text-danger-emphasis" : ""}'>${
+    data.date
+  }</span>
                 </h3>
             </div>
-        </div>
-        <div class="col-12 col-sm-auto">
-            <button><i class="fa-solid fa-thumbtack"></i>Add to Watchlist</button>
         </div>
     </div>
     <div id="stock-info" class="row align-items-center justify-content-around">
@@ -168,18 +167,18 @@ function displayStock(symbol) {
         </div>
         
         <div class="col-auto col-md-8 col-lg-6">
-            <div class="row justify-content-between">
+            <div class="row justify-content-between justify-content-xxl-around">
   `;
 
   const info = ["open", "high", "low", "volume"];
   info.forEach((item) => {
     inner += `
-              <div class="col-6">
+              <div class="col-6 col-xxl-5">
                   <div class="row justify-content-sm-between stock-data m-1 p-1">
                       <strong class="col-12 col-sm-auto">${capitalizeFirstLetter(
                         item
                       )}:</strong>
-                      <span class="col-12 col-sm-auto p-0 pe-sm-3 ps-sm-3">${
+                      <span class="col-12 col-sm-auto p-0 pe-sm-2 ps-sm-2 ps-md-0">${
                         item == "volume" ? data[item] : "$" + data[item]
                       }</span>
                   </div>
@@ -193,8 +192,11 @@ function displayStock(symbol) {
             </div>
         </div>
     </div>
-    <div id="portfolio-management" class="row justify-content-center justify-content-sm-start">
-        <h3 class="col-auto">Portfolio Management</h3>
+    <div id="portfolio-management" class="row justify-content-around">
+        <div class='row justify-content-center justify-content-sm-between'>
+          <h3 class="col-auto">Portfolio Management</h3>
+          <button class="col-auto"><i class="fa-solid fa-thumbtack"></i>Add to Watchlist</button>
+        </div>
 
         <div class="row justify-content-around">
 
@@ -209,8 +211,8 @@ function displayStock(symbol) {
                 </div>
             </div>
 
-            <div class="col-11 col-sm-5">
-                <div class="row justify-content-center dis-val">
+            <div class="col-11 col-sm-5 dis-val">
+                <div class="row justify-content-center">
                     <strong class="col-12">Position Value:</strong>
                     <span id='holdings-value' class="col-auto dis-val-inner">$${
                       userData ? userData.value : "0.00"
@@ -224,6 +226,7 @@ function displayStock(symbol) {
   `;
 
   showStock.innerHTML = inner;
+  showStock.classList.add("mb-5");
   document
     .getElementById("adjust-holdings")
     .addEventListener("click", adjustHoldings);
@@ -245,6 +248,9 @@ function adjustHoldings(event) {
   if (!userData.value) {
     userData.value = 0;
   }
+  if (!userData.totalValue) {
+    userData.totalValue = 0;
+  }
 
   if (content == "+") {
     userData.holdings += 1;
@@ -258,24 +264,66 @@ function adjustHoldings(event) {
   //   updateHoldings.setAttribute("placeholder", content);
   //   holdingsDisplay.value = updateHoldings;
   // }
-  userData.value = (userData.holdings * stock.close).toFixed(2);
-  document.getElementById("holdings-value").textContent = `$${userData.value}`;
-  holdingsDisplay.textContent = userData.holdings;
-
-  localStorage.setItem(`${symbol}-user`, JSON.stringify(userData));
   // console.log(symbol);
+  const holdingsValue = document.getElementById(
+      "holdings-value"
+    )
+  if (userData.holdings == 0) {
+    localStorage.removeItem(`${symbol}-user`);
+    holdingsValue.textContent = `$0.00`;
+    holdingsDisplay.textContent = 0;
+  } else {
+    userData.totalValue = (userData.holdings * stock.close).toFixed(2);
+    userData.value = stock.close;
+    holdingsValue.textContent = `$${userData.totalValue}`;
+    holdingsDisplay.textContent = userData.holdings;
+
+    localStorage.setItem(`${symbol}-user`, JSON.stringify(userData));
+  }
+    calculatePosition();
 }
 
 // Helpers
 
 function calculatePosition() {
-  const keys = Object.keys(localStorage).filter((key) => key.includes("-user"));
+  const userKeys = Object.keys(localStorage).filter((key) => key.includes("-user"));
+  let numPositions = 0;
+  // const numPositions = keys.length
+  let totalValue = 0;
+  let topStock = {
+    name: "",
+    value: 0,
+  };
+  userKeys.forEach((userKey) => {
+    const object = JSON.parse(localStorage.getItem(userKey));
+    const userTotal = parseFloat(object.totalValue);
+    const userValue = parseFloat(object.value);
+    // console.log(value)
+    if (userTotal > 0) {
+      totalValue += userTotal;
+      numPositions++;
+      if (!topStock.name || topStock.value < userValue) {
+        topStock = { name: userKey.slice(0, -5), value: userValue };
+      }
+    }
+  });
+  // console.log(topStock);
+  // console.log(showVal);
+  const userPosition = {
+    portfolioValue: totalValue.toFixed(2),
+    numPositions: numPositions,
+    topStock: topStock,
+  };
+  localStorage.setItem('userPosition', JSON.stringify(userPosition));
+  updateCards();
+}
+
+function updateCards() {
+  const {portfolioValue, numPositions, topStock} = JSON.parse(localStorage.getItem('userPosition'));
   const showVal = document.querySelectorAll(".total-value");
-  let total = 0;
-  keys.forEach(
-    (key) => (total += parseFloat(JSON.parse(localStorage.getItem(key)).value))
-  );
-  console.log(total);
+  showVal.forEach((node) => (node.textContent = `$${portfolioValue}`));
+  document.querySelector(".num-positions").textContent = numPositions;
+  document.querySelector('.top-stock').innerHTML = `<strong>${topStock.name}</strong> - $${topStock.value}`
 }
 
 function keySubmit(event) {
@@ -309,13 +357,13 @@ function getToday() {
       year -= 1;
     }
     if ([1, 3, 5, 7, 8, 10, 12].includes(month)) {
-      day = (31 + day);
+      day = 31 + day;
     } else if ([4, 6, 9, 11].includes(month)) {
-      day = (30 + day);
+      day = 30 + day;
     } else if (year % 4 == 0) {
-      day = (29 + day);
+      day = 29 + day;
     } else {
-      day = (28 + day);
+      day = 28 + day;
     }
   }
 
@@ -347,22 +395,25 @@ const quickLookupList = ["AAPL", "GOOGL", "MSFT", "TSLA", "AMZN"];
 const cardObjects = [
   {
     id: "totalValue",
-    class: "total-value",
+    class: " total-value",
     title: "Total Portfolio Value",
     text: "$0.00",
   },
   {
     id: "positions",
+    class: " num-positions",
     title: "Number of Positions",
     text: "0",
   },
   {
     id: "topStock",
+    class: " top-stock",
     title: "Top Performing Stock",
     text: "-",
   },
   {
     id: "change",
+    class: " change-today",
     title: "Today's Change",
     text: "$0.00",
   },
@@ -384,11 +435,11 @@ function buildCards() {
   let cards = "";
   cardObjects.forEach((card) => {
     const cardText = `
-            <div class="col-12 col-md-6 col-xl-3 ${card.class}">
+            <div class="col-12 col-md-6 col-xl-3">
                 <div class="inner-section card" id='${card.id}'>
                     <div class="card-body">
                         <h6 class="card-title">${card.title}</h6>
-                        <p class="card-text">${card.text}</p>
+                        <p class="card-text${card.class}">${card.text}</p>
                     </div>
                 </div>
             </div>
@@ -413,6 +464,7 @@ function showKeySubmit() {
 showKeySubmit();
 buildQuickLookup();
 buildCards();
+updateCards();
 
 //listeners
 lookupQuickSection.addEventListener("click", quickLookup);

@@ -220,3 +220,22 @@ button:active {
         margin-bottom: 3.5em;
     }
 }
+
+/* @media (min-width: 576px) {
+    #watchlist-button {
+    position: absolute;
+    top: 30.5em;
+    bottom: 5em;
+    left: 0.3em;
+    right: 1.5em;
+    }
+} */
+
+@media (min-width: 1200px) {
+section {
+    width: 80vw;
+}
+.outer-section {
+    width: 80vw;
+}
+}
