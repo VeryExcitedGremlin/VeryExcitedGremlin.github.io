@@ -281,7 +281,7 @@ const accordionSections = [
       {
         href: "https://veryexcitedgremlin.github.io/first-react-app/49",
         title: "Intro to React - useState",
-        description: "Introduction to interactive elements in React",
+        description: "Introduction to interactive components in React",
       },
     ],
   },
