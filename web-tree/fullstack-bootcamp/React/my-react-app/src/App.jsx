@@ -1,6 +1,6 @@
-import HelloWorldInline from "./HelloWorld/HelloWorld";
-import { HelloWorld } from "./HelloWorld/HelloWorld";
-import { StaticCounter,InteractiveCounter,ToggleSwitch } from "./Counter/counter";
+import HelloWorldInline from "./components/HelloWorld/HelloWorld";
+import { HelloWorld } from "./components/HelloWorld/HelloWorld";
+import { StaticCounter,InteractiveCounter,ToggleSwitch } from "./components/Counter/counter";
 
 function App() {
   return (
