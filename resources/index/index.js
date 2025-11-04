@@ -64,20 +64,21 @@ const projectCards = [
 
 function createProjectCards() {
   projectCards.forEach((card) => {
+    const {classes, src, alt, h4Inner, pInner, href} = card;
     const cardContainer = document.createElement("div");
     cardContainer.classList.add('px-2');
     cardContainer.classList.add("px-lg-3");
     cardContainer.classList.add("px-xxl-4");
-    card.classes.forEach((item) => cardContainer.classList.add(item));
+    classes.forEach((item) => cardContainer.classList.add(item));
     // cardContainer.classList.add(card.classes)
     const content = `
             <div class="card">
-                <img src='${card.src}' class="card-img-top" alt="${card.alt}">
+                <img src='${src}' class="card-img-top" alt="${alt}">
                 <div class="card-body">
-                    <h4 class="card-inner">${card.h4Inner}</h4>
-                    <p class="card-inner">${card.pInner}</p>
-                    <a class="btn btn-primary" href="${card.href}">
-                        Check it out!</a>
+                    <h4 class="card-inner">${h4Inner}</h4>
+                    <p class="card-inner">${pInner}</p>
+                    <a class="btn btn-primary" href="${href}">
+                        ${href ? 'Check it out!' : 'Coming soon!'}</a>
                 </div>
             </div>
         `;
