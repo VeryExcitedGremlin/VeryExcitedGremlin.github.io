@@ -1,34 +1,15 @@
-import HelloWorldInline from "./components/module-47-react-intro/HelloWorld/HelloWorld";
-import { HelloWorld } from "./components/module-47-react-intro/HelloWorld/HelloWorld";
-import { StaticCounter,InteractiveCounter,ToggleSwitch } from "./components/module-49-state-management/Counter/counter";
+// import HelloWorldInline from "./components/module-47-react-intro/HelloWorld/HelloWorld";
+// import { HelloWorld } from "./components/module-47-react-intro/HelloWorld/HelloWorld";
+// import { StaticCounter,InteractiveCounter,ToggleSwitch } from "./components/module-49-state-management/Counter/counter";
+
+import DisplayHello from "./components/module-47-react-intro/display-47/Display47";
+import DisplayCounters from "./components/module-49-state-management/display-49/Display49";
 
 function App() {
   return (
     <>
-      <h1>Module 47 - Intro to React</h1>
-      <h2>Inline Styles</h2>
-      <div>
-        <HelloWorldInline />
-        <HelloWorldInline name="Alice" />
-        <HelloWorldInline name="Bob" />
-        <HelloWorldInline name="Jane" />
-      </div>
-      <h2>CSS Stylesheet</h2>
-      <div>
-        <HelloWorld />
-        <HelloWorld name="Alice" />
-        <HelloWorld name="Bob" />
-        <HelloWorld name="Jane" />
-      </div>
-
-      <h1>Module 49 - State Management</h1>
-      <h2>Use State</h2>
-      <h3>Static Counter - This Does Nothing</h3>
-      <StaticCounter />
-      <h3>Interactive Counter - This Counts</h3>
-      <InteractiveCounter />
-      <h3>Switch</h3>
-      <ToggleSwitch />
+      <DisplayHello />
+      <DisplayCounters />
     </>
   );
 }

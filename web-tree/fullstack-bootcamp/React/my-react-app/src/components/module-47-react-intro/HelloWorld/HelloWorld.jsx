@@ -5,7 +5,7 @@ export const HelloWorld = ({name}) => {
 }
 
 // Inline Style
-function HelloWorldInline({name}) {
+export function HelloWorldInline({name}) {
     const inlineStyle = {
         color: 'blue',
         fontSize: '2rem',
@@ -16,4 +16,4 @@ function HelloWorldInline({name}) {
 }
 
 
-export default HelloWorldInline;
+// export default HelloWorldInline;
