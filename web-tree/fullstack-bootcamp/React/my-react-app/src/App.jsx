@@ -1,6 +1,6 @@
-import HelloWorldInline from "./components/HelloWorld/HelloWorld";
-import { HelloWorld } from "./components/HelloWorld/HelloWorld";
-import { StaticCounter,InteractiveCounter,ToggleSwitch } from "./components/Counter/counter";
+import HelloWorldInline from "./components/module-47-react-intro/HelloWorld/HelloWorld";
+import { HelloWorld } from "./components/module-47-react-intro/HelloWorld/HelloWorld";
+import { StaticCounter,InteractiveCounter,ToggleSwitch } from "./components/module-49-state-management/Counter/counter";
 
 function App() {
   return (
