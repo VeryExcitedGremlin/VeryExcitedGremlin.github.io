@@ -6,58 +6,58 @@ const projectCards = [
   //   src: "resources/index/index-images{...}",
   //   alt: "",
   //   h4Inner: "",
-  //   pInner: "Week {x} project<br>{<br> : <strong class="card-inner">(Incomplete)</strong>}",
+  //   pInner: "Week {x} project<br>{<br> : <strong>(Incomplete)</strong>}",
   //   href: "web-tree/fullstack-bootcamp/Projects{...}",
   // },
   {
-    classes: ["cardContainer", "col-md-6", "col-xl-4"],
+    classes: ["cardContainer", "col-sm-8", "col-md-6", "col-xl-3"],
     src: "resources/index/index-images/personalBio.JPG",
     alt: "Bio Page Preview - An orange oval with Ashton's about info on display",
     h4Inner: "Personal Bio Page",
-    pInner: "Week 2 project<br><br>",
+    pInner: "Week 2 project<br>\"HTML Only\"",
     href: "web-tree/fullstack-bootcamp/Projects/0-Bio-page/personal-bio.html",
   },
   {
-    classes: ["cardContainer", "col-md-6", "col-xl-4"],
+    classes: ["cardContainer", "col-sm-8", "col-md-6", "col-xl-3"],
     src: "resources/index/index-images/styledLandingPage.JPG",
     alt: "Styled Landing Page Preview - Core Features cards on display",
     h4Inner: "Styled Landing Page",
-    pInner: "Week 3 project<br><br>",
+    pInner: "Week 3 project<br>\"First\" CSS Project",
     href: "web-tree/fullstack-bootcamp/Projects/1-styled-landing-page/Project-Landing-Page.html",
   },
   {
-    classes: ["cardContainer", "col-md-6", "col-xl-4"],
+    classes: ["cardContainer", "col-md-12", "col-xl-5"],
     src: "resources/index/index-images/calculator.JPG",
     alt: "Interactive Calculator Preview - a purple calculator with yellow buttons in a neutral void",
     h4Inner: "Interactive Calculator",
     pInner:
-      'Week 6 project<br><strong class="card-inner">(First JavaScript Project!)</strong>',
+      'Week 6 project<br><strong>Major Project #1: First JavaScript Project!</strong>',
     href: "web-tree/fullstack-bootcamp/Projects/2-Calculator/index.html",
   },
   {
-    classes: ["cardContainer", "col-md-6", "col-xl-4"],
+    classes: ["cardContainer", "col-sm-8", "col-md-6", "col-xl-3"],
     src: "resources/index/index-images/TodoList.JPG",
     alt: "Todo List App Preview with placeholder todos",
     h4Inner: "Todo List App",
-    pInner: "Week 8 project<br><br>",
+    pInner: "Week 8 project<br>Events and localStorage",
     href: "web-tree/fullstack-bootcamp/Projects/4-todo-list/index.html",
   },
   {
-    classes: ["cardContainer", "col-md-6", "col-xl-4"],
+    classes: ["cardContainer", "col-md-12", "col-xl-5"],
     src: "https://placehold.co/1900x900",
     alt: "Stock Lookup App Preview (currently placeholder)",
     h4Inner: "Stock Lookup App",
     pInner:
-      'Week 9 project<br><strong class="card-inner">(Incomplete)</strong>',
+      'Week 9 project<br><strong>Major Project #2: API Integration (Incomplete)</strong>',
     href: "web-tree/fullstack-bootcamp/Projects/5-stock-lookup/stonks.html",
   },
   {
-    classes: ["cardContainer", "col-md-6", "col-xl-4"],
+    classes: ["cardContainer", "col-sm-8", "col-md-6", "col-xl-3"],
     src: "https://placehold.co/1900x900",
-    alt: "React Counter App Preview (currently placeholder)",
-    h4Inner: "React Counter App",
+    alt: "Counter React App Preview (currently placeholder)",
+    h4Inner: "Counter React App",
     pInner:
-      'Week 11 project<br><strong class="card-inner">(Incomplete)</strong>',
+      'Week 11 project<br>First React App <strong>(Incomplete)</strong>',
     href: "",
   },
 ];
@@ -72,13 +72,13 @@ function createProjectCards() {
     classes.forEach((item) => cardContainer.classList.add(item));
     // cardContainer.classList.add(card.classes)
     const content = `
-            <div class="card">
+            <div class="card"${href && ` onclick="location.href='${href}';"`}>
                 <img src='${src}' class="card-img-top" alt="${alt}">
                 <div class="card-body">
                     <h4 class="card-inner">${h4Inner}</h4>
                     <p class="card-inner">${pInner}</p>
                     <a class="btn btn-primary" href="${href}">
-                        ${href ? 'Check it out!' : 'Coming soon!'}</a>
+                        ${href ? "Check it out!" : "Coming soon!"}</a>
                 </div>
             </div>
         `;

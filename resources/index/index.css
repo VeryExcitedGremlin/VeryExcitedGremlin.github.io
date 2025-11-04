@@ -40,6 +40,7 @@ p {
 
 .cardContainer {
     margin: 0 0 1.5em 0;
+    justify-content: center;
 
 }
 
@@ -63,6 +64,16 @@ p {
 
 .card-inner {
     text-align: center;
+}
+
+.btn-primary {
+    background-color: #B2E079;
+    border: #56614A solid 0.2em;
+    color: black;
+}
+.btn-primary:hover, .btn-primary:active {
+    background-color: #56614A;
+    border: #56614A solid 0.2em;
 }
 
 .accordion {
@@ -103,6 +114,12 @@ p {
 
 #otherLinks .cardContainer, #repoHead {
     margin: 0;
+}
+
+.other-a {
+    color: #E079C0
+}.other-a:visited {
+    color: #614A5A
 }
 
 @media (min-width: 576px) {
