@@ -35,7 +35,7 @@ const projectCards = [
     href: "web-tree/fullstack-bootcamp/Projects/2-Calculator/index.html",
   },
   {
-    classes: ["cardContainer", "col-md-6"],
+    classes: ["cardContainer", "col-md-6", "col-xl-4"],
     src: "resources/index/index-images/TodoList.JPG",
     alt: "Todo List App Preview with placeholder todos",
     h4Inner: "Todo List App",
@@ -43,13 +43,22 @@ const projectCards = [
     href: "web-tree/fullstack-bootcamp/Projects/4-todo-list/index.html",
   },
   {
-    classes: ["cardContainer", "col-xl-6"],
+    classes: ["cardContainer", "col-md-6", "col-xl-4"],
     src: "https://placehold.co/1900x900",
     alt: "Stock Lookup App Preview (currently placeholder)",
     h4Inner: "Stock Lookup App",
     pInner:
-      'Week 10 project<br><strong class="card-inner">(Incomplete)</strong>',
+      'Week 9 project<br><strong class="card-inner">(Incomplete)</strong>',
     href: "web-tree/fullstack-bootcamp/Projects/5-stock-lookup/stonks.html",
+  },
+  {
+    classes: ["cardContainer", "col-md-6", "col-xl-4"],
+    src: "https://placehold.co/1900x900",
+    alt: "React Counter App Preview (currently placeholder)",
+    h4Inner: "React Counter App",
+    pInner:
+      'Week 11 project<br><strong class="card-inner">(Incomplete)</strong>',
+    href: "",
   },
 ];
 
@@ -276,7 +285,22 @@ const accordionSections = [
       {
         href: "https://veryexcitedgremlin.github.io/first-react-app/",
         title: "Intro to React",
-        description: "Introduction to components and interaction in React",
+        description:
+          " - The links inside: Introduction to components and interaction in React",
+      },
+    ],
+  },
+  {
+    id: "collapseTwelve",
+    expanded: "false",
+    heading: "Week 12 - React Routing",
+    show: false,
+    li: [
+      {
+        href: "https://veryexcitedgremlin.github.io/first-react-app/",
+        title: "React Routing",
+        description:
+          " - The page itself: Introduction to <abbr title='Single Page Applications'>SPAs</abbr>",
       },
     ],
   },
