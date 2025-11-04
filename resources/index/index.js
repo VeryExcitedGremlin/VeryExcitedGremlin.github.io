@@ -267,19 +267,24 @@ const accordionSections = [
       },
     ],
   },
-    {
-      id: "collapseTen",
-      expanded: "false",
-      heading: "Week 10 - Intro to React",
-      show: false,
-      li: [
-        {
-          href: "https://veryexcitedgremlin.github.io/first-react-app/",
-          title: "My First React App",
-          description: "Introduction to elements and interaction with React",
-        },
-      ],
-    },
+  {
+    id: "collapseTen",
+    expanded: "false",
+    heading: "Week 10 - Intro to React",
+    show: false,
+    li: [
+      {
+        href: "https://veryexcitedgremlin.github.io/first-react-app/47",
+        title: "Intro to React - Elements",
+        description: "Introduction to elements in React",
+      },
+      {
+        href: "https://veryexcitedgremlin.github.io/first-react-app/49",
+        title: "Intro to React - useState",
+        description: "Introduction to interactive elements in React",
+      },
+    ],
+  },
 ];
 
 function createAccordion() {
