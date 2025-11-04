@@ -275,8 +275,8 @@ const accordionSections = [
     li: [
       {
         href: "https://veryexcitedgremlin.github.io/first-react-app/47",
-        title: "Intro to React - Elements",
-        description: "Introduction to elements in React",
+        title: "Intro to React - Components",
+        description: "Introduction to components in React",
       },
       {
         href: "https://veryexcitedgremlin.github.io/first-react-app/49",
