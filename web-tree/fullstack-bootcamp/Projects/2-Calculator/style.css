@@ -48,22 +48,22 @@ button {
 
 .number,
 .decimal {
-  background-color: #F6FCC2;
-  color: black;
+  background-color: #263316;
+  color: white;
 }
 
 .operator {
-  background-color: #FCFC42;
+  background-color: #B2E079;
   color: black;
 }
 
 .clear {
-  background-color: #F5F5F5;
-  color: black;
+  background-color: #614A5A;
+  color: white;
 }
 
 .equals {
-  background-color: #FCFC42;
+  background-color: #E079C0;
   color: black;
 }
 
