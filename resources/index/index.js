@@ -14,7 +14,7 @@ const projectCards = [
     src: "resources/index/index-images/personalBio.JPG",
     alt: "Bio Page Preview - An orange oval with Ashton's about info on display",
     h4Inner: "Personal Bio Page",
-    pInner: "Week 2 project<br>\"HTML Only\"",
+    pInner: 'Week 2 project<br>"HTML Only"',
     href: "web-tree/fullstack-bootcamp/Projects/0-Bio-page/personal-bio.html",
   },
   {
@@ -22,7 +22,7 @@ const projectCards = [
     src: "resources/index/index-images/styledLandingPage.JPG",
     alt: "Styled Landing Page Preview - Core Features cards on display",
     h4Inner: "Styled Landing Page",
-    pInner: "Week 3 project<br>\"First\" CSS Project",
+    pInner: 'Week 3 project<br>"First" CSS Project',
     href: "web-tree/fullstack-bootcamp/Projects/1-styled-landing-page/Project-Landing-Page.html",
   },
   {
@@ -31,7 +31,7 @@ const projectCards = [
     alt: "Interactive Calculator Preview - a purple calculator with yellow buttons in a neutral void",
     h4Inner: "Interactive Calculator",
     pInner:
-      'Week 6 project<br><strong>Major Project #1: First JavaScript Project!</strong>',
+      "Week 6 project<br><strong>Major Project #1: First JavaScript Project!</strong>",
     href: "web-tree/fullstack-bootcamp/Projects/2-Calculator/index.html",
   },
   {
@@ -48,7 +48,7 @@ const projectCards = [
     alt: "Stock Lookup App Preview (currently placeholder)",
     h4Inner: "Stock Lookup App",
     pInner:
-      'Week 9 project<br><strong>Major Project #2: API Integration (Incomplete)</strong>',
+      "Week 9 project<br><strong>Major Project #2: API Integration<br>(Incomplete)</strong>",
     href: "web-tree/fullstack-bootcamp/Projects/5-stock-lookup/stonks.html",
   },
   {
@@ -57,8 +57,17 @@ const projectCards = [
     alt: "Counter React App Preview (currently placeholder)",
     h4Inner: "Counter React App",
     pInner:
-      'Week 11 project<br>First React App <strong>(Incomplete)</strong>',
+      "Week 11 project<br>Single Page React App<br><strong>(Incomplete)</strong>",
     href: "",
+  },
+  {
+    classes: ["cardContainer", "col-md-12", "col-xl-5"],
+    src: "https://placehold.co/1900x900",
+    alt: "Recipe Lookup React App Preview (currently placeholder)",
+    h4Inner: "Recipe Lookup React App",
+    pInner:
+      "Week 14 project<br><strong>Major Project #3: Multi-Page React App<br>(Incomplete)</strong>",
+    href: "https://veryexcitedgremlin.github.io/recipe-finder/",
   },
 ];
 
