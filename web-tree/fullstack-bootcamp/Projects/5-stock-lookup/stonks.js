@@ -46,6 +46,7 @@ async function getStock(event) {
   }
   if (localStorage.getItem(symbol)) {
     displayStock(symbol);
+    lookupInput.value = '';
   } else {
     enterKey.innerHTML = `
           <input class="col-6 mb-2 border-danger-subtle" type="text" id="api-key" placeholder="Enter API key" />
@@ -464,7 +465,8 @@ function showKeySubmit() {
 showKeySubmit();
 buildQuickLookup();
 buildCards();
-updateCards();
+calculatePosition();
+// updateCards();
 
 //listeners
 lookupQuickSection.addEventListener("click", quickLookup);

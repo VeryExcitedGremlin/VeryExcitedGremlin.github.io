@@ -38,7 +38,7 @@ const projectCards = [
     classes: ["cardContainer", "col-sm-8", "col-md-6", "col-xl-3"],
     src: "resources/index/index-images/TodoList.JPG",
     alt: "Todo List App Preview with placeholder todos",
-    h4Inner: "Todo List App",
+    h4Inner: "Todo List",
     pInner: "Week 8 project<br>Events and localStorage",
     href: "web-tree/fullstack-bootcamp/Projects/4-todo-list/index.html",
   },
@@ -46,7 +46,7 @@ const projectCards = [
     classes: ["cardContainer", "col-md-12", "col-xl-5"],
     src: "https://placehold.co/1900x900",
     alt: "Stock Lookup App Preview (currently placeholder)",
-    h4Inner: "Stock Lookup App",
+    h4Inner: "Stock Lookup",
     pInner:
       "Week 9 project<br><strong>Major Project #2: API Integration<br>(Incomplete)</strong>",
     href: "web-tree/fullstack-bootcamp/Projects/5-stock-lookup/stonks.html",
@@ -55,27 +55,35 @@ const projectCards = [
     classes: ["cardContainer", "col-sm-8", "col-md-6", "col-xl-3"],
     src: "https://placehold.co/1900x900",
     alt: "Counter React App Preview (currently placeholder)",
-    h4Inner: "Counter React App",
+    h4Inner: "Counter",
     pInner:
       "Week 11 project<br>Single Page React App<br><strong>(Incomplete)</strong>",
     href: "",
   },
   {
-    classes: ["cardContainer", "col-md-12", "col-xl-5"],
+    classes: ["cardContainer", "col-md-6", "col-xl-4"],
     src: "https://placehold.co/1900x900",
     alt: "Recipe Lookup React App Preview (currently placeholder)",
-    h4Inner: "Recipe Lookup React App",
-    pInner:
-      "Week 14 project<br><strong>Major Project #3: Multi-Page React App<br>(Incomplete)</strong>",
+    h4Inner: "Recipe Lookup",
+    pInner: "Week 13 project<br>Multi Page React App: <strong>(Incomplete)</strong>",
     href: "https://veryexcitedgremlin.github.io/recipe-finder/",
+  },
+  {
+    classes: ["cardContainer", "col-md-12", "col-xl-5"],
+    src: "https://placehold.co/1900x900",
+    alt: "Mini-Game React App Preview (currently placeholder)",
+    h4Inner: "Mini-Games!",
+    pInner:
+      "Week 14 project<br><strong>Major Project #3: Fully Integrated React App<br>(Incomplete)</strong>",
+    href: "",
   },
 ];
 
 function createProjectCards() {
   projectCards.forEach((card) => {
-    const {classes, src, alt, h4Inner, pInner, href} = card;
+    const { classes, src, alt, h4Inner, pInner, href } = card;
     const cardContainer = document.createElement("div");
-    cardContainer.classList.add('px-2');
+    cardContainer.classList.add("px-2");
     cardContainer.classList.add("px-lg-3");
     cardContainer.classList.add("px-xxl-4");
     classes.forEach((item) => cardContainer.classList.add(item));
