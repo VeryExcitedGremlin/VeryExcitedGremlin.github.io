@@ -292,7 +292,7 @@ function calculatePosition() {
   // const numPositions = keys.length
   let totalValue = 0;
   let topStock = {
-    name: "",
+    name: "NULL",
     value: 0,
   };
   userKeys.forEach((userKey) => {
