@@ -62,11 +62,10 @@ const projectCards = [
   },
   {
     classes: ["cardContainer", "col-md-6", "col-xl-4"],
-    src: "https://placehold.co/1900x900",
-    alt: "Recipe Lookup React App Preview (currently placeholder)",
-    h4Inner: "Recipe Lookup",
-    pInner:
-      "Week 13 project<br>Multi Page React App: <strong>(Incomplete)</strong>",
+    src: "resources/index/index-images/recipeFinder.JPG",
+    alt: "Recipe Finder React App Preview (currently placeholder)",
+    h4Inner: "Recipe Finder",
+    pInner: "Week 13 project<br>Multi Page React App",
     href: "https://veryexcitedgremlin.github.io/recipe-finder/",
   },
   {
