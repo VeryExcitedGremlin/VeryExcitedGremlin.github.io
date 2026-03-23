@@ -246,17 +246,13 @@ function adjustHoldings(event) {
   if (Object.keys(localStorage).includes(`${symbol}-user`)) {
     userData = JSON.parse(localStorage.getItem(`${symbol}-user`));
   }
-  if (!userData.holdings) {
-    userData.holdings = 0;
-  }
-  if (!userData.value) {
-    userData.value = 0;
-  }
-  if (!userData.totalValue) {
-    userData.totalValue = 0;
-  }
-  if (!userData.change) {
-    userData.change = 0;
+  else {
+    userData = {
+      holdings: 0,
+      value: 0,
+      totalValue: 0,
+      change: 0
+    }
   }
 
   if (content == "+") {
@@ -476,11 +472,32 @@ function showKeySubmit() {
   }
 }
 
+async function onStartup() {
+  const userKeys = Object.keys(localStorage).filter((key) => key.includes("-user"));
+  const access_key = JSON.parse(localStorage.getItem("API"))
+  const today = getToday();
+  if (access_key) {
+    userKeys.forEach((userKey) => {
+      const symbol = userKey.slice(0, -5)
+      let symbolData = JSON.parse(localStorage.getItem(symbol))
+      if (symbolData.date !== today) {
+        callAPI(access_key, symbol, today)
+        let userData = JSON.parse(localStorage.getItem(userKey))
+        userData.value = parseFloat(symbolData.close).toFixed(2)
+        userData.totalValue = (userData.holdings * userData.value).toFixed(2)
+        userData.change = (userData.holdings * parseFloat(symbolData.change)).toFixed(2)
+        localStorage.setItem(userKey, JSON.stringify(userData))
+      }
+    })
+  }
+}
+
+
 showKeySubmit();
 buildQuickLookup();
 buildCards();
+onStartup();
 calculatePosition();
-// updateCards();
 
 //listeners
 lookupQuickSection.addEventListener("click", quickLookup);
