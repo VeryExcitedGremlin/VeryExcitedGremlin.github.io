@@ -346,7 +346,7 @@ function createAccordion() {
     accordion.li.forEach((item) => {
       content += `
                 <li>
-                     <a href="${item.href}">
+                     <a class=other-a href="${item.href}">
                      ${item.title}</a> ${item.description}
                 </li>
             `;
