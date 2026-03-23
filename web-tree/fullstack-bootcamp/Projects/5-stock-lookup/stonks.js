@@ -28,10 +28,12 @@ async function getStock(event) {
   if (!access_key && !symbol.length) {
     apiKeyInput.classList.add("border-danger-subtle");
     lookupInput.classList.add("border-danger-subtle");
-    lookupWarning.textContent = "Check stock symbol and API key";
+    lookupWarning.textContent = `Check stock symbol or API key. <br>
+      Get an API key from <a href="https://marketstack.com/">marketstack.com</a>`;
   } else if (!access_key) {
     apiKeyInput.classList.add("border-danger-subtle");
-    lookupWarning.textContent = "Check API key";
+    lookupWarning.textContent = `Check API key. <br>
+      Get an API key from <a href="https://marketstack.com/">marketstack.com</a>`;
   } else if (!symbol.length) {
     lookupInput.classList.add("border-danger-subtle");
     lookupWarning.textContent = "Check stock symbol";
@@ -54,8 +56,9 @@ async function getStock(event) {
         `;
     document.getElementById("api-key").value = access_key;
     lookupInput.classList.add("border-danger-subtle");
-    lookupWarning.textContent =
-      "Check stock symbol, API key, or internet connection";
+    lookupWarning.innerHTML =
+      `Check stock symbol, API key, or internet connection. <br>
+      Get an API key from <a href="https://marketstack.com/">marketstack.com</a>`;
     showStock.innerHTML = "";
   }
 }
@@ -252,6 +255,9 @@ function adjustHoldings(event) {
   if (!userData.totalValue) {
     userData.totalValue = 0;
   }
+  if (!userData.change) {
+    userData.change = 0;
+  }
 
   if (content == "+") {
     userData.holdings += 1;
@@ -276,6 +282,7 @@ function adjustHoldings(event) {
   } else {
     userData.totalValue = (userData.holdings * stock.close).toFixed(2);
     userData.value = stock.close;
+    userData.change = (userData.holdings * stock.change).toFixed(2);
     holdingsValue.textContent = `$${userData.totalValue}`;
     holdingsDisplay.textContent = userData.holdings;
 
@@ -295,10 +302,12 @@ function calculatePosition() {
     name: "NULL",
     value: 0,
   };
+  let totalChange = 0;
   userKeys.forEach((userKey) => {
     const object = JSON.parse(localStorage.getItem(userKey));
     const userTotal = parseFloat(object.totalValue);
     const userValue = parseFloat(object.value);
+    const userChange = parseFloat(object.change);
     // console.log(value)
     if (userTotal > 0) {
       totalValue += userTotal;
@@ -307,6 +316,9 @@ function calculatePosition() {
         topStock = { name: userKey.slice(0, -5), value: userValue };
       }
     }
+    if (userChange !== 0) {
+      totalChange += userChange;
+    }
   });
   // console.log(topStock);
   // console.log(showVal);
@@ -314,17 +326,19 @@ function calculatePosition() {
     portfolioValue: totalValue.toFixed(2),
     numPositions: numPositions,
     topStock: topStock,
+    totalChange: totalChange.toFixed(2)
   };
   localStorage.setItem('userPosition', JSON.stringify(userPosition));
   updateCards();
 }
 
 function updateCards() {
-  const {portfolioValue, numPositions, topStock} = JSON.parse(localStorage.getItem('userPosition'));
+  const {portfolioValue, numPositions, topStock, totalChange} = JSON.parse(localStorage.getItem('userPosition'));
   const showVal = document.querySelectorAll(".total-value");
   showVal.forEach((node) => (node.textContent = `$${portfolioValue}`));
   document.querySelector(".num-positions").textContent = numPositions;
   document.querySelector('.top-stock').innerHTML = `<strong>${topStock.name}</strong> - $${topStock.value}`
+  document.querySelector('.change-today').textContent = `$${totalChange}`
 }
 
 function keySubmit(event) {
