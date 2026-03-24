@@ -1,6 +1,7 @@
 // const { createElement } = require("react");
 
 const apiKeyInput = document.getElementById("api-key");
+// apiKeyInput.classList.add('border-danger-subtle')
 const enterKey = document.getElementById("enter-key");
 
 // const lookupForm = document.getElementById("stock-lookup");
@@ -11,14 +12,17 @@ const lookupWarning = document.getElementById("lookup-warning");
 
 const portfolioCards = document.getElementById("portfolio-cards");
 
+const marketstack =  `
+  Get an API key from <a class='mt-0 ps-2 w-auto' href="https://marketstack.com/" target='_blank'>marketstack.com</a>
+`
 const enterKeyHTML = `
-      <div>Get an API key from <a href="https://marketstack.com/">marketstack.com</a><br></div>
+      <span class='mb-2 row justify-content-center'>${marketstack}</span>
       <input class="col-6 mb-2" type="text" id="api-key" placeholder="Enter API key" />
       <button id='api-submit' class="col-4 col-md-3 mb-2" onclick="keySubmit(event)">Submit</button>
     `;
 
 async function getStock(event) {
-  // const apiKeyInput = document.getElementById("api-key");
+  const apiKeyInput = document.getElementById("api-key");
   // if (apiKeyInput) {
   // apiKeyInput.classList.remove("border-danger-subtle");
   // }
@@ -27,6 +31,7 @@ async function getStock(event) {
 
   lookupInput.classList.remove("border-danger-subtle");
   lookupWarning.textContent = "";
+
   if (event) {
     event.preventDefault();
   }
@@ -36,14 +41,13 @@ async function getStock(event) {
 
   if (!access_key && !symbol.length) {
     apiKeyInput.classList.add("border-danger-subtle");
+    // console.log(apiKeyInput.classList)
     lookupInput.classList.add("border-danger-subtle");
-    lookupWarning.innerHTML = `Check stock symbol or API key. <br>
-      Get an API key from <a href="https://marketstack.com/">marketstack.com</a>`;
+    lookupWarning.innerHTML = `Check stock symbol or API key. <br> ${marketstack}`;
     warning = true;
   } else if (!access_key) {
     apiKeyInput.classList.add("border-danger-subtle");
-    lookupWarning.innerHTML = `Check API key. <br>
-      Get an API key from <a href="https://marketstack.com/">marketstack.com</a>`;
+    lookupWarning.innerHTML = `Check API key. <br> ${marketstack}`;
     warning = true;
   } else if (!symbol.length) {
     lookupInput.classList.add("border-danger-subtle");
@@ -63,15 +67,19 @@ async function getStock(event) {
     lookupInput.value = '';
     prevData = true;
   } 
-  else {
-    enterKey.innerHTML = enterKeyHTML
-    document.getElementById("api-key").value = access_key;
-    lookupInput.classList.add("border-danger-subtle");
-    lookupWarning.innerHTML =
-      `Check stock symbol, API key, or internet connection. <br>
-      Get an API key from <a href="https://marketstack.com/">marketstack.com</a>`;
-    showStock.innerHTML = "";
-  }
+  // else {
+  //   const apiKeyInput = document.getElementById("api-key");
+  //   enterKey.innerHTML = enterKeyHTML
+  //   if (access_key) {
+  //     apiKeyInput.value = access_key;
+  //     localStorage.removeItem('API')
+  //   }
+  //   apiKeyInput.classList.add("border-danger-subtle");
+  //   lookupInput.classList.add("border-danger-subtle");
+  //   lookupWarning.innerHTML =
+  //     `Check stock symbol, API key, or internet connection. <br> ${marketstack}`;
+  //   showStock.innerHTML = "";
+  // }
   if (warning && prevData) {
     const warningText = lookupWarning.innerHTML
     lookupWarning.innerHTML = warningText + '<br> Showing saved data'
@@ -86,6 +94,7 @@ async function callAPI(access_key, symbol, today) {
     if (response.ok) {
       const result = await response.json();
       const stockObject = result.data[0];
+      console.log(JSON.parse(localStorage.getItem(symbol)))
       console.log(stockObject);
       const change = (stockObject.close - stockObject.open).toFixed(2);
       const percent = (change / stockObject.open).toFixed(2);
@@ -138,6 +147,7 @@ async function callAPI(access_key, symbol, today) {
 
 function displayStock(symbol) {
   // showStock.classList.add("outer-section");
+  const apiKeyInput = document.getElementById("api-key");
 
   const data = JSON.parse(localStorage.getItem(symbol));
   let old = false;
@@ -147,11 +157,12 @@ function displayStock(symbol) {
       <input class="col-6 mb-2 border-danger-subtle" type="text" id="api-key" placeholder="Enter API key" />
       <button id='api-submit' class="col-4 col-md-3 mb-2" onclick="keySubmit(event)">Submit</button>
     `;
-    document.getElementById("api-key").value = access_key;
+    apiKeyInput.value = access_key;
+    apiKeyInput.classList.add("border-danger-subtle");
+    // console.log
     lookupInput.classList.add("border-danger-subtle");
     lookupWarning.innerHTML =
-        `Check stock symbol, API key, or internet connection. <br>
-        Get an API key from <a href="https://marketstack.com/">marketstack.com</a>`; 
+        `Check stock symbol, API key, or internet connection. ${marketstack}`; 
     old = true;
   }
 
@@ -355,10 +366,15 @@ function updateCards() {
 
 function keySubmit(event) {
   event.preventDefault();
-  const key = document.getElementById("api-key").value;
-  localStorage.setItem("API", JSON.stringify(key));
-
-  enterKey.innerHTML = `<span class='col-auto mb-2'>${key}</span>`;
+  const apiKeyInput = document.getElementById("api-key");
+  const key = apiKeyInput.value;
+  if (key.length > 0){
+    localStorage.setItem("API", JSON.stringify(key));
+    enterKey.innerHTML = `<span class='col-auto mb-2'>${key}</span>`;
+  } else {
+    apiKeyInput.classList.add("border-danger-subtle");
+    apiKeyInput.placeholder = 'Cannot be blank'
+  }
 }
 
 function quickLookup(event) {
@@ -464,7 +480,7 @@ function buildCards() {
     const cardText = `
             <div class="col-12 col-md-6 col-xl-3">
                 <div class="inner-section card" id='${card.id}'>
-                    <div class="card-body">
+                    <div class="card-body justify-content-center">
                         <h6 class="card-title">${card.title}</h6>
                         <p class="card-text${card.class}">${card.text}</p>
                     </div>
