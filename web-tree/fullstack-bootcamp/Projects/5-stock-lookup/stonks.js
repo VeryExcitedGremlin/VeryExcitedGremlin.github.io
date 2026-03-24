@@ -11,11 +11,20 @@ const lookupWarning = document.getElementById("lookup-warning");
 
 const portfolioCards = document.getElementById("portfolio-cards");
 
+const enterKeyHTML = `
+      <div>Get an API key from <a href="https://marketstack.com/">marketstack.com</a><br></div>
+      <input class="col-6 mb-2" type="text" id="api-key" placeholder="Enter API key" />
+      <button id='api-submit' class="col-4 col-md-3 mb-2" onclick="keySubmit(event)">Submit</button>
+    `;
+
 async function getStock(event) {
   // const apiKeyInput = document.getElementById("api-key");
   // if (apiKeyInput) {
   // apiKeyInput.classList.remove("border-danger-subtle");
   // }
+  let prevData = false;
+  let warning = false;
+
   lookupInput.classList.remove("border-danger-subtle");
   lookupWarning.textContent = "";
   if (event) {
@@ -28,15 +37,18 @@ async function getStock(event) {
   if (!access_key && !symbol.length) {
     apiKeyInput.classList.add("border-danger-subtle");
     lookupInput.classList.add("border-danger-subtle");
-    lookupWarning.textContent = `Check stock symbol or API key. <br>
+    lookupWarning.innerHTML = `Check stock symbol or API key. <br>
       Get an API key from <a href="https://marketstack.com/">marketstack.com</a>`;
+    warning = true;
   } else if (!access_key) {
     apiKeyInput.classList.add("border-danger-subtle");
-    lookupWarning.textContent = `Check API key. <br>
+    lookupWarning.innerHTML = `Check API key. <br>
       Get an API key from <a href="https://marketstack.com/">marketstack.com</a>`;
+    warning = true;
   } else if (!symbol.length) {
     lookupInput.classList.add("border-danger-subtle");
     lookupWarning.textContent = "Check stock symbol";
+    warning = true;
   } else if (
     !Object.keys(localStorage).includes(symbol) ||
     JSON.parse(localStorage.getItem(symbol)).date !== today
@@ -49,17 +61,20 @@ async function getStock(event) {
   if (localStorage.getItem(symbol)) {
     displayStock(symbol);
     lookupInput.value = '';
-  } else {
-    enterKey.innerHTML = `
-          <input class="col-6 mb-2 border-danger-subtle" type="text" id="api-key" placeholder="Enter API key" />
-          <button id='api-submit' class="col-4 col-md-3 mb-2" onclick="keySubmit(event)">Submit</button>
-        `;
+    prevData = true;
+  } 
+  else {
+    enterKey.innerHTML = enterKeyHTML
     document.getElementById("api-key").value = access_key;
     lookupInput.classList.add("border-danger-subtle");
     lookupWarning.innerHTML =
       `Check stock symbol, API key, or internet connection. <br>
       Get an API key from <a href="https://marketstack.com/">marketstack.com</a>`;
     showStock.innerHTML = "";
+  }
+  if (warning && prevData) {
+    const warningText = lookupWarning.innerHTML
+    lookupWarning.innerHTML = warningText + '<br> Showing saved data'
   }
 }
 
@@ -71,7 +86,7 @@ async function callAPI(access_key, symbol, today) {
     if (response.ok) {
       const result = await response.json();
       const stockObject = result.data[0];
-      // console.log(stockObject);
+      console.log(stockObject);
       const change = (stockObject.close - stockObject.open).toFixed(2);
       const percent = (change / stockObject.open).toFixed(2);
 
@@ -134,8 +149,9 @@ function displayStock(symbol) {
     `;
     document.getElementById("api-key").value = access_key;
     lookupInput.classList.add("border-danger-subtle");
-    lookupWarning.textContent =
-      "Check API key or internet connection; showing saved data";
+    lookupWarning.innerHTML =
+        `Check stock symbol, API key, or internet connection. <br>
+        Get an API key from <a href="https://marketstack.com/">marketstack.com</a>`; 
     old = true;
   }
 
@@ -174,7 +190,7 @@ function displayStock(symbol) {
             <div class="row justify-content-between justify-content-xxl-around">
   `;
 
-  const info = ["open", "high", "low", "volume"];
+  const info = ["open", "high", "volume", "low"];
   info.forEach((item) => {
     inner += `
               <div class="col-6 col-xxl-5">
@@ -465,10 +481,7 @@ function showKeySubmit() {
   if (key) {
     enterKey.innerHTML = `<span class='col-auto mb-2'>${key}</span>`;
   } else {
-    enterKey.innerHTML = `
-      <input class="col-6 mb-2" type="text" id="api-key" placeholder="Enter API key" />
-      <button id='api-submit' class="col-4 col-md-3 mb-2" onclick="keySubmit(event)">Submit</button>
-    `;
+    enterKey.innerHTML = enterKeyHTML
   }
 }
 
