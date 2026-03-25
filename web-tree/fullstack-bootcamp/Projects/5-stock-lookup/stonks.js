@@ -371,19 +371,6 @@ function updateCards() {
   document.querySelector('.change-today').textContent = `$${totalChange}`
 }
 
-function keySubmit(event) {
-  event.preventDefault();
-  const apiKeyInput = document.getElementById("api-key");
-  const key = apiKeyInput.value;
-  if (key.length > 0){
-    localStorage.setItem("API", JSON.stringify(key));
-    enterKey.innerHTML = `<span class='col-auto mb-2'>${key}</span>`;
-  } else {
-    apiKeyInput.classList.add("border-danger-subtle");
-    apiKeyInput.placeholder = 'Cannot be blank'
-  }
-}
-
 function quickLookup(event) {
   const target = event.target;
   if (target.classList.contains("quick")) {
@@ -502,10 +489,33 @@ function buildCards() {
 function showKeySubmit() {
   const key = JSON.parse(localStorage.getItem("API"));
   if (key) {
-    enterKey.innerHTML = `<span class='col-auto mb-2'>${key}</span>`;
+    enterKey.innerHTML = `
+    <span class='w-auto mt-1 text-break'>${key}</span>
+    <button id='api-reset' class="col-4 col-md-3 mb-2" onclick="keyReset(event)">Reset Key</button>
+    `;
   } else {
     enterKey.innerHTML = enterKeyHTML
   }
+}
+
+function keySubmit(event) {
+  event.preventDefault();
+  const apiKeyInput = document.getElementById("api-key");
+  const key = apiKeyInput.value;
+  if (key.length > 0){
+    localStorage.setItem("API", JSON.stringify(key));
+    // enterKey.innerHTML = `<span class='col-auto mb-2'>${key}</span>`;
+    showKeySubmit()
+  } else {
+    apiKeyInput.classList.add("border-danger-subtle");
+    apiKeyInput.placeholder = 'Cannot be blank'
+  }
+}
+
+function keyReset(event) {
+  event.preventDefault();
+  localStorage.removeItem('API');
+  showKeySubmit();
 }
 
 async function onStartup() {
