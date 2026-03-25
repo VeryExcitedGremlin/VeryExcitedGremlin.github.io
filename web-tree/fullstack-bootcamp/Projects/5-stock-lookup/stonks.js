@@ -58,7 +58,21 @@ async function getStock(event) {
     JSON.parse(localStorage.getItem(symbol)).date !== today
   ) {
     // loadingStock();
-    await callAPI(access_key, symbol, today);
+    const stockSuccess = await callAPI(access_key, symbol, today);
+    if (!stockSuccess) {
+      enterKey.innerHTML = enterKeyHTML
+      const apiKeyInput = document.getElementById("api-key");
+      if (access_key) {
+        apiKeyInput.value = access_key;
+        localStorage.removeItem('API')
+      }
+      apiKeyInput.classList.add("border-danger-subtle");
+      lookupInput.classList.add("border-danger-subtle");
+      lookupWarning.innerHTML =
+        `Check stock symbol, API key, or internet connection. <br> ${marketstack}`;
+      showStock.innerHTML = "";
+      warning = true
+  }
   } else {
     console.log(`already have ${symbol} for today`);
   }
@@ -66,19 +80,10 @@ async function getStock(event) {
     displayStock(symbol);
     lookupInput.value = '';
     prevData = true;
-  } 
+  }
   // else {
   //   const apiKeyInput = document.getElementById("api-key");
-  //   enterKey.innerHTML = enterKeyHTML
-  //   if (access_key) {
-  //     apiKeyInput.value = access_key;
-  //     localStorage.removeItem('API')
-  //   }
-  //   apiKeyInput.classList.add("border-danger-subtle");
-  //   lookupInput.classList.add("border-danger-subtle");
-  //   lookupWarning.innerHTML =
-  //     `Check stock symbol, API key, or internet connection. <br> ${marketstack}`;
-  //   showStock.innerHTML = "";
+
   // }
   if (warning && prevData) {
     const warningText = lookupWarning.innerHTML
@@ -94,8 +99,8 @@ async function callAPI(access_key, symbol, today) {
     if (response.ok) {
       const result = await response.json();
       const stockObject = result.data[0];
-      console.log(JSON.parse(localStorage.getItem(symbol)))
-      console.log(stockObject);
+      // console.log(JSON.parse(localStorage.getItem(symbol)))
+      // console.log(stockObject);
       const change = (stockObject.close - stockObject.open).toFixed(2);
       const percent = (change / stockObject.open).toFixed(2);
 
@@ -113,11 +118,13 @@ async function callAPI(access_key, symbol, today) {
           percent: percent,
         })
       );
+      return true
     }
 
     throw new Error(`Response status: ${response.status}`);
   } catch (error) {
     console.error(error.message);
+    return false
   }
 }
 
