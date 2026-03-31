@@ -12,13 +12,13 @@
 
 .bookend a {
     display: block;
-    text-decoration: none;
     margin-top: 0.5em;
     color: black;
 }
 
 .bookend a:hover {
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    text-decoration: none;
 }
 
 .bookend a:active {
