@@ -21,6 +21,10 @@ body {
     font-weight: 500;
 }
 
+nav a:visited {
+    color: black;
+}
+
 h2 {
     text-align: center;
     margin: 0.5em 0 1em;
