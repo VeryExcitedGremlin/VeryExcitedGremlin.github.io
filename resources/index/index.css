@@ -85,6 +85,10 @@ p {
     border: #614A5A solid 0.2em;
 }
 
+.btn-primary:visited {
+    color: black;
+}
+
 .accordion {
     filter: drop-shadow(0em 0em 0.5em rgba(0, 0, 0, 0.205));
     border: solid .2em #554961;
