@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="resources/personal-footer/personal-footer.css">
     <link rel="stylesheet" href="resources/index/index.css" />
     <script defer src="resources/index/index.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
   </head>
 
 <body id="top">
@@ -20,27 +23,30 @@
         <h1 class="col-sm-4 col-md-5">Ashton's Projects</h1>
         <div class="col-sm-8 col-md-7 justify-content-xl-end">
             <nav class="row justify-content-center">
-                <div class="navSection col-6 col-sm-5 col-md-7 col-lg-5">
-                    <a class="nav-heading" href="#bootcamp">Full Stack Boot Camp</a>
-                    <div class="row justify-content-evenly">
-                        <a class="navLeftOne col-md-4 col-lg-4 col-xxl-3" href="#projects">Projects</a>
-                        <a class="navRightOne col-md-7 col-lg-8 col-xl-6 col-xxl-5" href="#guided-practice">Guided Practice</a>
-                    </div>
+                <div class="navSection col-4">
+                    <h2><a class="nav-heading" href="#bootcamp">Full-Stack Boot Camp</a></h2>
+                    <!-- <div class="row justify-content-evenly"> -->
+                        <a class="row" href="#projects">Projects</a>
+                        <a class="row" href="#guided-practice">Guided Practice</a>
+                    <!-- </div> -->
                 </div>
-                <div class="navSection col-6 col-sm-5 col-lg-4 col-xl-6 col-xxl-7">
-                    <a class="nav-heading" href="#otherLinks">Other Links</a>
-                    <div class="row justify-content-evenly">
-                        <a class="navLeftTwo col-xl-7 col-xxl-5" href="#codecademy-projects">Codecademy Projects</a>
-                        <a class="navRightTwo col-xl-5 col-xxl-4" href="#repo">Code Repository</a>
-                    </div>
+                <div class="navSection col-4">
+                    <h2><a class="nav-heading" href="#codecademy-projects">Codecademy Projects</a></h2>
+                    <!-- <div class="row justify-content-evenly"> -->
+                        <a class="row" href="#learn-git">Learn Git and Github</a>
+                        <a class="row" href="#full-stack">Full-Stack Engineer</a>
+                    <!-- </div> -->
                 </div>
+                    <div class="navSection col-4">
+                        <h2><a class="nav-heading" href="#repo">Code Repository</a></h2>
+                    </div>
             </nav>
         </div>
     </header>
     <main>
 
     <div id="bootcamp" class="outer-section">
-        <h2>Full Stack Boot Camp</h2>
+        <h2>Full-Stack Boot Camp</h2>
 
         <section id="projects" class="inner-section">
             <h3>Projects</h3>
@@ -58,10 +64,11 @@
 
     </div>
 
-    <section id="otherLinks" class="outer-section">
-        <h2>Other Projects</h2>
-        <section id="codecademy-projects" class="inner-section">
-            <h3>Codecademy projects</h3>
+    <section id="codecademy-projects" class="outer-section">
+        <h2>Codecademy projects</h2>
+        <section id="learn-git" class="inner-section">
+            <h3><a target="_blank" href='https://www.codecademy.com/learn/learn-git'>
+                                Learn Git and Github</a></h3>
 
             <div class="cardContainer">
                 <div class="card" style="max-width: 18rem">
@@ -69,13 +76,15 @@
                     <div class="card-body">
                         <h4 class="card-inner">Excursion</h4>
                         <p class="card-inner">
-                            <atarget="_blank" href='https://www.codecademy.com/learn/learn-git'>
-                                Learn Git and Github</a></p>
+                            <a target="_blank" href='https://www.codecademy.com/courses/learn-git/projects/f1-excursion'>
+                                Instructions Here</a></p>
                         <a class="btn btn-primary" href="https://veryexcitedgremlin.github.io/excursion">
                             Check it out!</a>
                     </div>
                 </div>
             </div>
+            </section>
+            <section id="full-stack" class="inner-section">
             <h3 class="text-center py-3 mt-3"> 
                 <a href="https://www.codecademy.com/career-journey/full-stack-engineer">
                     Full-Stack Engineer
@@ -96,38 +105,40 @@
                 </div>
             </div>
 
+            </section>
         </section>
-
+        <section class="outer-section">
+            <h3> Check out the code!</h3>
         <section id="repo" class="inner-section">
             <div id="github" class="d-flex flex-column align-items-center flex-sm-row">
                 <img src="resources/index/index-images/GitHub_Logo.png" alt="github logo" style="max-width: 10rem">
                 <img src="resources/index/index-images/github-mark.png" alt="github mark"  style="max-width: 4rem">
             </div>
             <br>
-            <h3 class="repoHead">Most of the code is found
+            <h4 class="repoHead">Most of the code is found
                 <a target="_blank" href="https://github.com/VeryExcitedGremlin/VeryExcitedGremlin.github.io">
                 here</a>
-            </h3>
-            <h3 class="repoHead">Repo for Other Projects section found
+            </h4>
+            <h4 class="repoHead">Repo for Other Projects section found
                 <a target="_blank"  href="https://github.com/VeryExcitedGremlin/codecademy-practice/tree/main">
                 here</a>
-            </h3>
-            <h3 class="repoHead">Repo for weeks 10 and 12 guided practice found
+            </h4>
+            <h4 class="repoHead">Repo for weeks 10 and 12 guided practice found
                 <a target="_blank"  href="https://github.com/VeryExcitedGremlin/first-react-app/tree/main?tab=readme-ov-file">
                 here</a>
-            </h3>
-            <h3 class="repoHead">Repo for Recipe Finder found
+            </h4>
+            <h4 class="repoHead">Repo for Recipe Finder found
                 <a target="_blank"  href="https://github.com/VeryExcitedGremlin/recipe-finder/tree/main">
                 here</a>
-            </h3>
+            </h4>
         </section>
     </section>
 
     </main>
 
     <footer class="bookend">
-        <h1>Thank you for viewing my work!</h1>
-        <h2>Updated 3/25/2026</h2>
+        <h2>Thank you for viewing my work!</h2>
+        <p>Updated 3/25/2026</p>
         <a href="#top">Back to top</a>
     </footer>
 
