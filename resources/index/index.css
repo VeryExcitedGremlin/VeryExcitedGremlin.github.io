@@ -36,8 +36,12 @@ h3 {
 }
 
 h1, h2, h3, h4 {
-    font-family: delius;
+  font-family: "Delius", cursive;
     font-weight: bold;
+}
+
+li, p, .btn {
+  font-family: "Chiron GoRound TC", sans-serif;
 }
 
 .moreUnder {
