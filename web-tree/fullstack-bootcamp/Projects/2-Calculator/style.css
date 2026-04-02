@@ -48,24 +48,25 @@ button {
 
 .number,
 .decimal {
-  background-color: #263316;
-  color: white;
+  background-color: #f7fcc2;
+  color: black;
 }
 
-.operator {
-  background-color: #B2E079;
+.operator,
+.equals {
+  background-color: #fcfc42;
   color: black;
 }
 
 .clear {
-  background-color: #614A5A;
-  color: white;
-}
-
-.equals {
-  background-color: #E079C0;
+  background-color: #f6f4f5;
   color: black;
 }
+
+/* .equals {
+  background-color: #E079C0;
+  color: black;
+} */
 
 button:hover {
   opacity: 0.8;
