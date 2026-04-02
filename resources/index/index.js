@@ -2,7 +2,7 @@ const projectCardArea = document.getElementById("project-card-area");
 
 const projectCards = [
   // {
-  //   classes: ("cardContainer", "col-md-6", "col-xl-4"),
+  //   classes: ("col-md-6", "col-xl-4"),
   //   src: "resources/index/index-images{...}",
   //   alt: "",
   //   h4Inner: "",
@@ -10,7 +10,7 @@ const projectCards = [
   //   href: "web-tree/fullstack-bootcamp/Projects{...}",
   // },
   {
-    classes: ["cardContainer", "col-sm-8", "col-md-6", "col-xl-3"],
+    classes: ["col-sm-8", "col-md-6", "col-xl-3"],
     src: "resources/index/index-images/personalBio.JPG",
     alt: "Bio Page Preview - An orange oval with Ashton's about info on display",
     h4Inner: "Personal Bio Page",
@@ -18,7 +18,7 @@ const projectCards = [
     href: "web-tree/fullstack-bootcamp/Projects/0-Bio-page/personal-bio.html",
   },
   {
-    classes: ["cardContainer", "col-sm-8", "col-md-6", "col-xl-3"],
+    classes: ["col-sm-8", "col-md-6", "col-xl-3"],
     src: "resources/index/index-images/styledLandingPage.JPG",
     alt: "Styled Landing Page Preview - Core Features cards on display",
     h4Inner: "Styled Landing Page",
@@ -26,7 +26,7 @@ const projectCards = [
     href: "web-tree/fullstack-bootcamp/Projects/1-styled-landing-page/Project-Landing-Page.html",
   },
   {
-    classes: ["cardContainer", "col-md-12", "col-xl-5"],
+    classes: ["col-md-12", "col-xl-5"],
     src: "resources/index/index-images/calculator.JPG",
     alt: "Interactive Calculator Preview - a purple calculator with yellow buttons in a neutral void",
     h4Inner: "Interactive Calculator",
@@ -35,7 +35,7 @@ const projectCards = [
     href: "web-tree/fullstack-bootcamp/Projects/2-Calculator/index.html",
   },
   {
-    classes: ["cardContainer", "col-sm-8", "col-md-6", "col-xl-3"],
+    classes: ["col-sm-8", "col-md-6", "col-xl-3"],
     src: "resources/index/index-images/TodoList.JPG",
     alt: "Todo List App Preview with placeholder todos",
     h4Inner: "Todo List",
@@ -43,7 +43,7 @@ const projectCards = [
     href: "web-tree/fullstack-bootcamp/Projects/4-todo-list/index.html",
   },
   {
-    classes: ["cardContainer", "col-md-12", "col-xl-5"],
+    classes: ["col-md-12", "col-xl-5"],
     src: "resources/index/index-images/Stonks.JPG",
     alt: "Stock Lookup App Preview (currently placeholder)",
     h4Inner: "Stock Lookup",
@@ -52,7 +52,7 @@ const projectCards = [
     href: "web-tree/fullstack-bootcamp/Projects/5-stock-lookup/stonks.html",
   },
   {
-    classes: ["cardContainer", "col-sm-8", "col-md-6", "col-xl-3"],
+    classes: ["col-sm-8", "col-md-6", "col-xl-3"],
     src: "https://placehold.co/1900x900",
     alt: "Counter React App Preview (currently placeholder)",
     h4Inner: "Counter",
@@ -61,7 +61,7 @@ const projectCards = [
     href: "",
   },
   {
-    classes: ["cardContainer", "col-md-6", "col-xl-4"],
+    classes: ["col-sm-8", "col-md-6", "col-xl-3"],
     src: "resources/index/index-images/recipeFinder.JPG",
     alt: "Recipe Finder React App Preview, showing sweets section with 2 recipe cards to choose from",
     h4Inner: "Recipe Finder",
@@ -69,7 +69,7 @@ const projectCards = [
     href: "https://veryexcitedgremlin.github.io/recipe-finder/",
   },
   {
-    classes: ["cardContainer", "col-md-12", "col-xl-5"],
+    classes: ["col-md-12", "col-xl-5"],
     src: "https://placehold.co/1900x900",
     alt: "Mini-Game React App Preview (currently placeholder)",
     h4Inner: "Mini-Games!",
@@ -83,18 +83,20 @@ function createProjectCards() {
   projectCards.forEach((card) => {
     const { classes, src, alt, h4Inner, pInner, href } = card;
     const cardContainer = document.createElement("div");
+    cardContainer.classList.add("cardContainer");
     cardContainer.classList.add("px-2");
     cardContainer.classList.add("px-lg-3");
     cardContainer.classList.add("px-xxl-4");
     classes.forEach((item) => cardContainer.classList.add(item));
     // cardContainer.classList.add(card.classes)
+            // <div class="card"${href && ` onclick="location.href='${href}'"`}></div>
     const content = `
-            <div class="card"${href && ` onclick="location.href='${href}';"`}>
+            <div class="card">
                 <img src='${src}' class="card-img-top" alt="${alt}">
                 <div class="card-body">
                     <h4 class="card-inner">${h4Inner}</h4>
                     <p class="card-inner">${pInner}</p>
-                    <a class="btn btn-primary" href="${href}">
+                    <a class="btn btn-primary" target="_blank" href="${href}">
                         ${href ? "Check it out!" : "Coming soon!"}</a>
                 </div>
             </div>
@@ -363,3 +365,61 @@ function createAccordion() {
 }
 
 createAccordion();
+
+
+const fullStackSection = document.getElementById("Full-Stack-cards")
+
+const fullStackCards = [
+  // {
+  //   classes: ["col-sm-8", "col-md-6", "col-xl-3"],
+  //   src: "resources/index/index-images{...}",
+  //   alt: "",
+  //   h4Inner: "",
+  //   instructions: "",
+  //   href: "https://veryexcitedgremlin.github.io/codecademy-practice/Full-Stack-Engineer/{...}",
+  // },
+  {
+    classes: ["col-sm-8", "col-md-6", "col-xl-3"],
+    src: "resources/index/index-images/dasmoto.JPG",
+    alt: "Dasmoto's Arts and Crafts",
+    h4Inner: "Dasmoto's Arts and Crafts",
+    instructions: "https://www.codecademy.com/journeys/full-stack-engineer/paths/fscj-22-web-development-foundations/tracks/fscj-22-developing-websites-locally/modules/wdcp-22-developing-with-css-0c2f9fa7-526e-41b6-a7b5-a871196585ef/projects/dasmoto",
+    href: "https://veryexcitedgremlin.github.io/codecademy-practice/Full-Stack-Engineer/Dasmotos-Arts-and-Crafts/homepage",
+  },
+  {
+    classes: ["col-sm-8", "col-md-6", "col-xl-3"],
+    src: "https://placehold.co/1900x900",
+    alt: "HTML element cheat sheet tables",
+    h4Inner: "HTML element cheat sheet",
+    instructions: "https://www.codecademy.com/journeys/full-stack-engineer/paths/fscj-22-web-development-foundations/tracks/fscj-22-improved-styling-with-css/modules/wdcp-22-build-your-own-cheat-sheet-67e2c82a-2f99-46d9-a17b-1461dc4edee8/projects/independent-project-html-documentation",
+    href: "https://veryexcitedgremlin.github.io/codecademy-practice/Full-Stack-Engineer/cheat-sheet/index.html",
+  },
+  ]
+
+function createProjectCards2() {
+  fullStackCards.forEach((card) => {
+    const { classes, src, alt, h4Inner, instructions, href } = card;
+    const cardContainer = document.createElement("div");
+    cardContainer.classList.add("cardContainer");
+    cardContainer.classList.add("px-2");
+    cardContainer.classList.add("px-lg-3");
+    cardContainer.classList.add("px-xxl-4");
+    classes.forEach((item) => cardContainer.classList.add(item));
+    const content = `
+            <div class="card"${href && ` onclick="location.href='${href}'"`}>
+                <img src='${src}' class="card-img-top" alt="${alt}">
+                <div class="card-body">
+                    <h4 class="card-inner">${h4Inner}</h4>
+                    <p class="card-inner">
+                    <a target="_blank" href=${instructions}>Insructions Here</a></p>
+                    <a class="btn btn-primary" target="_blank" href="${href}">
+                        ${href ? "Check it out!" : "Coming soon!"}</a>
+                </div>
+            </div>
+        `;
+    cardContainer.innerHTML = content;
+    fullStackSection.appendChild(cardContainer);
+  });
+}
+
+createProjectCards2()

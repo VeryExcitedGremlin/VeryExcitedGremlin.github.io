@@ -109,7 +109,7 @@ p {
 }
 .accordion-button:focus {box-shadow: none;}
 
-#bootcamp, .card-body, #otherLinks, .cardContainer, main, #guided-practice, #repo {
+.card-body, .cardContainer, main, #guided-practice, .outer-section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -125,7 +125,7 @@ p {
 }
 
 .inner-section {
-    width: 80vw;
+    width: 75vw;
     background-color: #FFECD6;
     border: 0.5em solid #FFE4C4;
     border-radius: 1em;

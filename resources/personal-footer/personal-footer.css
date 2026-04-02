@@ -25,3 +25,7 @@
 .bookend a:active {
     text-decoration: underline;
 }
+
+.bookend a:visited {
+    color: black;
+}
