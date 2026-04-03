@@ -4,6 +4,7 @@ body {
 
 #heading h1 {
     height: fit-content;
+    font-size: 40px;
 }
 
 #heading {
@@ -19,6 +20,10 @@ body {
 .nav-heading {
     font-size: 20px;
     font-weight: bold;
+}
+
+nav a {
+    font-size: 15px;
 }
 
 nav a:visited {
@@ -37,7 +42,7 @@ h3 {
 
 h1, h2, h3, h4 {
   font-family: "Delius", cursive;
-    font-weight: bold;
+  font-weight: bold;
 }
 
 li, p, .btn {
@@ -117,7 +122,7 @@ p {
 
 .outer-section {
     width: 90vw;
-    background-color: rgb(255, 250, 243);
+    background-color: #fffaf3;
     border-radius: 2em;
     padding: 2em;
     margin: 3em 0;
@@ -157,6 +162,13 @@ a:visited {
     color: #354521
 } 
 */
+
+/* @media (max-width: 768px) {
+    #navigation {
+
+    }
+} */
+
 @media (min-width: 576px) {
     .accordion-body {
         margin-left: 1em;
