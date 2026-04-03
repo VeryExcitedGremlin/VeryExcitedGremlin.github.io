@@ -96,7 +96,7 @@ function createProjectCards() {
                 <div class="card-body">
                     <h4 class="card-inner">${h4Inner}</h4>
                     <p class="card-inner">${pInner}</p>
-                    <a class="btn btn-primary" target="_blank" href="${href}">
+                    <a class="btn btn-primary" href="${href}">
                         ${href ? "Check it out!" : "Coming soon!"}</a>
                 </div>
             </div>
@@ -406,13 +406,13 @@ function createProjectCards2() {
     cardContainer.classList.add("px-xxl-4");
     classes.forEach((item) => cardContainer.classList.add(item));
     const content = `
-            <div class="card"${href && ` onclick="location.href='${href}'"`}>
+            <div class="card">
                 <img src='${src}' class="card-img-top" alt="${alt}">
                 <div class="card-body">
                     <h4 class="card-inner">${h4Inner}</h4>
                     <p class="card-inner">
                     <a target="_blank" href=${instructions}>Insructions Here</a></p>
-                    <a class="btn btn-primary" target="_blank" href="${href}">
+                    <a class="btn btn-primary" href="${href}">
                         ${href ? "Check it out!" : "Coming soon!"}</a>
                 </div>
             </div>
