@@ -2,34 +2,6 @@ body {
     background: linear-gradient(135deg, #E079C0 0%, #B2E079 100%);
 }
 
-#heading h1 {
-    height: fit-content;
-    font-size: 40px;
-}
-
-#heading {
-    position: sticky;
-    top: 0.5em;
-    z-index: 3;
-}
-
-.navSection {
-    height: fit-content;
-}
-
-.nav-heading {
-    font-size: 20px;
-    font-weight: 550;
-}
-
-nav a {
-    font-size: 15px;
-}
-
-nav a:visited {
-    color: black;
-}
-
 h2 {
     text-align: center;
     margin: 0.5em 0 1em;
