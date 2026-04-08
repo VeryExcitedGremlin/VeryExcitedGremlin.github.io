@@ -1,0 +1,44 @@
+body {
+    background: linear-gradient(135deg, #E079C0 0%, #B2E079 100%);
+    font-family: "Chiron GoRound TC", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Delius", cursive;
+    font-weight: bold;
+}
+
+
+
+a {
+    color:#56614A
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:visited {
+    color:#564A61
+}
+
+
+
+.outer-section {
+    width: 90vw;
+    background-color: #fffaf3;
+    border-radius: 2em;
+    padding: 2em;
+    margin: 3em 0;
+    filter: drop-shadow(0em 0em 0.5em rgba(0, 0, 0, 0.205));
+}
+
+.inner-section {
+    width: 75vw;
+    background-color: #FFECD6;
+    border: 0.5em solid #FFE4C4;
+    border-radius: 1em;
+    padding: 3em 2em;
+    margin: 1em;
+    justify-content: center;
+}
