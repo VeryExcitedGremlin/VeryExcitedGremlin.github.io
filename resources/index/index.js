@@ -394,6 +394,22 @@ const fullStackCards = [
     instructions: "https://www.codecademy.com/journeys/full-stack-engineer/paths/fscj-22-web-development-foundations/tracks/fscj-22-improved-styling-with-css/modules/wdcp-22-build-your-own-cheat-sheet-67e2c82a-2f99-46d9-a17b-1461dc4edee8/projects/independent-project-html-documentation",
     href: "https://veryexcitedgremlin.github.io/codecademy-practice/Full-Stack-Engineer/cheat-sheet/index.html",
   },
+  {
+    classes: ["col-sm-8", "col-md-6", "col-xl-3"],
+    src: "https://placehold.co/1900x900",
+    alt: "Style guide colors table preview",
+    h4Inner: "My Website Style Guide",
+    instructions: "https://www.codecademy.com/journeys/full-stack-engineer/paths/fscj-22-web-development-foundations/tracks/fscj-22-improved-styling-with-css/modules/wdcp-22-build-a-website-design-system-2a08b912-678e-4186-ab57-86a0fb0ca601/projects/independent-project-web-design-system",
+    href: "https://veryexcitedgremlin.github.io/codecademy-practice/Full-Stack-Engineer/Style-Guide/index",
+  },
+  {
+    classes: ["col-sm-8", "col-md-6", "col-xl-3"],
+    src: "https://placehold.co/1900x900",
+    alt: "Handpicked, artisinally curated, free range, sustainable, small batch, fair trade, organic tea",
+    h4Inner: "Tea Cozy",
+    instructions: "https://www.codecademy.com/journeys/full-stack-engineer/paths/fscj-22-web-development-foundations/tracks/fscj-22-making-a-website-responsive/modules/wdcp-22-layout-with-flexbox-8a62abed-21fe-442a-8d4d-2b84f3d4ee3a/projects/tea-cozy",
+    href: "https://veryexcitedgremlin.github.io/codecademy-practice/Full-Stack-Engineer/Tea-Cozy/index",
+  },
   ]
 
 function createProjectCards2() {
