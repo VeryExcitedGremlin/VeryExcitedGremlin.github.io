@@ -372,7 +372,7 @@ const fullStackSection = document.getElementById("Full-Stack-cards")
 const fullStackCards = [
   // {
   //   classes: ["col-sm-8", "col-md-6", "col-xl-3"],
-  //   src: "resources/index/index-images{...}",
+  //   src: "https://placehold.co/1900x900",
   //   alt: "",
   //   h4Inner: "",
   //   instructions: "",
@@ -388,7 +388,7 @@ const fullStackCards = [
   },
   {
     classes: ["col-sm-8", "col-md-6", "col-xl-3"],
-    src: "https://placehold.co/1900x900",
+    src: "resources/index/index-images/ElementReference.JPG",
     alt: "HTML element cheat sheet tables",
     h4Inner: "HTML element cheat sheet",
     instructions: "https://www.codecademy.com/journeys/full-stack-engineer/paths/fscj-22-web-development-foundations/tracks/fscj-22-improved-styling-with-css/modules/wdcp-22-build-your-own-cheat-sheet-67e2c82a-2f99-46d9-a17b-1461dc4edee8/projects/independent-project-html-documentation",
@@ -396,7 +396,7 @@ const fullStackCards = [
   },
   {
     classes: ["col-sm-8", "col-md-6", "col-xl-3"],
-    src: "https://placehold.co/1900x900",
+    src: "resources/index/index-images/StyleGuide.JPG",
     alt: "Style guide colors table preview",
     h4Inner: "My Website Style Guide",
     instructions: "https://www.codecademy.com/journeys/full-stack-engineer/paths/fscj-22-web-development-foundations/tracks/fscj-22-improved-styling-with-css/modules/wdcp-22-build-a-website-design-system-2a08b912-678e-4186-ab57-86a0fb0ca601/projects/independent-project-web-design-system",
@@ -404,11 +404,19 @@ const fullStackCards = [
   },
   {
     classes: ["col-sm-8", "col-md-6", "col-xl-3"],
-    src: "https://placehold.co/1900x900",
+    src: "resources/index/index-images/TeaCozy.JPG",
     alt: "Handpicked, artisinally curated, free range, sustainable, small batch, fair trade, organic tea",
     h4Inner: "Tea Cozy",
     instructions: "https://www.codecademy.com/journeys/full-stack-engineer/paths/fscj-22-web-development-foundations/tracks/fscj-22-making-a-website-responsive/modules/wdcp-22-layout-with-flexbox-8a62abed-21fe-442a-8d4d-2b84f3d4ee3a/projects/tea-cozy",
     href: "https://veryexcitedgremlin.github.io/codecademy-practice/Full-Stack-Engineer/Tea-Cozy/index",
+  },
+  {
+    classes: ["col-sm-8", "col-md-6", "col-xl-3"],
+    src: "resources/index/index-images/Fotomatic.JPG",
+    alt: "Fotomatic Instant Format Camera",
+    h4Inner: "Fotomatic",
+    instructions: "https://www.codecademy.com/journeys/full-stack-engineer/paths/fscj-22-web-development-foundations/tracks/fscj-22-making-a-website-responsive/modules/wdcp-22-learn-css-documentation-and-debugging-679e7a04-ff8b-4693-a364-fa420794d1be/informationals/f1-2-c1p1-fotomatic",
+    href: "https://veryexcitedgremlin.github.io/codecademy-practice/Full-Stack-Engineer/fotomatic_broken/index",
   },
   ]
 
